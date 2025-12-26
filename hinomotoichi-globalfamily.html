@@ -111,7 +111,6 @@
             margin-bottom: 15px;
         }
 
-        /* SCROLLをby Global Familyの後に配置 */
         .scroll-indicator {
             font-size: 0.65rem;
             letter-spacing: 0.8em;
@@ -328,11 +327,13 @@
             opacity: 0.85; 
         }
 
+        /* モバイルで文字が切れないよう調整 */
         .footer-brand-text {
-            margin-bottom: 70px;
+            margin-bottom: 50px;
             letter-spacing: 0.9em;
             font-weight: 600;
             color: rgba(212, 175, 55, 0.9);
+            font-size: clamp(1.2rem, 5vw, 2.25rem); /* 画面サイズに合わせて自動調整 */
         }
 
         .footer-links {
@@ -346,6 +347,18 @@
             text-transform: uppercase;
         }
 
+        .footer-links a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.6;
+            transform: translateY(-2px);
+        }
+
         .copyright {
             margin-top: 120px;
             font-size: 0.7rem;
@@ -354,7 +367,7 @@
             text-transform: uppercase;
         }
 
-        /* Mobile */
+        /* Mobile Adjustments */
         @media (max-width: 1024px) {
             .featured-section { flex-direction: column; }
             .featured-image-box { height: 450px; }
@@ -366,7 +379,8 @@
             .featured-headline { font-size: 2.2rem; }
             .expanded-card-content { padding: 40px; }
             .expanded-card-title { font-size: 1.8rem; }
-            .footer-brand-text { letter-spacing: 0.4em; }
+            .footer-brand-text { letter-spacing: 0.2em; } /* スマホでは間隔を狭める */
+            .footer-links { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
@@ -374,8 +388,8 @@
 
     <div class="bg-texture"></div>
 
-    <img src="hinomotoichikanji.jpg" class="bg-watermark wm-1" alt="水印1">
-    <img src="hinomotoichikanji.jpg" class="bg-watermark wm-2" alt="水印2">
+    <img src="hinomotoichikanji.jpg" class="bg-watermark wm-1" alt="ロゴ水印1">
+    <img src="hinomotoichikanji.jpg" class="bg-watermark wm-2" alt="ロゴ水印2">
 
     <!-- ヒーローセクション -->
     <header class="hero">
@@ -415,7 +429,7 @@
     </section>
 
     <!-- メイン：HINOMOTOICHI 天然水 -->
-    <section class="section">
+    <section id="water-section" class="section">
         <div class="section-title">
             <span class="jp">至高の源泉</span>
             <span class="en">Featured: The Ultimate Source</span>
@@ -423,7 +437,6 @@
 
         <a href="https://www.gf-samurai-hd.com/home-1" target="_blank" class="featured-section">
             <div class="featured-image-box">
-                <!--  -->
                 <img src="hinomotoichiwater.jpg" alt="HINOMOTOICHI Mineral Water">
             </div>
             <div class="featured-info-box">
@@ -444,9 +457,8 @@
         <!-- 和牛 & 日本酒セクション -->
         <div class="secondary-grid">
             <!-- Wagyu -->
-            <div class="expanded-card">
+            <div id="wagyu-section" class="expanded-card">
                 <div class="expanded-card-image">
-                    <!--  -->
                     <img src="hinomotoichiwagyu.jpg" alt="Hinomotoichi A5 Wagyu">
                 </div>
                 <div class="expanded-card-content">
@@ -464,9 +476,8 @@
             </div>
 
             <!-- Sake -->
-            <div class="expanded-card">
+            <div id="sake-section" class="expanded-card">
                 <div class="expanded-card-image">
-                    <!--  -->
                     <img src="hinomotoichisake.jpg" alt="Hinomotoichi Sake">
                 </div>
                 <div class="expanded-card-content">
@@ -490,15 +501,13 @@
         <div class="footer-logo-unity-box">
             <img src="hinomotoichikanji.jpg" alt="HINOMOTOICHI Logo Footer">
         </div>
-        <div class="footer-brand-text">
-            <div class="text-4xl font-bold tracking-[0.9em] mb-4 uppercase">Hinomotoichi</div>
-            <div class="text-sm tracking-[0.4em] opacity-80 uppercase">by Global Family</div>
-        </div>
+        <div class="footer-brand-text uppercase">Hinomotoichi</div>
+        <div class="text-sm tracking-[0.4em] opacity-80 uppercase">by Global Family</div>
         
         <div class="footer-links">
-            <span>Water / 天然水</span>
-            <span>Wagyu / 和牛</span>
-            <span>Sake / 日本酒</span>
+            <a href="#water-section">Water / 天然水</a>
+            <a href="#wagyu-section">Wagyu / 和牛</a>
+            <a href="#sake-section">Sake / 日本酒</a>
         </div>
 
         <div class="copyright tracking-[0.5em]">&copy; 2026 HINOMOTOICHI. ALL RIGHTS RESERVED.</div>
