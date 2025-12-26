@@ -144,18 +144,20 @@
             margin-bottom: 80px;
         }
 
+        /* スマホでの「り」のはみ出しを防止するための可変サイズ設定 */
         .section-title .jp {
             display: block;
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             color: var(--gold);
             font-weight: 900;
             letter-spacing: 0.35em;
             margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         .section-title .en {
             display: block;
-            font-size: 1rem;
+            font-size: clamp(0.75rem, 3vw, 1rem);
             color: var(--gold);
             letter-spacing: 0.5em;
             text-transform: uppercase;
@@ -213,7 +215,7 @@
         }
 
         .featured-headline {
-            font-size: 3rem;
+            font-size: clamp(1.8rem, 6vw, 3rem);
             font-weight: 900;
             margin-bottom: 40px;
             line-height: 1.4;
@@ -327,13 +329,14 @@
             opacity: 0.85; 
         }
 
-        /* モバイルで文字が切れないよう調整 */
+        /* フッターのブランド名サイズ設定 */
         .footer-brand-text {
-            margin-bottom: 50px;
-            letter-spacing: 0.9em;
-            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: 0.9em; /* PCでのデフォルト間隔 */
+            font-weight: 700;
             color: rgba(212, 175, 55, 0.9);
-            font-size: clamp(1.2rem, 5vw, 2.25rem); /* 画面サイズに合わせて自動調整 */
+            font-size: 2.25rem; /* PCでは以前のサイズ（text-4xl相当） */
+            line-height: 1.2;
         }
 
         .footer-links {
@@ -342,7 +345,7 @@
             justify-content: center;
             gap: 20px 40px;
             margin-top: 40px;
-            font-size: 12px;
+            font-size: 13px;
             letter-spacing: 0.3em;
             text-transform: uppercase;
         }
@@ -361,7 +364,7 @@
 
         .copyright {
             margin-top: 120px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             letter-spacing: 0.4em;
             opacity: 0.5;
             text-transform: uppercase;
@@ -375,11 +378,18 @@
             .expanded-card-image { height: 350px; }
         }
         @media (max-width: 640px) {
-            .section-title .jp { font-size: 2.6rem; }
-            .featured-headline { font-size: 2.2rem; }
+            .section-title { margin-bottom: 50px; }
+            .section-title .jp { letter-spacing: 0.1em; } /* スマホでの「り」のはみ出しを確実に防ぐ */
+            .featured-info-box { padding: 40px; }
             .expanded-card-content { padding: 40px; }
             .expanded-card-title { font-size: 1.8rem; }
-            .footer-brand-text { letter-spacing: 0.2em; } /* スマホでは間隔を狭める */
+            
+            /* スマホでHINOMOTOICHIを大きく、かつ画面内に収める設定 */
+            .footer-brand-text { 
+                font-size: clamp(2.5rem, 12vw, 4.5rem); 
+                letter-spacing: 0.05em; /* 文字を大きくするため間隔を最小限に */
+                margin-bottom: 30px;
+            }
             .footer-links { flex-direction: column; gap: 15px; }
         }
     </style>
@@ -388,6 +398,7 @@
 
     <div class="bg-texture"></div>
 
+    <!--  -->
     <img src="hinomotoichikanji.jpg" class="bg-watermark wm-1" alt="ロゴ水印1">
     <img src="hinomotoichikanji.jpg" class="bg-watermark wm-2" alt="ロゴ水印2">
 
@@ -408,7 +419,7 @@
         </div>
     </header>
 
-    <!-- ブランド理念 -->
+    <!-- ブランド理念 (Bilingual Philosophy) -->
     <section class="section">
         <div class="section-title">
             <span class="jp">日ノ本一の誇り</span>
@@ -428,7 +439,7 @@
         </div>
     </section>
 
-    <!-- メイン：HINOMOTOICHI 天然水 -->
+    <!-- メイン：HINOMOTOICHI 天然水 (Featured: Mineral Water) -->
     <section id="water-section" class="section">
         <div class="section-title">
             <span class="jp">至高の源泉</span>
@@ -437,6 +448,7 @@
 
         <a href="https://www.gf-samurai-hd.com/home-1" target="_blank" class="featured-section">
             <div class="featured-image-box">
+                <!--  -->
                 <img src="hinomotoichiwater.jpg" alt="HINOMOTOICHI Mineral Water">
             </div>
             <div class="featured-info-box">
@@ -454,11 +466,12 @@
             </div>
         </a>
 
-        <!-- 和牛 & 日本酒セクション -->
+        <!-- 和牛 & 日本酒セクション (Wagyu & Sake) -->
         <div class="secondary-grid">
             <!-- Wagyu -->
             <div id="wagyu-section" class="expanded-card">
                 <div class="expanded-card-image">
+                    <!--  -->
                     <img src="hinomotoichiwagyu.jpg" alt="Hinomotoichi A5 Wagyu">
                 </div>
                 <div class="expanded-card-content">
@@ -478,6 +491,7 @@
             <!-- Sake -->
             <div id="sake-section" class="expanded-card">
                 <div class="expanded-card-image">
+                    <!--  -->
                     <img src="hinomotoichisake.jpg" alt="Hinomotoichi Sake">
                 </div>
                 <div class="expanded-card-content">
@@ -496,9 +510,10 @@
         </div>
     </section>
 
-    <!-- フッター -->
+    <!-- フッター (Footer) -->
     <footer>
         <div class="footer-logo-unity-box">
+            <!--  -->
             <img src="hinomotoichikanji.jpg" alt="HINOMOTOICHI Logo Footer">
         </div>
         <div class="footer-brand-text uppercase">Hinomotoichi</div>
@@ -532,7 +547,7 @@
             if (wm2) wm2.style.transform = `translateY(${scroll * -0.08}px) rotate(15deg) scale(1.2)`;
         });
 
-        // フェードインアニメーション
+        // 監視スクロールフェードイン
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
