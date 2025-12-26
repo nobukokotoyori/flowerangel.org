@@ -24,7 +24,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- 背景装飾 --- */
+        /* --- 背景装飾（高精細和紙テクスチャ） --- */
         .bg-texture {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -34,6 +34,7 @@
             z-index: -2;
         }
 
+        /* 背景に漂う透かしロゴ */
         .bg-watermark {
             position: fixed;
             width: 700px;
@@ -48,7 +49,7 @@
         .wm-1 { top: -150px; left: -200px; transform: rotate(-15deg) scale(1.5); }
         .wm-2 { bottom: -150px; right: -200px; transform: rotate(15deg) scale(1.2); }
 
-        /* --- アニメーション --- */
+        /* --- アニメーション設定 --- */
         @keyframes videoFadeIn {
             0% { opacity: 0; transform: scale(1.02); filter: blur(8px); }
             100% { opacity: 1; transform: scale(1); filter: blur(0); }
@@ -107,7 +108,7 @@
             opacity: 0;
             animation: subFadeIn 2.5s ease-out 2s forwards;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
 
         /* SCROLLをby Global Familyの後に配置 */
@@ -150,7 +151,16 @@
             color: var(--gold);
             font-weight: 900;
             letter-spacing: 0.35em;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
+        }
+
+        .section-title .en {
+            display: block;
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
         /* --- メイン：天然水セクション --- */
@@ -213,8 +223,15 @@
         .featured-desc-jp {
             font-size: 1.1rem;
             line-height: 2.2;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             opacity: 0.95;
+        }
+
+        .featured-desc-en {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            opacity: 0.7;
+            font-style: italic;
         }
 
         /* --- サブ：和牛 & 日本酒セクション --- */
@@ -274,10 +291,18 @@
             align-items: baseline;
         }
 
-        .expanded-card-desc {
+        .expanded-card-desc-jp {
             font-size: 1.05rem;
             line-height: 2.2;
+            margin-bottom: 15px;
             opacity: 0.9;
+        }
+
+        .expanded-card-desc-en {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            opacity: 0.7;
+            font-style: italic;
         }
 
         /* --- フッター --- */
@@ -291,7 +316,7 @@
 
         .footer-logo-unity-box {
             width: 160px;
-            margin: 0 auto 50px;
+            margin: 0 auto 60px;
             mix-blend-mode: multiply; 
         }
 
@@ -308,6 +333,17 @@
             letter-spacing: 0.9em;
             font-weight: 600;
             color: rgba(212, 175, 55, 0.9);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px 40px;
+            margin-top: 40px;
+            font-size: 12px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
         }
 
         .copyright {
@@ -354,7 +390,6 @@
         
         <div class="hero-title-area">
             <p class="hero-by-global">by Global Family</p>
-            <!-- by Global Familyの後に配置したSCROLL -->
             <div class="scroll-indicator">SCROLL</div>
         </div>
     </header>
@@ -363,12 +398,18 @@
     <section class="section">
         <div class="section-title">
             <span class="jp">日ノ本一の誇り</span>
+            <span class="en">The Pride of Hinomotoichi</span>
         </div>
         <div class="max-w-4xl mx-auto tracking-widest leading-relaxed">
-            <div class="text-3xl leading-loose mb-14 font-bold text-gold">
+            <div class="text-3xl leading-loose mb-10 font-bold text-gold">
                 「日ノ本一」の筆跡は、真髄への約束。<br>
                 日本が育んだ清冽な水、豊かな大地、そして受け継がれる伝統。<br>
                 私たちは、日常のすべてを「至高」へと変えるべく、三つの極みをお届けいたします。
+            </div>
+            <div class="text-base leading-loose italic opacity-70">
+                The calligraphy of "Hinomotoichi" is a promise of the true essence.<br>
+                Pure water, fertile land, and tradition nurtured by Japan.<br>
+                We deliver three ultimates to transform every aspect of daily life into the supreme.
             </div>
         </div>
     </section>
@@ -377,17 +418,22 @@
     <section class="section">
         <div class="section-title">
             <span class="jp">至高の源泉</span>
+            <span class="en">Featured: The Ultimate Source</span>
         </div>
 
         <a href="https://www.gf-samurai-hd.com/home-1" target="_blank" class="featured-section">
             <div class="featured-image-box">
-                <img src="hinomotoichiwater.jpg" alt="HINOMOTOICHI 天然水" onerror="this.src='https://images.unsplash.com/photo-1548839140-29a749e1cf4d?q=80&w=1888&auto=format&fit=crop'">
+                <!--  -->
+                <img src="hinomotoichiwater.jpg" alt="HINOMOTOICHI Mineral Water">
             </div>
             <div class="featured-info-box">
                 <span class="featured-badge">JAPAN'S NO.1 WATER SOURCE</span>
                 <h2 class="featured-headline">日ノ本一 天然水<br><span class="text-2xl font-normal">HINOMOTOICHI Mineral Water</span></h2>
                 <div class="featured-desc-jp">
                     岩手山の多孔質地層から湧き出る、歴史ある恵みの水。身体のバランスを整え、自然治癒力を高めるとされる微細な生命体「ソマチッド」を豊富に含みます。有害化学物質ゼロの安心を、あなたの毎日に。
+                </div>
+                <div class="featured-desc-en">
+                    Blessed water from the porous strata of Mt. Iwate. Rich in "Somatid," microscopic life forms that enhance natural healing power. Zero harmful chemicals for your absolute safety. The pinnacle of Japanese water.
                 </div>
                 <div class="mt-10 inline-block border-b border-gold pb-2 text-sm tracking-widest uppercase hover:opacity-70 transition-opacity">
                     Explore the Secret of Mt. Iwate →
@@ -400,15 +446,19 @@
             <!-- Wagyu -->
             <div class="expanded-card">
                 <div class="expanded-card-image">
-                    <img src="hinomotoichiwagyu.jpg" alt="Hinomotoichi A5 Wagyu" onerror="this.src='https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format&fit=crop'">
+                    <!--  -->
+                    <img src="hinomotoichiwagyu.jpg" alt="Hinomotoichi A5 Wagyu">
                 </div>
                 <div class="expanded-card-content">
                     <div class="expanded-card-title">
                         <span>和牛</span>
                         <span class="text-xl font-normal opacity-70">Wagyu</span>
                     </div>
-                    <div class="expanded-card-desc">
+                    <div class="expanded-card-desc-jp">
                         厳選された血統と、極限まで磨き抜かれたA5ランクの芸術。美しいサシから溢れ出す繊細な脂質と、噛みしめるほどに広がる芳醇な肉の旨み。まさに日ノ本一の口どけを、その一皿に。
+                    </div>
+                    <div class="expanded-card-desc-en">
+                        A5 Wagyu art from carefully selected lineages. Delicate fat overflowing from beautiful marbling and rich umami that spreads with every bite. The ultimate melt-in-your-mouth experience.
                     </div>
                 </div>
             </div>
@@ -416,15 +466,19 @@
             <!-- Sake -->
             <div class="expanded-card">
                 <div class="expanded-card-image">
-                    <img src="hinomotoichisake.jpg" alt="Hinomotoichi Sake" onerror="this.src='https://images.unsplash.com/photo-1571559388365-5c9146f4b68e?q=80&w=1961&auto=format&fit=crop'">
+                    <!--  -->
+                    <img src="hinomotoichisake.jpg" alt="Hinomotoichi Sake">
                 </div>
                 <div class="expanded-card-content">
                     <div class="expanded-card-title">
                         <span>日本酒</span>
                         <span class="text-xl font-normal opacity-70">Sake</span>
                     </div>
-                    <div class="expanded-card-desc">
+                    <div class="expanded-card-desc-jp">
                         天地の恵みを醸す、唯一無二 of 芳醇。岩手の清冽な水と至高の酒米が織りなす、澄み渡る香りと鋭いキレ。天下を酔わせる、至福の一献をご堪能ください。
+                    </div>
+                    <div class="expanded-card-desc-en">
+                        Unique and mellow flavor brewing the blessings of heaven and earth. Crystal clear aroma and sharp finish woven by pure water and supreme rice. Enjoy the bliss of Hinomotoichi.
                     </div>
                 </div>
             </div>
@@ -437,10 +491,16 @@
             <img src="hinomotoichikanji.jpg" alt="HINOMOTOICHI Logo Footer">
         </div>
         <div class="footer-brand-text">
-            <div class="text-4xl font-bold tracking-[0.9em] mb-8 uppercase">Hinomotoichi</div>
-            <div class="text-sm mb-14 tracking-[0.5em] opacity-80 uppercase">by Global Family</div>
+            <div class="text-4xl font-bold tracking-[0.9em] mb-4 uppercase">Hinomotoichi</div>
+            <div class="text-sm tracking-[0.4em] opacity-80 uppercase">by Global Family</div>
         </div>
-        <!-- コピーライトの年度を2026に更新 -->
+        
+        <div class="footer-links">
+            <span>Water / 天然水</span>
+            <span>Wagyu / 和牛</span>
+            <span>Sake / 日本酒</span>
+        </div>
+
         <div class="copyright tracking-[0.5em]">&copy; 2026 HINOMOTOICHI. ALL RIGHTS RESERVED.</div>
     </footer>
 
@@ -455,7 +515,7 @@
                 heroVideo.style.opacity = 1 - scroll / 1200;
             }
             if (scrollInd) {
-                scrollInd.style.opacity = 0.7 - scroll / 500;
+                scrollInd.style.opacity = 0.8 - scroll / 500;
             }
             const wm1 = document.querySelector('.wm-1');
             const wm2 = document.querySelector('.wm-2');
@@ -473,7 +533,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.featured-section, .expanded-card, .section-title').forEach(el => {
+        document.querySelectorAll('.featured-section, .expanded-card, .section-title, .section .max-w-4xl').forEach(el => {
             el.style.opacity = "0";
             el.style.transform = "translateY(80px)";
             el.style.transition = "all 1.8s cubic-bezier(0.16, 1, 0.3, 1)";
