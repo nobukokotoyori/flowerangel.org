@@ -144,7 +144,6 @@
             margin-bottom: 80px;
         }
 
-        /* スマホでの「り」のはみ出しを防止するための可変サイズ設定 */
         .section-title .jp {
             display: block;
             font-size: clamp(2rem, 8vw, 3.5rem);
@@ -316,8 +315,8 @@
         }
 
         .footer-logo-unity-box {
-            width: 160px;
-            margin: 0 auto 60px;
+            width: 140px;
+            margin: 0 auto 50px;
             mix-blend-mode: multiply; 
         }
 
@@ -329,13 +328,13 @@
             opacity: 0.85; 
         }
 
-        /* フッターのブランド名サイズ設定 */
+        /* フッターブランド名のレスポンシブ調整 */
         .footer-brand-text {
             margin-bottom: 40px;
-            letter-spacing: 0.9em; /* PCでのデフォルト間隔 */
+            letter-spacing: 0.8em; /* デフォルト */
             font-weight: 700;
             color: rgba(212, 175, 55, 0.9);
-            font-size: 2.25rem; /* PCでは以前のサイズ（text-4xl相当） */
+            font-size: 2.5rem; /* PCでの標準的な大きさ */
             line-height: 1.2;
         }
 
@@ -362,12 +361,19 @@
             transform: translateY(-2px);
         }
 
+        /* コピーライト設定 */
         .copyright {
-            margin-top: 120px;
+            margin-top: 100px;
             font-size: 0.75rem;
-            letter-spacing: 0.4em;
+            letter-spacing: 0.3em;
             opacity: 0.5;
             text-transform: uppercase;
+            line-height: 1.8;
+        }
+
+        /* スマホ用改行制御 */
+        .copyright .mobile-br {
+            display: none;
         }
 
         /* Mobile Adjustments */
@@ -379,18 +385,23 @@
         }
         @media (max-width: 640px) {
             .section-title { margin-bottom: 50px; }
-            .section-title .jp { letter-spacing: 0.1em; } /* スマホでの「り」のはみ出しを確実に防ぐ */
+            .section-title .jp { letter-spacing: 0.1em; } 
             .featured-info-box { padding: 40px; }
             .expanded-card-content { padding: 40px; }
             .expanded-card-title { font-size: 1.8rem; }
             
-            /* スマホでHINOMOTOICHIを大きく、かつ画面内に収める設定 */
+            /* スマホでHINOMOTOICHIを適切に縮小しつつ存在感を出す */
             .footer-brand-text { 
-                font-size: clamp(2.5rem, 12vw, 4.5rem); 
-                letter-spacing: 0.05em; /* 文字を大きくするため間隔を最小限に */
+                font-size: clamp(1.8rem, 8vw, 2.2rem); 
+                letter-spacing: 0.2em; /* 文字が切れないよう間隔を詰めめに */
                 margin-bottom: 30px;
             }
             .footer-links { flex-direction: column; gap: 15px; }
+
+            /* スマホ時のみ改行を有効化 */
+            .copyright .mobile-br {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -398,11 +409,10 @@
 
     <div class="bg-texture"></div>
 
-    <!--  -->
     <img src="hinomotoichikanji.jpg" class="bg-watermark wm-1" alt="ロゴ水印1">
     <img src="hinomotoichikanji.jpg" class="bg-watermark wm-2" alt="ロゴ水印2">
 
-    <!-- ヒーローセクション -->
+    <!-- ヒーローセクション (Header with YouTube Video) -->
     <header class="hero">
         <div class="hero-video-wrapper">
             <iframe 
@@ -449,7 +459,7 @@
         <a href="https://www.gf-samurai-hd.com/home-1" target="_blank" class="featured-section">
             <div class="featured-image-box">
                 <!--  -->
-                <img src="hinomotoichiwater.jpg" alt="HINOMOTOICHI Mineral Water">
+                <img src="hinomotoichiwater.jpg" alt="HINOMOTOICHI Mineral Water" onerror="this.src='https://images.unsplash.com/photo-1548839140-29a749e1cf4d?q=80&w=1888&auto=format&fit=crop'">
             </div>
             <div class="featured-info-box">
                 <span class="featured-badge">JAPAN'S NO.1 WATER SOURCE</span>
@@ -472,7 +482,7 @@
             <div id="wagyu-section" class="expanded-card">
                 <div class="expanded-card-image">
                     <!--  -->
-                    <img src="hinomotoichiwagyu.jpg" alt="Hinomotoichi A5 Wagyu">
+                    <img src="hinomotoichiwagyu.jpg" alt="Hinomotoichi A5 Wagyu" onerror="this.src='https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format&fit=crop'">
                 </div>
                 <div class="expanded-card-content">
                     <div class="expanded-card-title">
@@ -492,7 +502,7 @@
             <div id="sake-section" class="expanded-card">
                 <div class="expanded-card-image">
                     <!--  -->
-                    <img src="hinomotoichisake.jpg" alt="Hinomotoichi Sake">
+                    <img src="hinomotoichisake.jpg" alt="Hinomotoichi Sake" onerror="this.src='https://images.unsplash.com/photo-1571559388365-5c9146f4b68e?q=80&w=1961&auto=format&fit=crop'">
                 </div>
                 <div class="expanded-card-content">
                     <div class="expanded-card-title">
@@ -513,7 +523,6 @@
     <!-- フッター (Footer) -->
     <footer>
         <div class="footer-logo-unity-box">
-            <!--  -->
             <img src="hinomotoichikanji.jpg" alt="HINOMOTOICHI Logo Footer">
         </div>
         <div class="footer-brand-text uppercase">Hinomotoichi</div>
@@ -525,11 +534,13 @@
             <a href="#sake-section">Sake / 日本酒</a>
         </div>
 
-        <div class="copyright tracking-[0.5em]">&copy; 2026 HINOMOTOICHI. ALL RIGHTS RESERVED.</div>
+        <div class="copyright tracking-[0.3em]">
+            &copy; 2026 HINOMOTOICHI<span class="mobile-br"></span> ALL RIGHTS RESERVED.
+        </div>
     </footer>
 
     <script>
-        // パララックス
+        // パララックス (Parallax Scrolling)
         window.addEventListener('scroll', () => {
             const scroll = window.scrollY;
             const heroVideo = document.querySelector('.hero-video-wrapper');
@@ -547,7 +558,7 @@
             if (wm2) wm2.style.transform = `translateY(${scroll * -0.08}px) rotate(15deg) scale(1.2)`;
         });
 
-        // 監視スクロールフェードイン
+        // 監視スクロールフェードイン (Scroll Reveal)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
