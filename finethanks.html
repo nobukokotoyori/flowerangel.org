@@ -678,7 +678,7 @@
                         alt="All for One, One for All" 
                         className="w-full h-full object-cover" 
                     />
-                    <div className="absolute inset-0 bg-white/90"></div>
+                    <div className="absolute inset-0 bg-white/80"></div>
                 </div>
 
                 <div className="absolute top-20 left-10 text-teal-500/20 animate-pulse z-10"><Icons.Sparkles className="w-24 h-24" /></div>
@@ -767,13 +767,24 @@
                    {/* 背景パターン */}
                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
                    
-                   {/* 日本地図のシルエット（背景） */}
-                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.07] z-0">
-                       <img 
-                         src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Japan_blank_map.svg" 
-                         alt="Japan Map Background" 
-                         className="w-[120%] h-[120%] object-contain"
-                       />
+                   {/* 日本地図のシルエット（背景） + 東京の点 */}
+                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                       <div className="relative w-full h-full max-w-4xl max-h-[80vh]">
+                           <img 
+                             src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Japan_blank_map.svg" 
+                             alt="Japan Map Background" 
+                             className="w-full h-full object-contain opacity-[0.1]"
+                           />
+                           
+                           {/* 東京の点 (位置調整済み) */}
+                           <div className="absolute top-[65%] left-[68%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                               <span className="relative flex h-6 w-6">
+                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                  <span className="relative inline-flex rounded-full h-6 w-6 bg-red-500 shadow-lg shadow-red-500/50"></span>
+                               </span>
+                               <span className="text-red-500 font-bold text-xs mt-1 tracking-widest">TOKYO</span>
+                           </div>
+                       </div>
                    </div>
                 </div>
 
