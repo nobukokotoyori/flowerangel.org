@@ -41,7 +41,6 @@
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
                         // 画像の表示・非表示ループ（前面の鳥居画像用）
-                        // 0% (透明=社長) -> 75%まで社長 -> フラッシュ -> 80% (表示=鳥居) -> 95%まで鳥居 -> フラッシュ -> 100% (透明=社長)
                         imageLoop: {
                             '0%, 75%': { opacity: '0' },   /* 社長表示 (鳥居透明) */
                             '80%, 95%': { opacity: '1' },  /* 鳥居表示 */
@@ -642,6 +641,12 @@
                                         <p className="text-teal-300 text-xs font-bold uppercase tracking-wider">Chef</p>
                                         <p className="text-white font-bold text-sm">Takuma Miyata</p>
                                     </div>
+                                    {/* 経歴追加 (写真から読み取り風) */}
+                                    <div className="absolute inset-0 bg-black/80 flex items-center justify-center p-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 rounded-xl">
+                                        <p className="text-white text-[10px] text-center leading-relaxed">
+                                            北海道出身。<br/>夢を追いかけて上京した<br/>日本人シェフ代表。<br/>日本食の伝統と革新を世界へ。
+                                        </p>
+                                    </div>
                                 </div>
                                 <div className="relative group/card cursor-pointer">
                                     <div className="aspect-[3/4] rounded-xl overflow-hidden border-2 border-blue-500/30 shadow-lg">
@@ -657,7 +662,7 @@
                            <div className="w-full md:w-2/3">
                               <h4 className="font-bold text-2xl mb-4 text-teal-200">スペシャルコラボ　日本代表 農家 × シェフ</h4>
                               <p className="text-lg text-gray-200 leading-relaxed mb-6">
-                                 北海道から夢を追いかけて上京した日本人シェフ代表「宮田卓磨」さんと日本農家 代表７代目お米農家「関口郁哉」さんセブ島へ。 日本食や伝統など、日本文化を伝えるワークショップを開催します。
+                                 北海道から夢を追いかけて上京した日本人シェフ代表「宮田卓磨」さんと日本農家 代表７代目農家「関口郁哉」さんセブ島へ。 日本食や伝統など、日本文化を伝えるワークショップを開催します。
                               </p>
 
                               <div className="flex justify-start">
@@ -667,6 +672,34 @@
                               </div>
                            </div>
                         </div>
+                        
+                        {/* 関口孝子様エピソード (追加セクション) */}
+                        <div className="mt-12 pt-8 border-t border-white/10">
+                            <div className="flex flex-col md:flex-row items-center gap-6">
+                                <div className="w-full md:w-1/4">
+                                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-pink-400 mx-auto shadow-lg">
+                                        <img src="takako.jpg" alt="関口孝子" className="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <div className="w-full md:w-3/4 text-center md:text-left">
+                                    <h5 className="text-pink-300 font-bold mb-2 flex items-center justify-center md:justify-start gap-2">
+                                        <Icons.Heart className="w-4 h-4 fill-pink-300" /> Heartwarming Story
+                                    </h5>
+                                    <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                                        ７代目農家「関口郁哉」さんのお米は昨年クリスマスプレゼントとして、お母様の「関口孝子」さんが直接セブ島に来られ、スラム街の子供達にすた丼のお米として提供されました。
+                                    </p>
+                                    <a 
+                                        href="https://uzuworld.com/thankyouletter_sutadon_christmas2025" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center text-pink-400 hover:text-pink-300 font-bold text-sm transition-colors border-b border-pink-400 hover:border-pink-300 pb-0.5 group"
+                                    >
+                                        その時の様子 <Icons.ArrowRight className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                      </div>
                   </div>
                 </div>
@@ -743,8 +776,9 @@
                           <div className="w-full h-64 bg-gray-200 rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden group border border-gray-300 shadow-lg">
                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10"></div>
                              <div className="absolute bottom-4 left-4 z-20 text-white font-bold text-lg drop-shadow-md">夢見るポーク丼</div>
+                             {/* 画像変更: roastporkbowl.jpg */}
                              <div className="w-full h-full bg-gray-300 flex items-center justify-center text-gray-500 group-hover:scale-105 transition-transform duration-500">
-                               [夢見るポーク丼 Image]
+                               <img src="roastporkbowl.jpg" alt="夢見るポーク丼" className="w-full h-full object-cover" />
                              </div>
                           </div>
                           
@@ -765,22 +799,23 @@
               </section>
 
               {/* CTA Section - Recruitment (背景変更: 白背景 + 日本地図) */}
-              <section id="cta" className="py-32 relative overflow-hidden bg-white">
+              <section id="cta" className="py-32 relative overflow-hidden bg-slate-50">
                 <div className="absolute inset-0">
                    {/* 背景パターン (薄く) */}
                    <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
                    
                    {/* 日本地図のシルエット（背景） + 東京の点 */}
                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                       <div className="relative w-full h-full max-w-4xl max-h-[80vh]">
+                       <div className="relative w-full h-full max-w-6xl max-h-[90vh]">
+                           {/* 地図の視認性を向上: opacityを上げ、グレースケールとコントラストで調整 */}
                            <img 
                              src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Japan_blank_map.svg" 
                              alt="Japan Map Background" 
-                             className="w-full h-full object-contain opacity-[0.15] mix-blend-multiply" 
+                             className="w-full h-full object-contain opacity-40 grayscale contrast-125" 
                            />
                            
                            {/* 東京の点 (位置調整済み) */}
-                           <div className="absolute top-[65%] left-[68%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                           <div className="absolute top-[60%] left-[70%] md:top-[65%] md:left-[68%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
                                <span className="relative flex h-6 w-6">
                                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                                   <span className="relative inline-flex rounded-full h-6 w-6 bg-red-500 shadow-lg shadow-red-500/50"></span>
