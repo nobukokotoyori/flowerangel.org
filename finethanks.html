@@ -41,17 +41,20 @@
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
                         // 画像の表示・非表示ループ（前面の鳥居画像用）
+                        // 社長メイン(透明) -> フラッシュ -> 鳥居表示 -> フラッシュ -> 社長に戻る
                         imageLoop: {
                             '0%, 75%': { opacity: '0' },   /* 社長表示 (鳥居透明) */
-                            '80%, 95%': { opacity: '1' },  /* 鳥居表示 */
-                            '100%': { opacity: '0' },      /* 社長に戻る */
+                            '76%, 94%': { opacity: '1' },  /* 鳥居表示 (フラッシュ直後に出現) */
+                            '95%, 100%': { opacity: '0' }, /* 社長に戻る */
                         },
-                        // 切り替え時のフラッシュループ
+                        // 切り替え時のフラッシュループ (鋭く光るように調整)
                         flashLoop: {
-                            '0%, 70%': { opacity: '0' },
-                            '77%': { opacity: '1' },       /* 社長→鳥居 切り替え時フラッシュ */
-                            '84%, 90%': { opacity: '0' },
-                            '97%': { opacity: '1' },       /* 鳥居→社長 戻る時フラッシュ */
+                            '0%, 74%': { opacity: '0' },
+                            '75%': { opacity: '1' },       /* 切り替え直前に真っ白 (フラッシュ) */
+                            '78%': { opacity: '0' },       /* すぐ消える */
+                            '93%': { opacity: '0' },
+                            '94%': { opacity: '1' },       /* 戻る直前に真っ白 (フラッシュ) */
+                            '97%': { opacity: '0' },       /* すぐ消える */
                             '100%': { opacity: '0' },
                         }
                     }
@@ -341,7 +344,7 @@
 
                 </div>
                 
-                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70 z-30 hidden md:block">
+                <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70 z-30 hidden md:block">
                   <div className="w-px h-12 bg-gradient-to-b from-transparent to-white mx-auto mb-2"></div>
                   <p className="text-[10px] tracking-widest uppercase shadow-black drop-shadow-md">Scroll</p>
                 </div>
@@ -823,7 +826,7 @@
                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10"></div>
                              <div className="absolute bottom-4 left-4 z-20 text-white font-bold text-lg drop-shadow-md">夢見るポーク丼</div>
                              <div className="w-full h-full bg-gray-300 flex items-center justify-center text-gray-500 group-hover:scale-105 transition-transform duration-500">
-                               <img src="roastpork.jpg" alt="夢見るポーク丼" className="w-full h-full object-cover" />
+                               <img src="roastporkbowl.jpg" alt="夢見るポーク丼" className="w-full h-full object-cover" />
                              </div>
                           </div>
                           
