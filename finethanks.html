@@ -15,7 +15,7 @@
     <!-- 3. JSXをブラウザで変換するためのBabel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Tailwindの設定（画像切り替えアニメーション追加） -->
+    <!-- Tailwindの設定 -->
     <script>
         tailwind.config = {
             theme: {
@@ -28,8 +28,8 @@
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'fade-in-up': 'fadeInUp 0.5s ease-out',
                         'spin-slow': 'spin 15s linear infinite',
-                        'image-loop': 'imageLoop 10s infinite', // 10秒周期で切り替え
-                        'flash-loop': 'flashLoop 10s infinite', // 画像切り替えに合わせてフラッシュ
+                        'image-loop': 'imageLoop 12s infinite', // 12秒周期
+                        'flash-loop': 'flashLoop 12s infinite', // 画像切り替えに合わせてフラッシュ
                     },
                     keyframes: {
                         float: {
@@ -40,18 +40,19 @@
                             '0%': { opacity: '0', transform: 'translateY(10px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
-                        // 画像の表示・非表示ループ（鳥居画像用）
+                        // 画像の表示・非表示ループ（前面の鳥居画像用）
+                        // 0% (透明=社長) -> 75%まで社長 -> フラッシュ -> 80% (表示=鳥居) -> 95%まで鳥居 -> フラッシュ -> 100% (透明=社長)
                         imageLoop: {
-                            '0%, 45%': { opacity: '1' },   /* 鳥居表示 */
-                            '50%, 95%': { opacity: '0' },  /* 社長表示（鳥居透明） */
-                            '100%': { opacity: '1' },      /* 鳥居表示に戻る */
+                            '0%, 75%': { opacity: '0' },   /* 社長表示 (鳥居透明) */
+                            '80%, 95%': { opacity: '1' },  /* 鳥居表示 */
+                            '100%': { opacity: '0' },      /* 社長に戻る */
                         },
                         // 切り替え時のフラッシュループ
                         flashLoop: {
-                            '0%, 40%': { opacity: '0' },
-                            '48%': { opacity: '1' },       /* 切り替えタイミングで真っ白 */
-                            '55%, 90%': { opacity: '0' },
-                            '98%': { opacity: '1' },       /* 戻るタイミングで真っ白 */
+                            '0%, 70%': { opacity: '0' },
+                            '77%': { opacity: '1' },       /* 社長→鳥居 切り替え時フラッシュ */
+                            '84%, 90%': { opacity: '0' },
+                            '97%': { opacity: '1' },       /* 鳥居→社長 戻る時フラッシュ */
                             '100%': { opacity: '0' },
                         }
                     }
@@ -258,7 +259,7 @@
               </nav>
 
               {/* ----------------------------------------------------------------------- */}
-              {/* Hero Section (写真ループ + フラッシュ)             */}
+              {/* Hero Section (写真ループ: 社長メイン + フラッシュで鳥居)             */}
               {/* ----------------------------------------------------------------------- */}
               <header className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 pt-24 pb-10">
                 
@@ -266,14 +267,14 @@
                 <div className="absolute inset-0 bg-white animate-flash-loop pointer-events-none z-50"></div>
 
                 <div className="absolute inset-0 z-0">
-                  {/* 画像1: 社長の写真（背景） */}
+                  {/* 画像1: 社長の写真（背景・常駐） */}
                   <img 
                     src="kentapic.jpg" 
                     alt="齋藤健太 代表取締役社長" 
                     className="absolute inset-0 w-full h-full object-cover object-center md:object-top z-0"
                   />
                   
-                  {/* 画像2: 鳥居と桜（ループアニメーションで表示/非表示） */}
+                  {/* 画像2: 鳥居と桜（ループアニメーションで一瞬だけ表示） */}
                   <img 
                     src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?q=80&w=1953&auto=format&fit=crop" 
                     alt="日本の桜と鳥居" 
@@ -289,11 +290,9 @@
                   
                   <div className={`transition-all duration-1000 ease-out transform mb-8 ${loaded ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
                     <h2 className="text-sm md:text-lg font-bold mb-4 tracking-[0.3em] text-pink-300 uppercase border border-pink-400 inline-block px-4 py-1 rounded-full bg-pink-900/30 backdrop-blur-sm">
-                      Japan to the World
+                      ALL of Japan to the World Through Tokyo
                     </h2>
                     
-                    {/* ここにあったコラボレーションメッセージを削除 */}
-
                     <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 leading-tight drop-shadow-2xl">
                       人生を絶望から<br/>
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-red-500 drop-shadow-[0_0_20px_rgba(236,72,153,0.8)]">
@@ -547,7 +546,7 @@
                 </div>
               </section>
 
-              {/* Global Expansion Section (テキスト移動先) */}
+              {/* Global Expansion Section (テキスト移動先 + コラボレーター情報追加) */}
               <section id="global" className="py-32 relative overflow-hidden bg-gray-900 text-white">
                  <div className="absolute inset-0 z-0">
                      <img 
@@ -633,22 +632,26 @@
                         
                         <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
                            <div className="w-full md:w-1/3">
-                              {/* 画像エリアに変更 */}
-                              <div className="aspect-video bg-gradient-to-br from-teal-800 to-blue-900 rounded-xl overflow-hidden border border-white/10 relative shadow-lg">
-                                 <div className="absolute inset-0 flex">
-                                    <div className="w-1/2 h-full relative border-r border-white/20 group-hover:w-[55%] transition-all duration-500">
-                                        <img src="takumapic.jpg" alt="シェフ 宮田卓磨" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
-                                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
-                                            <p className="text-xs text-teal-300 font-bold text-center">Chef<br/>Takuma Miyata</p>
-                                        </div>
+                              {/* 画像エリア (カード形式) */}
+                              <div className="grid grid-cols-2 gap-4">
+                                <div className="relative group/card cursor-pointer">
+                                    <div className="aspect-[3/4] rounded-xl overflow-hidden border-2 border-teal-500/30 shadow-lg">
+                                        <img src="takumapic.jpg" alt="Chef Takuma Miyata" className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" />
                                     </div>
-                                    <div className="w-1/2 h-full relative group-hover:w-[55%] transition-all duration-500">
-                                        <img src="sekiguchipic.jpg" alt="農家 関口郁哉" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
-                                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
-                                            <p className="text-xs text-blue-300 font-bold text-center">Farmer<br/>Fumiya Sekiguchi</p>
-                                        </div>
+                                    <div className="mt-2 text-center">
+                                        <p className="text-teal-300 text-xs font-bold uppercase tracking-wider">Chef</p>
+                                        <p className="text-white font-bold text-sm">Takuma Miyata</p>
                                     </div>
-                                 </div>
+                                </div>
+                                <div className="relative group/card cursor-pointer">
+                                    <div className="aspect-[3/4] rounded-xl overflow-hidden border-2 border-blue-500/30 shadow-lg">
+                                        <img src="sekiguchipic.jpg" alt="Farmer Fumiya Sekiguchi" className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" />
+                                    </div>
+                                    <div className="mt-2 text-center">
+                                        <p className="text-blue-300 text-xs font-bold uppercase tracking-wider">Farmer</p>
+                                        <p className="text-white font-bold text-sm">Fumiya Sekiguchi</p>
+                                    </div>
+                                </div>
                               </div>
                            </div>
                            <div className="w-full md:w-2/3">
@@ -761,11 +764,11 @@
                 </div>
               </section>
 
-              {/* CTA Section - Recruitment (背景変更: 日本地図のシルエット追加) */}
-              <section id="cta" className="py-32 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-teal-50">
-                   {/* 背景パターン */}
-                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+              {/* CTA Section - Recruitment (背景変更: 白背景 + 日本地図) */}
+              <section id="cta" className="py-32 relative overflow-hidden bg-white">
+                <div className="absolute inset-0">
+                   {/* 背景パターン (薄く) */}
+                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
                    
                    {/* 日本地図のシルエット（背景） + 東京の点 */}
                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
@@ -773,7 +776,7 @@
                            <img 
                              src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Japan_blank_map.svg" 
                              alt="Japan Map Background" 
-                             className="w-full h-full object-contain opacity-[0.1]"
+                             className="w-full h-full object-contain opacity-[0.15] mix-blend-multiply" 
                            />
                            
                            {/* 東京の点 (位置調整済み) */}
@@ -782,7 +785,7 @@
                                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                                   <span className="relative inline-flex rounded-full h-6 w-6 bg-red-500 shadow-lg shadow-red-500/50"></span>
                                </span>
-                               <span className="text-red-500 font-bold text-xs mt-1 tracking-widest">TOKYO</span>
+                               <span className="text-red-500 font-bold text-xs mt-1 tracking-widest bg-white/80 px-1 rounded">TOKYO</span>
                            </div>
                        </div>
                    </div>
