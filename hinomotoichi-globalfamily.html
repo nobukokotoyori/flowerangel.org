@@ -83,6 +83,7 @@
             background-color: #fff;
         }
 
+        /* YouTube埋め込み：標準的な形式に整理 */
         .hero-video-wrapper iframe {
             position: absolute;
             top: 0;
@@ -111,6 +112,7 @@
             margin-bottom: 15px;
         }
 
+        /* SCROLLをby Global Familyの後に配置 */
         .scroll-indicator {
             font-size: 0.65rem;
             letter-spacing: 0.8em;
@@ -144,12 +146,13 @@
             margin-bottom: 80px;
         }
 
+        /* スマホでの「り」のはみ出しを確実に防止 */
         .section-title .jp {
             display: block;
-            font-size: clamp(2rem, 8vw, 3.5rem);
+            font-size: clamp(1.8rem, 7vw, 3.5rem);
             color: var(--gold);
             font-weight: 900;
-            letter-spacing: 0.35em;
+            letter-spacing: 0.3em;
             margin-bottom: 10px;
             line-height: 1.4;
         }
@@ -328,13 +331,13 @@
             opacity: 0.85; 
         }
 
-        /* フッターブランド名のレスポンシブ調整 */
+        /* フッターブランド名のレスポンシブ調整：PCでは前のサイズ(2.25rem相当) */
         .footer-brand-text {
             margin-bottom: 40px;
-            letter-spacing: 0.8em; /* デフォルト */
+            letter-spacing: 0.8em; 
             font-weight: 700;
             color: rgba(212, 175, 55, 0.9);
-            font-size: 2.5rem; /* PCでの標準的な大きさ */
+            font-size: 2.25rem; 
             line-height: 1.2;
         }
 
@@ -361,7 +364,7 @@
             transform: translateY(-2px);
         }
 
-        /* コピーライト設定 */
+        /* コピーライト：スマホで2行になるよう調整 */
         .copyright {
             margin-top: 100px;
             font-size: 0.75rem;
@@ -371,7 +374,6 @@
             line-height: 1.8;
         }
 
-        /* スマホ用改行制御 */
         .copyright .mobile-br {
             display: none;
         }
@@ -390,10 +392,10 @@
             .expanded-card-content { padding: 40px; }
             .expanded-card-title { font-size: 1.8rem; }
             
-            /* スマホでHINOMOTOICHIを適切に縮小しつつ存在感を出す */
+            /* スマホでHINOMOTOICHIを適切に大きく */
             .footer-brand-text { 
                 font-size: clamp(1.8rem, 8vw, 2.2rem); 
-                letter-spacing: 0.2em; /* 文字が切れないよう間隔を詰めめに */
+                letter-spacing: 0.2em;
                 margin-bottom: 30px;
             }
             .footer-links { flex-direction: column; gap: 15px; }
@@ -412,19 +414,21 @@
     <img src="hinomotoichikanji.jpg" class="bg-watermark wm-1" alt="ロゴ水印1">
     <img src="hinomotoichikanji.jpg" class="bg-watermark wm-2" alt="ロゴ水印2">
 
-    <!-- ヒーローセクション (Header with YouTube Video) -->
+    <!-- ヒーローセクション -->
     <header class="hero">
         <div class="hero-video-wrapper">
+            <!-- 埋め込みパラメータを極力シンプルにし、エラー回避を優先 -->
             <iframe 
-                src="https://www.youtube.com/embed/TSO9tqswq4E?autoplay=1&mute=1&loop=1&playlist=TSO9tqswq4E&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1" 
+                src="https://www.youtube.com/embed/TSO9tqswq4E?autoplay=1&mute=1&loop=1&playlist=TSO9tqswq4E&controls=0&showinfo=0&rel=0&modestbranding=1" 
                 frameborder="0" 
-                allow="autoplay; encrypted-media" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowfullscreen>
             </iframe>
         </div>
         
         <div class="hero-title-area">
             <p class="hero-by-global">by Global Family</p>
+            <!-- by Global Family の直後に配置された SCROLL -->
             <div class="scroll-indicator">SCROLL</div>
         </div>
     </header>
@@ -523,6 +527,7 @@
     <!-- フッター (Footer) -->
     <footer>
         <div class="footer-logo-unity-box">
+            <!--  -->
             <img src="hinomotoichikanji.jpg" alt="HINOMOTOICHI Logo Footer">
         </div>
         <div class="footer-brand-text uppercase">Hinomotoichi</div>
