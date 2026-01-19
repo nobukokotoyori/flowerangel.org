@@ -83,14 +83,12 @@
             background-color: #fff;
         }
 
-        /* YouTube埋め込み：標準的な形式に整理 */
-        .hero-video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* 直接埋め込みビデオ（YouTube経由より安定） */
+        .hero-video-wrapper video {
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            object-fit: contain;
+            display: block;
         }
 
         .hero-title-area {
@@ -112,7 +110,7 @@
             margin-bottom: 15px;
         }
 
-        /* SCROLLをby Global Familyの後に配置 */
+        /* SCROLL位置調整 */
         .scroll-indicator {
             font-size: 0.65rem;
             letter-spacing: 0.8em;
@@ -146,7 +144,6 @@
             margin-bottom: 80px;
         }
 
-        /* スマホでの「り」のはみ出しを確実に防止 */
         .section-title .jp {
             display: block;
             font-size: clamp(1.8rem, 7vw, 3.5rem);
@@ -331,7 +328,6 @@
             opacity: 0.85; 
         }
 
-        /* フッターブランド名のレスポンシブ調整：PCでは前のサイズ(2.25rem相当) */
         .footer-brand-text {
             margin-bottom: 40px;
             letter-spacing: 0.8em; 
@@ -364,7 +360,6 @@
             transform: translateY(-2px);
         }
 
-        /* コピーライト：スマホで2行になるよう調整 */
         .copyright {
             margin-top: 100px;
             font-size: 0.75rem;
@@ -392,7 +387,7 @@
             .expanded-card-content { padding: 40px; }
             .expanded-card-title { font-size: 1.8rem; }
             
-            /* スマホでHINOMOTOICHIを適切に大きく */
+            /* スマホ用フッターブランド名 */
             .footer-brand-text { 
                 font-size: clamp(1.8rem, 8vw, 2.2rem); 
                 letter-spacing: 0.2em;
@@ -400,7 +395,7 @@
             }
             .footer-links { flex-direction: column; gap: 15px; }
 
-            /* スマホ時のみ改行を有効化 */
+            /* スマホ時のみコピーライト改行 */
             .copyright .mobile-br {
                 display: block;
             }
@@ -414,21 +409,19 @@
     <img src="hinomotoichikanji.jpg" class="bg-watermark wm-1" alt="ロゴ水印1">
     <img src="hinomotoichikanji.jpg" class="bg-watermark wm-2" alt="ロゴ水印2">
 
-    <!-- ヒーローセクション -->
+    <!-- ヒーローセクション (Direct Video Embed) -->
     <header class="hero">
         <div class="hero-video-wrapper">
-            <!-- 埋め込みパラメータを極力シンプルにし、エラー回避を優先 -->
-            <iframe 
-                src="https://www.youtube.com/embed/TSO9tqswq4E?autoplay=1&mute=1&loop=1&playlist=TSO9tqswq4E&controls=0&showinfo=0&rel=0&modestbranding=1" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
+            <!-- YouTubeの代わりに直接動画ファイルを再生（最も安定） -->
+            <video autoplay muted loop playsinline>
+                <source src="hinomotoichivideo.mov" type="video/quicktime">
+                <source src="hinomotoichivideo.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
         
         <div class="hero-title-area">
             <p class="hero-by-global">by Global Family</p>
-            <!-- by Global Family の直後に配置された SCROLL -->
             <div class="scroll-indicator">SCROLL</div>
         </div>
     </header>
@@ -462,7 +455,6 @@
 
         <a href="https://www.gf-samurai-hd.com/home-1" target="_blank" class="featured-section">
             <div class="featured-image-box">
-                <!--  -->
                 <img src="hinomotoichiwater.jpg" alt="HINOMOTOICHI Mineral Water" onerror="this.src='https://images.unsplash.com/photo-1548839140-29a749e1cf4d?q=80&w=1888&auto=format&fit=crop'">
             </div>
             <div class="featured-info-box">
@@ -485,7 +477,6 @@
             <!-- Wagyu -->
             <div id="wagyu-section" class="expanded-card">
                 <div class="expanded-card-image">
-                    <!--  -->
                     <img src="hinomotoichiwagyu.jpg" alt="Hinomotoichi A5 Wagyu" onerror="this.src='https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format&fit=crop'">
                 </div>
                 <div class="expanded-card-content">
@@ -505,7 +496,6 @@
             <!-- Sake -->
             <div id="sake-section" class="expanded-card">
                 <div class="expanded-card-image">
-                    <!--  -->
                     <img src="hinomotoichisake.jpg" alt="Hinomotoichi Sake" onerror="this.src='https://images.unsplash.com/photo-1571559388365-5c9146f4b68e?q=80&w=1961&auto=format&fit=crop'">
                 </div>
                 <div class="expanded-card-content">
@@ -527,7 +517,6 @@
     <!-- フッター (Footer) -->
     <footer>
         <div class="footer-logo-unity-box">
-            <!--  -->
             <img src="hinomotoichikanji.jpg" alt="HINOMOTOICHI Logo Footer">
         </div>
         <div class="footer-brand-text uppercase">Hinomotoichi</div>
