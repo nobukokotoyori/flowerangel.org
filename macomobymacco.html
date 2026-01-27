@@ -87,37 +87,83 @@
             text-underline-offset: 4px;
             text-decoration-color: #d4af37;
         }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s;
+        }
+        #mobile-menu.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        #mobile-menu:not(.hidden) {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
     </style>
 </head>
 <body class="font-serif bg-macomo-bg text-macomo-dark overflow-x-hidden w-full antialiased">
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 text-white">
-        <div class="w-full px-4 md:px-8 flex justify-between items-center">
-            <div class="text-xl font-bold tracking-widest uppercase cursor-pointer hover:opacity-80 transition-opacity" onclick="window.scrollTo(0,0)">
+        <div class="w-full px-4 md:px-8 flex justify-between items-center relative z-50">
+            <!-- Logo -->
+            <div class="text-xl font-bold tracking-widest uppercase cursor-pointer hover:opacity-80 transition-opacity flex-shrink-0" onclick="window.scrollTo(0,0)">
                 MACOMO <span class="font-light text-xs ml-1 opacity-80 font-sans">by MACCO</span>
             </div>
             
-            <div class="hidden md:flex space-x-8">
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-8">
                 <a href="#philosophy" class="nav-link text-sm tracking-widest hover:text-macomo-accent transition-colors opacity-90" data-i18n="nav.philosophy">PHILOSOPHY</a>
                 <a href="#history" class="nav-link text-sm tracking-widest hover:text-macomo-accent transition-colors opacity-90" data-i18n="nav.history">HISTORY</a>
                 <a href="#harmony" class="nav-link text-sm tracking-widest hover:text-macomo-accent transition-colors opacity-90" data-i18n="nav.harmony">HARMONY</a>
                 <a href="#founder" class="nav-link text-sm tracking-widest hover:text-macomo-accent transition-colors opacity-90" data-i18n="nav.founder">FOUNDER</a>
             </div>
 
-            <div class="flex items-center gap-6">
-                <!-- Language Selector -->
-                <div class="hidden lg:flex text-[10px] tracking-widest font-sans gap-2 opacity-90">
-                    <button onclick="setLanguage('ja')" class="lang-btn hover:text-macomo-accent transition-colors active" id="btn-ja">JAPANESE</button>
-                    <span class="opacity-50 font-light">|</span>
-                    <button onclick="setLanguage('en')" class="lang-btn hover:text-macomo-accent transition-colors opacity-60" id="btn-en">ENGLISH</button>
-                    <span class="opacity-50 font-light">|</span>
-                    <button onclick="setLanguage('fr')" class="lang-btn hover:text-macomo-accent transition-colors opacity-60" id="btn-fr">FRENCH</button>
+            <!-- Right Side Controls (Lang & Shop & Hamburger) -->
+            <div class="flex items-center gap-4 md:gap-6">
+                <!-- Desktop Language & Shop -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <div class="flex text-[10px] tracking-widest font-sans gap-2 opacity-90">
+                        <button onclick="setLanguage('ja')" class="lang-btn hover:text-macomo-accent transition-colors active" id="btn-ja">JAPANESE</button>
+                        <span class="opacity-50 font-light">|</span>
+                        <button onclick="setLanguage('en')" class="lang-btn hover:text-macomo-accent transition-colors opacity-60" id="btn-en">ENGLISH</button>
+                        <span class="opacity-50 font-light">|</span>
+                        <button onclick="setLanguage('fr')" class="lang-btn hover:text-macomo-accent transition-colors opacity-60" id="btn-fr">FRENCH</button>
+                    </div>
+                    
+                    <button class="px-6 py-2 border border-white text-xs tracking-widest hover:bg-white hover:text-macomo-dark transition-colors duration-300" data-i18n="nav.shop">
+                        GLOBAL SHOP
+                    </button>
                 </div>
-                
-                <button class="px-6 py-2 border border-white text-xs tracking-widest hover:bg-white hover:text-macomo-dark transition-colors duration-300" data-i18n="nav.shop">
-                    GLOBAL SHOP
+
+                <!-- Mobile Hamburger Button -->
+                <button id="menu-btn" class="lg:hidden p-2 text-white focus:outline-none z-50">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
                 </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-macomo-dark/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center hidden">
+            <!-- Mobile Menu Links -->
+            <div class="flex flex-col items-center space-y-8 text-xl font-light tracking-widest">
+                <a href="#philosophy" class="mobile-link hover:text-macomo-accent transition-colors" onclick="toggleMenu()" data-i18n="nav.philosophy">PHILOSOPHY</a>
+                <a href="#history" class="mobile-link hover:text-macomo-accent transition-colors" onclick="toggleMenu()" data-i18n="nav.history">HISTORY</a>
+                <a href="#harmony" class="mobile-link hover:text-macomo-accent transition-colors" onclick="toggleMenu()" data-i18n="nav.harmony">HARMONY</a>
+                <a href="#founder" class="mobile-link hover:text-macomo-accent transition-colors" onclick="toggleMenu()" data-i18n="nav.founder">FOUNDER</a>
+                <a href="#" class="mobile-link text-macomo-accent border-b border-macomo-accent pb-1 mt-4" data-i18n="nav.shop">GLOBAL SHOP</a>
+            </div>
+
+            <!-- Mobile Language Selector -->
+            <div class="mt-16 flex text-xs tracking-widest font-sans gap-4 opacity-80">
+                <button onclick="setLanguage('ja')" class="lang-btn hover:text-macomo-accent transition-colors active" id="btn-mob-ja">JP</button>
+                <span class="opacity-30">|</span>
+                <button onclick="setLanguage('en')" class="lang-btn hover:text-macomo-accent transition-colors opacity-60" id="btn-mob-en">EN</button>
+                <span class="opacity-30">|</span>
+                <button onclick="setLanguage('fr')" class="lang-btn hover:text-macomo-accent transition-colors opacity-60" id="btn-mob-fr">FR</button>
             </div>
         </div>
     </nav>
@@ -633,7 +679,12 @@
         function setLanguage(lang) {
             // Update active state of buttons
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active', 'opacity-100'));
-            document.getElementById(`btn-${lang}`).classList.add('active', 'opacity-100');
+            // Desktop buttons
+            const dtBtn = document.getElementById(`btn-${lang}`);
+            if(dtBtn) dtBtn.classList.add('active', 'opacity-100');
+            // Mobile buttons
+            const mobBtn = document.getElementById(`btn-mob-${lang}`);
+            if(mobBtn) mobBtn.classList.add('active', 'opacity-100');
             
             // Update Text Content
             const elements = document.querySelectorAll('[data-i18n]');
@@ -644,6 +695,26 @@
                 }
             });
         }
+
+        // --- Mobile Menu Toggle ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuBtn.innerHTML = '<i data-lucide="x" class="w-8 h-8"></i>';
+                lucide.createIcons(); // Re-render icon
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuBtn.innerHTML = '<i data-lucide="menu" class="w-8 h-8"></i>';
+                lucide.createIcons();
+                document.body.style.overflow = '';
+            }
+        }
+        menuBtn.addEventListener('click', toggleMenu);
 
         // 1. Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
