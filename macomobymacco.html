@@ -1,0 +1,403 @@
+import React, { useState, useEffect } from 'react';
+import { Leaf, Droplets, Sun, Wind, Globe, ArrowRight, Star } from 'lucide-react';
+
+const MakomoLP = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState(0);
+
+  // Scroll listener for navbar and fade-in effects
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      
+      const sections = document.querySelectorAll('section');
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+          setActiveSection(index);
+        }
+      });
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const FadeInSection = ({ children, delay = 0 }) => {
+    const [isVisible, setVisible] = useState(false);
+    const domRef = React.useRef();
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => setVisible(entry.isIntersecting));
+      });
+      const currentRef = domRef.current;
+      if (currentRef) observer.observe(currentRef);
+      return () => {
+        if (currentRef) observer.unobserve(currentRef);
+      };
+    }, []);
+
+    return (
+      <div
+        ref={domRef}
+        className={`transition-all duration-1000 transform ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+        style={{ transitionDelay: `${delay}ms` }}
+      >
+        {children}
+      </div>
+    );
+  };
+
+  return (
+    <div className="font-serif bg-[#Fdfbf7] text-[#2c3e30] overflow-x-hidden w-full">
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#2c3e30]/90 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          <div className={`text-xl font-bold tracking-widest uppercase ${scrolled ? 'text-white' : 'text-white'}`}>
+            MACOMO <span className="font-light text-xs ml-1 opacity-80">by MACCO</span>
+          </div>
+          <div className="hidden md:flex space-x-8">
+            {['Philosophy', 'History', 'Harmony', 'Product', 'Founder'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className={`text-sm tracking-widest hover:opacity-70 transition-opacity ${scrolled ? 'text-white' : 'text-white'}`}>
+                {item}
+              </a>
+            ))}
+          </div>
+          <button className={`px-6 py-2 border ${scrolled ? 'border-white text-white' : 'border-white text-white'} text-xs tracking-widest hover:bg-white hover:text-[#2c3e30] transition-colors duration-300`}>
+            GLOBAL SHOP
+          </button>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image Placeholder with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+            alt="Nature sunlight" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#2c3e30]/40 to-[#2c3e30]/80"></div>
+        </div>
+
+        <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
+          <FadeInSection delay={200}>
+            <p className="text-sm md:text-base tracking-[0.3em] uppercase mb-4 opacity-90">
+              The Great Harmonizer
+            </p>
+          </FadeInSection>
+          
+          <FadeInSection delay={400}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium leading-tight mb-8 drop-shadow-lg">
+              真を照らし、<br className="md:hidden"/>世界を浄化する真菰
+            </h1>
+          </FadeInSection>
+
+          <FadeInSection delay={600}>
+            <p className="text-lg md:text-xl font-light tracking-wide italic opacity-90 mb-12">
+              Illuminating the Truth, Purifying the World.
+            </p>
+          </FadeInSection>
+
+          <FadeInSection delay={800}>
+            <div className="animate-bounce mt-10">
+              <span className="block w-[1px] h-20 bg-white mx-auto"></span>
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
+
+      {/* Philosophy Section */}
+      <section id="philosophy" className="py-24 px-6 md:px-12 bg-[#Fdfbf7] relative">
+        <div className="max-w-4xl mx-auto text-center md:text-left">
+          <FadeInSection>
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
+              <div className="md:w-1/2">
+                <img 
+                  src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=80" 
+                  alt="Peaceful water" 
+                  className="w-full h-[500px] object-cover rounded-sm shadow-xl grayscale-[20%]"
+                />
+              </div>
+              <div className="md:w-1/2 flex flex-col justify-center h-full pt-10 md:pt-0">
+                <h2 className="text-3xl font-medium mb-8 leading-relaxed text-[#2c3e30]">
+                  必要なのは「強さ」ではなく、<br />
+                  <span className="text-[#5d7c65]">本来の自分へ還る<br />“調和の力”</span>です。
+                </h2>
+                <div className="space-y-6 text-base leading-loose text-gray-700 font-light">
+                  <p>
+                    世界が混乱し、心と身体のバランスを崩す人が増えている今。
+                    私たちは外側に答えを求め、戦い続けてきました。
+                  </p>
+                  <p>
+                    しかし、その答えとして、静かに、しかし確実に目覚め始めた植物があります。
+                  </p>
+                  <p className="font-medium text-[#2c3e30] border-l-4 border-[#5d7c65] pl-4 italic">
+                    Not strength, but Harmony.<br/>
+                    It is time to return to your true self.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
+
+      {/* The Plant / History Section */}
+      <section id="history" className="py-24 bg-[#2c3e30] text-white">
+        <div className="container mx-auto px-6">
+          <FadeInSection>
+            <div className="text-center mb-16">
+              <span className="text-[#a8bba0] tracking-[0.2em] text-sm uppercase">The Sacred Plant</span>
+              <h2 className="text-4xl md:text-5xl font-medium mt-4">神の草 — Makomo</h2>
+              <p className="mt-4 text-[#a8bba0] font-light">God's Grass from Ancient Japan</p>
+            </div>
+          </FadeInSection>
+
+          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <FadeInSection delay={200}>
+              <div className="text-center p-8 border border-[#ffffff10] bg-[#ffffff05] hover:bg-[#ffffff0a] transition-colors duration-500 rounded-sm h-full">
+                <div className="flex justify-center mb-6">
+                  <Sun className="w-10 h-10 text-[#d4af37]" />
+                </div>
+                <h3 className="text-xl font-medium mb-4">縄文からの記憶</h3>
+                <p className="text-sm leading-7 text-gray-300 font-light">
+                  1億年前から姿を変えず、縄文時代より日本人の生活と信仰の中心にあった植物。米よりも古く、日本人のDNAに刻まれた「根源」です。
+                </p>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={400}>
+              <div className="text-center p-8 border border-[#ffffff10] bg-[#ffffff05] hover:bg-[#ffffff0a] transition-colors duration-500 rounded-sm h-full">
+                <div className="flex justify-center mb-6">
+                  <div className="w-10 h-10 rounded-full border border-[#d4af37] flex items-center justify-center text-[#d4af37] font-serif">神</div>
+                </div>
+                <h3 className="text-xl font-medium mb-4">浄化と神事</h3>
+                <p className="text-sm leading-7 text-gray-300 font-light">
+                  出雲大社や伊勢神宮のしめ縄、神事の儀式に使われる「聖なる草」。穢れを払い、場を清める力を持つと信じられてきました。
+                </p>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={600}>
+              <div className="text-center p-8 border border-[#ffffff10] bg-[#ffffff05] hover:bg-[#ffffff0a] transition-colors duration-500 rounded-sm h-full">
+                <div className="flex justify-center mb-6">
+                  <Leaf className="w-10 h-10 text-[#d4af37]" />
+                </div>
+                <h3 className="text-xl font-medium mb-4">再生の象徴</h3>
+                <p className="text-sm leading-7 text-gray-300 font-light">
+                  泥の中に根を張りながら、天に向かって真っ直ぐに伸びる姿。それは、混沌とした現代に生きる私たちの「あるべき姿」を教えてくれます。
+                </p>
+              </div>
+            </FadeInSection>
+          </div>
+        </div>
+      </section>
+
+      {/* The Science / Harmony Bacteria Section */}
+      <section id="harmony" className="py-24 px-6 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#5d7c65]/10 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#d4af37]/5 rounded-full blur-3xl -z-10"></div>
+
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <FadeInSection>
+              <div className="relative">
+                <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-[#d4af37]"></div>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-[#d4af37]"></div>
+                <h2 className="text-3xl md:text-5xl font-medium leading-tight mb-6">
+                  <span className="text-sm block tracking-widest text-[#5d7c65] mb-2 uppercase">The Science of Harmony</span>
+                  半径2kmの<br/>
+                  水と土地を浄化する
+                </h2>
+                <p className="text-lg leading-loose text-gray-700 font-light mb-8">
+                  真菰には、不思議な力があります。<br/>
+                  それは、どの菌とも争わない<br/>
+                  <strong className="font-medium text-[#2c3e30] text-xl">「調和の菌」</strong>を持つ唯一の存在。
+                </p>
+                <div className="bg-white p-6 shadow-sm border-l-4 border-[#d4af37]">
+                  <p className="text-gray-600 text-sm leading-relaxed italic">
+                    "Unlike modern antibiotics that fight, Makomo creates an environment where all life can coexist. It possesses a unique bacteria of harmony."
+                  </p>
+                </div>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={300}>
+              <div className="grid grid-cols-1 gap-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-[#2c3e30] p-3 rounded-full text-white mt-1">
+                    <Droplets size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold mb-2">水の浄化 - Water Purification</h4>
+                    <p className="text-sm text-gray-600">真菰が生息する水辺は、その強力な浄化作用により水質が劇的に改善されます。</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-[#2c3e30] p-3 rounded-full text-white mt-1">
+                    <Wind size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold mb-2">場の浄化 - Spiritual Sanctuary</h4>
+                    <p className="text-sm text-gray-600">空気を整え、ネガティブなエネルギーを中和する「聖域」を作り出します。</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-[#2c3e30] p-3 rounded-full text-white mt-1">
+                    <Globe size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold mb-2">体内浄化 - Inner Detox</h4>
+                    <p className="text-sm text-gray-600">体内に取り入れることで、不要なものを排出し、本来の生体リズムを取り戻します。</p>
+                  </div>
+                </div>
+              </div>
+            </FadeInSection>
+          </div>
+        </div>
+      </section>
+
+      {/* The Revelation / Future */}
+      <section className="py-32 bg-[#e8e6e1] text-center px-6">
+        <FadeInSection>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-medium mb-10 leading-relaxed text-[#2c3e30]">
+              この植物が、現代に再び姿を現そうとしているのは――<br />
+              人類が<span className="inline-block border-b border-[#2c3e30] pb-1 mx-2">“調和の時代”</span>に入った<br className="md:hidden" />証なのかもしれません。
+            </h2>
+            <p className="text-gray-600 mb-12 tracking-wide font-light">
+              We are entering the Era of Harmony.<br/>
+              Makomo is here to guide us back to our roots.
+            </p>
+            
+            <button className="group relative px-10 py-4 bg-[#2c3e30] text-white overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-1">
+              <span className="relative z-10 flex items-center gap-2 font-medium tracking-widest text-sm uppercase">
+                Explore The Products <ArrowRight size={16} />
+              </span>
+              <div className="absolute inset-0 bg-[#3e5542] transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
+            </button>
+          </div>
+        </FadeInSection>
+      </section>
+
+      {/* Founder Section - MACCO */}
+      <section id="founder" className="py-24 bg-gradient-to-b from-[#Fdfbf7] to-[#f4f1ea] relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-[#e8e6e1] to-transparent opacity-50"></div>
+        <div className="container mx-auto px-6 relative z-10">
+          <FadeInSection>
+            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+              {/* Image Side */}
+              <div className="md:w-5/12 relative">
+                <div className="absolute -inset-4 border border-[#d4af37]/20 transform rotate-2 rounded-sm z-0"></div>
+                <div className="absolute -inset-4 border border-[#d4af37]/20 transform -rotate-2 rounded-sm z-0"></div>
+                <div className="relative z-10 overflow-hidden rounded-sm shadow-2xl group">
+                  {/* NOTE: Replace this src with "macco.jpg" in your local environment */}
+                  <img 
+                    src="https://images.unsplash.com/photo-1542553424-3453715d18df?q=80&w=1770&auto=format&fit=crop" 
+                    alt="MACCO - The Messenger" 
+                    className="w-full h-[600px] object-cover object-center grayscale-[30%] group-hover:grayscale-0 transition-all duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2c3e30]/60 via-transparent to-transparent opacity-80"></div>
+                  <div className="absolute bottom-6 left-6 text-white text-opacity-90">
+                    <p className="text-xs tracking-[0.3em] uppercase mb-1">Founder</p>
+                    <p className="font-serif text-xl italic">Messenger of Light</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Text Side */}
+              <div className="md:w-7/12">
+                <div className="flex items-center gap-3 mb-6">
+                   <div className="h-[1px] w-12 bg-[#d4af37]"></div>
+                   <span className="text-[#d4af37] tracking-[0.2em] text-xs uppercase">The Evangelist</span>
+                </div>
+                
+                <h2 className="text-4xl md:text-5xl font-medium text-[#2c3e30] mb-2">MACCO</h2>
+                <h3 className="text-lg text-[#5d7c65] font-light mb-8 tracking-wide">Maki Okamoto</h3>
+
+                <div className="space-y-6 text-gray-600 leading-loose font-light">
+                  <p>
+                    美容師、エステティシャン、セラピストとして25年以上の歳月を「美」と「健康」に捧げてきた彼女が、最後に辿り着いたのは<span className="text-[#2c3e30] font-medium">「ケミカルから天然への回帰」</span>でした。
+                  </p>
+                  <p>
+                    長年扱ってきた漢方やアロマ、自然療法を超える存在として出会ったのが、日本古来の真菰。
+                    彼女は今、光の中を歩くメッセンジャーとして、まだ世界に知られていないこの「神の草」を届ける旅に出ます。
+                  </p>
+                  
+                  <div className="bg-white/50 p-6 border-l-2 border-[#d4af37] my-8">
+                    <p className="italic text-sm text-gray-500 mb-2">My Vision</p>
+                    <p className="text-[#2c3e30] font-medium">
+                      世界平和、宇宙、そしてラグジュアリーアート。<br/>
+                      真菰を通じて、日本の想いが宿るアートを世界へ。
+                    </p>
+                  </div>
+                </div>
+
+                {/* Professional Background Tags */}
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {['25+ Years in Wellness', 'Natural Therapy', 'Art & Peace', 'Global Messenger'].map((tag) => (
+                    <span key={tag} className="px-4 py-1 border border-[#2c3e30]/20 text-[#2c3e30] text-xs tracking-wider uppercase rounded-full hover:bg-[#2c3e30] hover:text-white transition-colors duration-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#1a261d] text-white py-16 px-6 border-t border-[#ffffff10]">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-12">
+          <div className="md:col-span-1">
+            <h3 className="text-2xl font-bold tracking-widest uppercase mb-6">
+              MACOMO <span className="text-xs block font-light opacity-70 mt-1">by MACCO</span>
+            </h3>
+            <p className="text-gray-400 text-sm leading-7">
+              Illuminating Truth,<br/>Purifying the World.
+            </p>
+          </div>
+          
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-widest text-[#a8bba0] mb-6">About</h4>
+            <ul className="space-y-4 text-sm text-gray-300">
+              <li><a href="#" className="hover:text-white transition-colors">Our Story</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">The Farm</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Sustainability</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-widest text-[#a8bba0] mb-6">Products</h4>
+            <ul className="space-y-4 text-sm text-gray-300">
+              <li><a href="#" className="hover:text-white transition-colors">Makomo Tea</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Fermented Powder</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Ritual Sets</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-bold uppercase tracking-widest text-[#a8bba0] mb-6">Newsletter</h4>
+            <p className="text-xs text-gray-400 mb-4">Join the journey of harmony.</p>
+            <div className="flex border-b border-gray-600 pb-2">
+              <input type="email" placeholder="Email Address" className="bg-transparent w-full outline-none text-sm placeholder-gray-500" />
+              <button className="text-xs uppercase hover:text-[#a8bba0]">Send</button>
+            </div>
+          </div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-[#ffffff05] text-center text-xs text-gray-500">
+          <p>&copy; 2024 MACOMO by MACCO. Spreading Harmony to the World.</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default MakomoLP;
