@@ -41,20 +41,17 @@
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
                         // 画像の表示・非表示ループ（前面の鳥居画像用）
-                        // 社長メイン(透明) -> フラッシュ -> 鳥居表示 -> フラッシュ -> 社長に戻る
                         imageLoop: {
                             '0%, 75%': { opacity: '0' },   /* 社長表示 (鳥居透明) */
-                            '76%, 94%': { opacity: '1' },  /* 鳥居表示 (フラッシュ直後に出現) */
-                            '95%, 100%': { opacity: '0' }, /* 社長に戻る */
+                            '80%, 95%': { opacity: '1' },  /* 鳥居表示 */
+                            '100%': { opacity: '0' },      /* 社長に戻る */
                         },
-                        // 切り替え時のフラッシュループ (鋭く光るように調整)
+                        // 切り替え時のフラッシュループ
                         flashLoop: {
-                            '0%, 74%': { opacity: '0' },
-                            '75%': { opacity: '1' },       /* 切り替え直前に真っ白 (フラッシュ) */
-                            '78%': { opacity: '0' },       /* すぐ消える */
-                            '93%': { opacity: '0' },
-                            '94%': { opacity: '1' },       /* 戻る直前に真っ白 (フラッシュ) */
-                            '97%': { opacity: '0' },       /* すぐ消える */
+                            '0%, 70%': { opacity: '0' },
+                            '77%': { opacity: '1' },       /* 社長→鳥居 切り替え時フラッシュ */
+                            '84%, 90%': { opacity: '0' },
+                            '97%': { opacity: '1' },       /* 鳥居→社長 戻る時フラッシュ */
                             '100%': { opacity: '0' },
                         }
                     }
@@ -139,6 +136,21 @@
           Megaphone: ({ className }) => (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>
           ),
+          Youtube: ({ className }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          ),
+          Facebook: ({ className }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          ),
+          Instagram: ({ className }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          ),
+          Tiktok: ({ className }) => (
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          ),
+          Line: ({ className }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          ),
           // 日本地図（シルエット）SVGコンポーネント
           JapanMap: ({ className }) => (
             <svg viewBox="0 0 800 800" className={className} xmlns="http://www.w3.org/2000/svg" fill="currentColor">
@@ -221,7 +233,7 @@
                         Organized by 株式会社笑顔と感謝
                       </span>
                       <span className={`text-xs md:text-base lg:text-lg font-bold tracking-wider text-white`}>
-                        日本全国から世界へ進化した「共進会」
+                        日本全国から東京へ、東京から世界へ繋ぐ「共進会」
                       </span>
                     </div>
                   </div>
@@ -308,7 +320,7 @@
                   
                   <div className={`transition-all duration-1000 ease-out transform mb-8 ${loaded ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
                     <h2 className="text-sm md:text-lg font-bold mb-4 tracking-[0.1em] text-pink-300 uppercase border border-pink-400 inline-block px-4 py-1 rounded-full bg-pink-900/30 backdrop-blur-sm">
-                      日本全国の価値を、3月、2万人の熱狂へ。
+                      ALL of Japan to the World Through Tokyo
                     </h2>
                     
                     <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-8 leading-tight drop-shadow-2xl">
@@ -319,7 +331,7 @@
                       に変える
                     </h1>
                     <p className="text-lg md:text-2xl font-light leading-relaxed text-gray-100 max-w-3xl mx-auto drop-shadow-lg">
-                      日本全国から世界へ進化した「共進会」<br/>
+                      日本全国から東京へ、東京から世界へ繋ぐ「共進会」<br/>
                       <span className="text-sm md:text-base opacity-90 mt-3 block font-medium">Organized by 株式会社 笑顔と感謝</span>
                     </p>
                   </div>
@@ -373,33 +385,29 @@
                         代表メッセージ
                       </div>
                       <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
-                        私は今、「敗者」です。<br/>
-                        だからこそ、<br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-600">
-                          世界で証明します。
-                        </span>
+                        挫折を知る私が、<br/>
+                        今、<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-600">世界への扉</span>を開く。
                       </h2>
                       
                       <div className="space-y-6 text-gray-700 leading-relaxed text-lg mb-8">
                         <p>
-                          かつて、2万人のイベントを実現できず、私は挫折を味わいました。
-                          多くのものを失い、今はまさに「敗者」の立場にいます。
+                          かつて、2万人のイベントを実現できず、私は長い間、深い挫折と「敗者」の苦しみを味わってきました。
+                          しかし、その経験があったからこそ、人の痛みを知り、這い上がる強さを手に入れることができました。
                         </p>
                         <p className="font-bold border-l-4 border-pink-500 pl-4 py-2 bg-white shadow-sm">
-                          しかし、人生はそこで終わりではありません。<br/>
-                          ここからが「敗者復活戦」の始まりです。
+                          今、私は多くの方々に支えられ、世界という最高の舞台を用意されました。<br/>
+                          ここからは、恩返しの時です。
                         </p>
                         <p>
-                          今までやれていなかったことを、今回2月・3月の共進会で証明していきます。
-                          私自身が世界とのコネクションを切り拓き、私と同じように苦しむ「敗者」と
-                          呼ばれる人々を、世界という舞台で「勝者」へと変えていく。
+                          日本の挑戦する人たちを、私が全力で応援します。
+                          日本全国に眠る「いいもの」、そして日本の素晴らしさを、世界へ堂々と伝えていく。
                         </p>
                         <p>
                           <a href="https://uzuworld.com/sakurabloom2026" className="text-blue-600 underline font-semibold hover:text-blue-800 transition">
                             SAKURA BLOOM 2026
                           </a>。
-                          ここで必ず、あの時できなかった2万人のイベントを実現させます。
-                          絶望を希望に変える物語を、ここ東京から、そして世界へ紡いでいきます。
+                          これらは単なるイベントではありません。日本が世界で勝つための、確かな一歩です。
+                          さあ、自信を持って。世界はすでに、私たちを待っています。
                         </p>
                       </div>
 
@@ -687,9 +695,15 @@
                                  北海道から夢を追いかけて上京した日本人シェフ代表「宮田卓磨」さんと日本農家 代表７代目農家「関口郁哉」さんセブ島へ。 日本食や伝統など、日本文化を伝えるワークショップを開催します。
                               </p>
 
-                              <div className="flex justify-start">
-                                <a href="https://uzuworld.com/sakurabloom2026" className="inline-flex items-center bg-teal-600 hover:bg-teal-500 text-white px-6 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-teal-500/50">
-                                   詳細はこちら <Icons.ArrowRight className="ml-2 w-5 h-5" />
+                              <div className="flex flex-col gap-4 justify-start">
+                                {/* 以前のボタンを削除し、指定のリンクのみを表示 */}
+                                <a 
+                                    href="https://flowerangel.org/takumamiyata_tamararice" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center text-teal-300 hover:text-white font-bold text-sm transition-colors border-b border-teal-300 hover:border-white pb-0.5 group w-fit"
+                                >
+                                    詳細はこちら <Icons.ArrowRight className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                                 </a>
                               </div>
                            </div>
@@ -711,7 +725,7 @@
                                         ７代目農家「関口郁哉」さんが初めて作られたお米は昨年クリスマスプレゼントとして、お母様の「関口孝子」さんが直接セブ島に来られ、UZU PHへ寄付され、スラム街の子供達にすた丼のお米として提供されました。また、3月21日から27日までのKIZUNA Exhibitionと共進会に関わる方々の心のこもった商品やサービスを現地や海外の方々の心に届け、たかこさんによって今後世界で日本のあたたかさを海外にいながら感じていただける方々が増えていくでしょう。
                                     </p>
                                     <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                                        セブ島の子供たちのおなかを満たし、日本の若者二人を応援にもなる。２３歳が将来ある子供たちのおなかを満たす支援。将来がある夢を追いかける子供たちのおなかを満たす支援にも携わる二人の若者。
+                                        セブ島の子供たちのおなかを満たし、同時に日本の若者二人を応援することにもなります。23歳という若さで、将来ある子供たちへの食糧支援に携わる彼ら。夢を追いかける子供たちのおなかと心を満たす活動に、二人の若者が挑んでいます。
                                     </p>
                                     <div className="flex flex-col gap-1 items-center md:items-start">
                                       <a 
@@ -758,83 +772,103 @@
                 <div className="container mx-auto px-4 relative z-10">
                   <div className="text-center mb-16">
                     <span className="text-teal-600 font-bold tracking-widest text-sm uppercase mb-2 block">Next Gathering</span>
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight text-gray-900">
-                      世界進出を前に、<br/>東京で<span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-blue-600">結束</span>を。
+                    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight font-sans">
+                      世界進出を前に、<br/>
+                      東京で<span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-600">結束</span>を。
                     </h2>
-                    <div className="h-1 w-20 bg-teal-500 mx-auto mt-6"></div>
+                    <div className="w-16 h-1 bg-gradient-to-r from-teal-400 to-blue-500 mx-auto rounded-full"></div>
                   </div>
 
-                  <div className="max-w-5xl mx-auto bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-gray-100 relative">
-                    {/* 背景に日本地図を追加 (SVGコンポーネント) */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-10">
-                       <Icons.JapanMap className="w-full h-full text-gray-400" />
-                    </div>
-
-                    <div className="bg-gradient-to-r from-teal-600 to-blue-700 p-8 md:p-10 flex flex-col md:flex-row justify-between items-center text-white relative z-10">
-                      <div>
-                        <span className="bg-white text-teal-700 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 inline-block shadow-md">Next Stage</span>
-                        <h3 className="text-2xl md:text-4xl font-bold">2026年度 共進会 第二回目</h3>
-                      </div>
-                      <div className="mt-6 md:mt-0 text-right">
-                        <p className="text-xs text-teal-200 font-bold uppercase tracking-wider mb-1">Date & Time</p>
-                        <div className="flex items-center justify-center md:justify-end gap-3 text-teal-100 font-bold text-2xl md:text-3xl">
-                          <Icons.Calendar className="w-8 h-8" />
-                          <span>2月4日 (水)</span>
+                  <div className="max-w-6xl mx-auto">
+                    <div className="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-gray-100 flex flex-col lg:flex-row">
+                      
+                      {/* Left Side: Info */}
+                      <div className="lg:w-2/5 p-10 md:p-12 bg-gradient-to-br from-slate-900 to-slate-800 text-white relative flex flex-col justify-between">
+                        {/* 装飾 */}
+                        <div className="absolute top-0 right-0 p-4 opacity-10">
+                            <Icons.Globe className="w-32 h-32" />
                         </div>
-                        <p className="text-teal-50 mt-2 text-lg">11:00 〜 16:00</p>
-                      </div>
-                    </div>
 
-                    <div className="p-8 md:p-12 relative z-10">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div className="space-y-8">
-                          <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
-                            <h4 className="flex items-center gap-3 text-xl font-bold text-teal-700 mb-4">
-                              <Icons.MapPin className="w-6 h-6" /> Location
-                            </h4>
-                            <p className="text-gray-700 ml-9 text-lg leading-relaxed">
-                              <span className="font-bold block mb-1 text-gray-900">株式会社研美社<br/>東京営業所ショールーム</span>
-                              東京都中央区八丁堀2-20-9-1階<br/>
-                              <span className="text-sm text-gray-500 mt-1 block">(八丁堀駅 徒歩3分)</span>
-                            </p>
-                            <div className="mt-4 ml-9">
-                                <a href="https://finethanks.co.jp/greeting/" className="text-teal-600 hover:text-teal-500 text-sm font-bold flex items-center group">
-                                    詳細を確認する <Icons.ArrowRight className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                                </a>
+                        <div>
+                            <div className="inline-block px-4 py-1 rounded-full border border-teal-400/50 bg-teal-400/10 text-teal-300 text-xs font-bold tracking-wider mb-6">
+                                2026年度 共進会 第二回目
                             </div>
-                          </div>
 
-                          <div className="bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-100 p-6 rounded-2xl relative overflow-hidden shadow-sm">
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-orange-200/30 blur-2xl rounded-full"></div>
-                            <h4 className="flex items-center gap-3 text-xl font-bold text-orange-600 mb-4 relative z-10">
-                              <Icons.Utensils className="w-6 h-6" /> Special Food
-                            </h4>
-                            <p className="font-bold text-2xl text-gray-800 mb-3 relative z-10">
-                              夢見るポーク丼
-                            </p>
-                            <p className="text-gray-600 leading-relaxed relative z-10">
-                              セブ島プロジェクトでもタッグを組む、お米農家7代目・関口郁哉とシェフ・宮田卓磨のコラボレーションメニューを提供予定！世界へ飛び立つ味を、一足先に東京で。
-                            </p>
-                          </div>
+                            <div className="space-y-8">
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-white/10 p-3 rounded-xl backdrop-blur-sm text-teal-300 shrink-0">
+                                        <Icons.Calendar className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Date & Time</p>
+                                        <p className="text-2xl font-bold">2月4日 (水)</p>
+                                        <p className="text-lg text-gray-300">11:00 〜 16:00</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-white/10 p-3 rounded-xl backdrop-blur-sm text-teal-300 shrink-0">
+                                        <Icons.MapPin className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Location</p>
+                                        <p className="font-bold text-lg leading-tight mb-1">株式会社研美社<br/>東京営業所ショールーム</p>
+                                        <p className="text-sm text-gray-400">東京都中央区八丁堀2-20-9-1階</p>
+                                        <p className="text-xs text-teal-400 mt-1 flex items-center gap-1">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 inline-block"></span>
+                                            八丁堀駅 徒歩3分
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="flex flex-col justify-between">
-                          <div className="w-full h-64 bg-gray-200 rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden group border border-gray-300 shadow-lg cursor-pointer">
-                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10"></div>
-                             <div className="absolute bottom-4 left-4 z-20 text-white font-bold text-lg drop-shadow-md">夢見るポーク丼</div>
-                             <div className="w-full h-full bg-gray-300 flex items-center justify-center text-gray-500 group-hover:scale-105 transition-transform duration-500">
-                               <img src="roastporkbowl.jpg" alt="夢見るポーク丼" className="w-full h-full object-cover" />
-                             </div>
-                          </div>
-                          
-                          <div className="text-center">
-                            <p className="text-gray-600 text-lg mb-4 italic font-serif">
-                              "今までやれていなかったことを、今回証明する。<br/>
-                              その熱量を現地で体感してください。"
-                            </p>
-                          </div>
+                        <div className="mt-12 pt-8 border-t border-white/10">
+                            <a href="https://finethanks.co.jp/greeting/" className="group flex items-center justify-between w-full bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-6 py-4 transition-all">
+                                <span className="font-bold">詳細を確認する</span>
+                                <div className="bg-teal-500 rounded-full p-1 group-hover:translate-x-1 transition-transform">
+                                    <Icons.ArrowRight className="w-4 h-4 text-white" />
+                                </div>
+                            </a>
                         </div>
                       </div>
+
+                      {/* Right Side: Content */}
+                      <div className="lg:w-3/5 p-10 md:p-12 bg-white relative">
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-teal-400 to-blue-500 lg:hidden"></div>
+                        
+                        <div className="mb-8">
+                            <h4 className="flex items-center gap-3 text-lg font-bold text-gray-400 mb-2 uppercase tracking-wider">
+                                <Icons.Utensils className="w-5 h-5 text-orange-500" />
+                                Special Food
+                            </h4>
+                            <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
+                                夢見るポーク丼
+                            </h3>
+                            <p className="text-gray-600 leading-relaxed text-lg">
+                                セブ島プロジェクトでもタッグを組む、お米農家7代目・<span className="font-bold text-gray-900">関口郁哉</span>とシェフ・<span className="font-bold text-gray-900">宮田卓磨</span>のコラボレーションメニューを提供予定！<br/>
+                                世界へ飛び立つ味を、一足先に東京で。
+                            </p>
+                        </div>
+
+                        <div className="relative rounded-2xl overflow-hidden shadow-xl group cursor-pointer">
+                            <div className="aspect-[16/9] w-full bg-gray-200 relative overflow-hidden">
+                                <img 
+                                    src="roastporkbowl.jpg" 
+                                    alt="夢見るポーク丼" 
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+                                <div className="absolute bottom-6 left-6 right-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                                    <p className="font-serif italic text-lg md:text-xl font-light leading-relaxed drop-shadow-md">
+                                        "今までやれていなかったことを、今回証明する。<br/>
+                                        その熱量を現地で体感してください。"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -930,7 +964,7 @@
                             Organized by 株式会社笑顔と感謝
                           </span>
                           <span className="text-lg font-bold text-white tracking-wider">
-                            日本全国から世界へ進化した「共進会」
+                            日本全国から東京へ、東京から世界へ繋ぐ「共進会」
                           </span>
                           <span className="text-sm text-pink-500 font-medium mt-1 flex items-center gap-1">
                             <Icons.Heart className="fill-current w-3.5 h-3.5" /> 困っている人を笑顔で助ける
@@ -956,9 +990,18 @@
                   
                   <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
                     <p>&copy; 2026 株式会社笑顔と感謝 All Rights Reserved.</p>
-                    <a href="https://flowerangelhk.com/" target="_blank" rel="noopener noreferrer" className="mt-2 md:mt-0 hover:text-white transition-colors">
-                      Produced by Flower Angel
-                    </a>
+                    <div className="flex flex-col items-end mt-4 md:mt-0">
+                        <a href="https://flowerangelhk.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors mb-2">
+                          Produced by Flower Angel
+                        </a>
+                        <div className="flex gap-4">
+                          <a href="https://www.youtube.com/@flower_angel_japan" target="_blank" rel="noopener noreferrer" className="hover:text-red-500 transition-colors"><Icons.Youtube className="w-4 h-4" /></a>
+                          <a href="https://www.facebook.com/profile.php?id=61584970334658" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors"><Icons.Facebook className="w-4 h-4" /></a>
+                          <a href="https://www.instagram.com/flower_angel_japan/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-colors"><Icons.Instagram className="w-4 h-4" /></a>
+                          <a href="https://www.tiktok.com/@flower_angel_japan" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Icons.Tiktok className="w-4 h-4" /></a>
+                          <a href="https://line.me/R/ti/p/@yyr4459y" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition-colors"><Icons.Line className="w-4 h-4" /></a>
+                        </div>
+                    </div>
                   </div>
                 </div>
               </footer>
