@@ -27,7 +27,7 @@
         body.lang-fr [data-lang="fr"] { display: block; }
 
         /* Animation */
-        .fade-in { opacity: 0; transform: translateY(40px); transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .fade-in { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         .video-canvas {
@@ -83,6 +83,21 @@
         .section-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .history-item { margin-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1.5rem; }
         .profile-img { filter: grayscale(0.5) contrast(1.1); border: 1px solid rgba(197, 160, 89, 0.2); padding: 10px; }
+        
+        .external-link {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            padding-bottom: 2px;
+            transition: 0.3s;
+            display: inline-block;
+            margin-right: 1.5rem;
+            text-transform: uppercase;
+        }
+        .external-link:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
     </style>
 </head>
 <body class="lang-en">
@@ -116,18 +131,18 @@
                         <span class="gold-text text-xs tracking-widest uppercase mb-4 block">The Spirit</span>
                         <h3 class="text-4xl font-light mb-8">Eternal Ink, <br>Global Legacy</h3>
                         <p class="text-lg opacity-70 mb-8 leading-relaxed">
-                            Honored by the French Republic and enshrined in the Madeleine Church. Yata Sakujuro's brushstrokes transcend borders, capturing the invisible essence of nature.
+                            Officially enshrined in the Madeleine Church, Paris with his masterpiece "Hato" (Billowing Waves). Recognized by the French Republic for his contribution to global arts.
                         </p>
                     </div>
                     <div data-lang="fr">
                         <span class="gold-text text-xs tracking-widest uppercase mb-4 block">L'Esprit</span>
                         <h3 class="text-4xl font-light mb-8">Encre Éternelle, <br>Héritage Mondial</h3>
                         <p class="text-lg opacity-70 mb-8 leading-relaxed">
-                            Honoré par la République Française et consacré à l'Église de la Madeleine. Les traits de pinceau de Yata Sakujuro transcendent les frontières, capturant l'essence invisible de la nature.
+                            Officiellement consacré à l'Église de la Madeleine à Paris avec son chef-d'œuvre "Hato". Reconnu par la République française pour sa contribution aux arts mondiaux.
                         </p>
                     </div>
                     <p class="jp-serif text-sm font-light leading-loose opacity-60 border-l border-[#C5A059]/30 pl-6">
-                        フランス社会功労奨励章大賞、そしてマドレーヌ寺院への公式収蔵。矢田作十路が描くのは、形ではなく「生命の根源」です。嵐山の四季と共に歩んだ、世界が認める日本の至宝。
+                        フランス・マドレーヌ寺院へ公式収蔵された名作「波濤」。フランス共和国より承認された最高位の栄誉を受け、矢田作十路の墨は世界の美意識と共鳴します。
                     </p>
                 </div>
                 <div class="md:col-span-7 fade-in">
@@ -141,7 +156,7 @@
         </div>
     </section>
 
-    <!-- Section 2: Wearable Art (yata2.mp4) -->
+    <!-- Section 2: Wearable Art (yata2.mp4) - Udo Spreitzenbarth Collaboration -->
     <section class="py-32 bg-[#0a0a0a]">
         <div class="section-container">
             <div class="grid md:grid-cols-12 gap-12 items-center flex-row-reverse">
@@ -155,21 +170,33 @@
                 <div class="md:col-span-5 order-1 md:order-2 fade-in md:pl-12">
                     <div data-lang="en">
                         <span class="gold-text text-xs tracking-widest uppercase mb-4 block">The Fusion</span>
-                        <h3 class="text-4xl font-light mb-8">Gyokusen: <br>The Living Art</h3>
-                        <p class="text-lg opacity-70 mb-8 leading-relaxed">
-                            A dialogue between Sumi-e and high fashion. From New York runways to the palaces of Abu Dhabi, Gyokusen redefines luxury through the lens of Japanese craftsmanship.
+                        <h3 class="text-4xl font-light mb-8">NYC Collection × <br>Udo Spreitzenbarth</h3>
+                        <p class="text-lg opacity-70 mb-6 leading-relaxed">
+                            A collaboration with world-renowned photographer Udo Spreitzenbarth (Tyra Banks, ELLE). Sumi-e art meets high fashion, redefining wearable luxury.
                         </p>
+                        <div class="mb-8">
+                            <a href="https://en.wikipedia.org/wiki/Udo_Spreitzenbarth" target="_blank" class="external-link">Wikipedia</a>
+                            <a href="https://www.instagram.com/udophotography/?hl=en" target="_blank" class="external-link">Instagram</a>
+                        </div>
                     </div>
                     <div data-lang="fr">
                         <span class="gold-text text-xs tracking-widest uppercase mb-4 block">La Fusion</span>
-                        <h3 class="text-4xl font-light mb-8">Gyokusen: <br>L'Art Vivant</h3>
-                        <p class="text-lg opacity-70 mb-8 leading-relaxed">
-                            Un dialogue entre le Sumi-e et la haute couture. Des défilés de New York aux palais d'Abou Dhabi, Gyokusen redéfinit le luxe à travers l'artisanat japonais.
+                        <h3 class="text-4xl font-light mb-8">Collection NYC × <br>Udo Spreitzenbarth</h3>
+                        <p class="text-lg opacity-70 mb-6 leading-relaxed">
+                            Une collaboration avec le photographe de renommée mondiale Udo Spreitzenbarth. L'art du Sumi-e rencontre la haute couture.
                         </p>
+                        <div class="mb-8">
+                            <a href="https://en.wikipedia.org/wiki/Udo_Spreitzenbarth" target="_blank" class="external-link">Wikipedia</a>
+                            <a href="https://www.instagram.com/udophotography/?hl=en" target="_blank" class="external-link">Instagram</a>
+                        </div>
                     </div>
-                    <p class="jp-serif text-sm font-light leading-loose opacity-60 border-l border-[#C5A059]/30 pl-6">
-                        水墨画を裏地に纏う。ニューヨーク、アブダビ、そして世界の社交界へ。伝統の粋を集めた「Gyokusen」のビスポークは、静かなる自己主張を求める投資家やリーダーたちのための芸術品です。
+                    <p class="jp-serif text-sm font-light leading-loose opacity-60 border-l border-[#C5A059]/30 pl-6 mb-4">
+                        世界的写真家 UDO SPREITZENBARTH氏との出会い。水墨画を裏地に宿したオリジナルスーツは、ニューヨークコレクションを経て、今、新たな芸術の形へ。
                     </p>
+                    <div class="jp-serif mb-8 text-[0.65rem] tracking-widest uppercase opacity-40">
+                        <a href="https://en.wikipedia.org/wiki/Udo_Spreitzenbarth" target="_blank" class="mr-4 hover:text-[#C5A059]">ウィキペディア</a>
+                        <a href="https://www.instagram.com/udophotography/?hl=en" target="_blank" class="hover:text-[#C5A059]">インスタグラム</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -210,38 +237,72 @@
                     <div class="fade-in space-y-8">
                         <div data-lang="en">
                             <h4 class="gold-text text-xl mb-4">Capturing the Invisible</h4>
-                            <p class="text-lg opacity-80 leading-relaxed mb-4">"Ink is not just a color; it is a resonance of the soul." His concept revolves around the sharp observation of nature and the delicate affection for all living creatures.</p>
+                            <p class="text-lg opacity-80 leading-relaxed mb-4">"Ink is not just a color; it is a resonance of the soul." His art is a spiritual dialogue with the nature of Arashiyama, capturing the essence of life in a single drop of ink.</p>
                         </div>
                         <div data-lang="fr">
                             <h4 class="gold-text text-xl mb-4">Capturer l'Invisible</h4>
-                            <p class="text-lg opacity-80 leading-relaxed mb-4">"L'encre n'est pas seulement une couleur ; c'est une résonance de l'âme." Son concept repose sur l'observation aiguë de la nature et une affection délicate pour tous les êtres vivants.</p>
+                            <p class="text-lg opacity-80 leading-relaxed mb-4">"L'encre n'est pas seulement une couleur ; c'est une résonance de l'âme." Son art est un dialogue spirituel avec la nature d'Arashiyama.</p>
                         </div>
                         <p class="jp-serif text-sm font-light leading-loose opacity-70">
-                            観察眼の鋭さと、愛情の細やかさ。嵐山の静寂の中で自然と対話し、その奥底に潜む「魂」を墨の一滴に封じ込める試みです。
+                            鋭い観察眼と、生命への慈しみ。嵐山の静寂の中で自然と対話し、その奥底に潜む「魂」を墨の一滴に封じ込める。喧騒を離れ、生命の強靭さに触れるための聖域です。
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Chronicle -->
+            <!-- Chronicle with Medal Details -->
             <div class="fade-in max-w-4xl mx-auto border-t border-white/10 pt-16">
+                <span class="gold-text text-xs tracking-widest uppercase mb-12 block text-center" data-lang="en">Honors & History</span>
+                <span class="gold-text text-xs tracking-widest uppercase mb-12 block text-center" data-lang="fr">Honneurs & Histoire</span>
+
+                <div class="history-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="gold-text font-semibold">2024</span>
+                        <span class="text-xs opacity-40 uppercase tracking-widest">Arashiyama / NYC</span>
+                    </div>
+                    <p class="text-lg font-light mb-2" data-lang="en">Kyoto-Arashiyama Fashion Show with Udo Spreitzenbarth</p>
+                    <p class="text-lg font-light mb-2" data-lang="fr">Défilé de mode Kyoto-Arashiyama avec Udo Spreitzenbarth</p>
+                    <p class="jp-serif text-xs opacity-60 font-light">UDO SPREITZENBARTH氏来日。当記念館にて撮影とファッションショーを開催、著名人多数参加。</p>
+                </div>
+
                 <div class="history-item">
                     <div class="flex justify-between mb-2">
                         <span class="gold-text font-semibold">2019</span>
-                        <span class="text-xs opacity-40 uppercase tracking-widest">Paris / Spain</span>
+                        <span class="text-xs opacity-40 uppercase tracking-widest">Paris / France</span>
                     </div>
-                    <p class="text-lg font-light mb-2" data-lang="en">Official Collection at Madeleine Church, Paris</p>
-                    <p class="text-lg font-light mb-2" data-lang="fr">Collection Officielle à l'Église de la Madeleine, Paris</p>
-                    <p class="jp-serif text-xs opacity-60 font-light">フランス・マドレーヌ寺院へ公式収蔵。</p>
+                    <p class="text-lg font-light mb-2" data-lang="en">Official Collection: Madeleine Church, Paris</p>
+                    <p class="text-lg font-light mb-2" data-lang="fr">Collection Officielle : Église de la Madeleine, Paris</p>
+                    <p class="jp-serif text-xs opacity-60 font-light">名作「波濤」がフランス・マドレーヌ寺院へ公式収蔵。</p>
                 </div>
+
                 <div class="history-item">
                     <div class="flex justify-between mb-2">
                         <span class="gold-text font-semibold">2017</span>
-                        <span class="text-xs opacity-40 uppercase tracking-widest">Europe</span>
+                        <span class="text-xs opacity-40 uppercase tracking-widest">Republic of France</span>
                     </div>
-                    <p class="text-lg font-light mb-2" data-lang="en">Grand Croix d’Or of Encouragement Public</p>
-                    <p class="text-lg font-light mb-2" data-lang="fr">Grand Croix d’Or de l'Encouragement Public</p>
-                    <p class="jp-serif text-xs opacity-60 font-light">フランス社会功労奨励章大賞受章。</p>
+                    <p class="text-lg font-light mb-2" data-lang="en">Grand Croix d’Or de l’Ordre de l’Encouragement Public</p>
+                    <p class="text-lg font-light mb-2" data-lang="fr">Grand Croix d’Or de l'Ordre de l'Encouragement Public</p>
+                    <p class="jp-serif text-xs opacity-60 font-light">フランス共和国政府承認、1932年創設の「フランス社会功労奨励章大賞」を受章。芸術分野での多大な功績が認められる。</p>
+                </div>
+
+                <div class="history-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="gold-text font-semibold">2017</span>
+                        <span class="text-xs opacity-40 uppercase tracking-widest">Belgo-Hispanic</span>
+                    </div>
+                    <p class="text-lg font-light mb-2" data-lang="en">Belgo-Hispanic Merit: Order of the Crown</p>
+                    <p class="text-lg font-light mb-2" data-lang="fr">Mérite Belgo-Hispanique : Ordre de la Couronne</p>
+                    <p class="jp-serif text-xs opacity-60 font-light">ベルゴ・イスパニック十字王冠勲章受章。</p>
+                </div>
+
+                <div class="history-item">
+                    <div class="flex justify-between mb-2">
+                        <span class="gold-text font-semibold">2014</span>
+                        <span class="text-xs opacity-40 uppercase tracking-widest">Switzerland</span>
+                    </div>
+                    <p class="text-lg font-light mb-2" data-lang="en">Switzerland-Japan 150th Anniversary Official Art Exchange</p>
+                    <p class="text-lg font-light mb-2" data-lang="fr">Échange d'Art Officiel : 150e Anniversaire Suisse-Japon</p>
+                    <p class="jp-serif text-xs opacity-60 font-light">スイス大使館等へ作品寄贈。国交樹立150周年を記念した国際交流に寄与。</p>
                 </div>
             </div>
         </div>
