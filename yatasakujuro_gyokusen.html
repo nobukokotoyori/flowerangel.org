@@ -11,7 +11,6 @@
             --gold: #C5A059;
             --bg-dark: #070707;
             --text-light: #EFEFEF;
-            --overlay: rgba(7, 7, 7, 0.7);
         }
         body {
             background-color: var(--bg-dark);
@@ -22,11 +21,15 @@
         }
         .jp-serif { font-family: 'Noto Serif JP', serif; }
         
-        /* Smooth Animation */
+        /* Language Toggle Classes */
+        [data-lang="en"], [data-lang="fr"] { display: none; }
+        body.lang-en [data-lang="en"] { display: block; }
+        body.lang-fr [data-lang="fr"] { display: block; }
+
+        /* Animation */
         .fade-in { opacity: 0; transform: translateY(40px); transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1); }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* Video as Living Art */
         .video-canvas {
             position: relative;
             width: 100%;
@@ -38,10 +41,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: contrast(1.1) brightness(0.9);
+            filter: contrast(1.1) brightness(0.8);
         }
         
-        /* Floating Language Control */
         .lang-control {
             position: fixed;
             top: 2.5rem;
@@ -54,6 +56,9 @@
             background: rgba(7, 7, 7, 0.8);
             backdrop-filter: blur(10px);
         }
+        .lang-btn { cursor: pointer; transition: 0.3s; opacity: 0.5; }
+        .lang-btn.active { opacity: 1; color: var(--gold); }
+        .lang-btn:hover { opacity: 1; }
 
         .gold-text { color: var(--gold); }
         .divider { width: 40px; height: 1px; background: var(--gold); margin: 2rem 0; }
@@ -61,12 +66,9 @@
             border: 1px solid rgba(197, 160, 89, 0.4);
             padding: 4rem 2rem;
             background: rgba(255, 255, 255, 0.02);
-            position: relative;
         }
         
-        /* Custom Button */
         .btn-invite {
-            position: relative;
             display: inline-block;
             padding: 1.2rem 3.5rem;
             color: var(--gold);
@@ -75,38 +77,29 @@
             letter-spacing: 0.3rem;
             font-size: 0.8rem;
             transition: 0.5s;
-            overflow: hidden;
         }
-        .btn-invite:hover {
-            color: #000;
-            background: var(--gold);
-        }
+        .btn-invite:hover { color: #000; background: var(--gold); }
 
-        /* Section Layout */
         .section-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-
-        /* History Timeline Style */
         .history-item { margin-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1.5rem; }
-
-        .profile-img {
-            filter: grayscale(0.5) contrast(1.1);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 10px;
-        }
+        .profile-img { filter: grayscale(0.5) contrast(1.1); border: 1px solid rgba(197, 160, 89, 0.2); padding: 10px; }
     </style>
 </head>
-<body>
+<body class="lang-en">
 
     <div class="lang-control">
-        <span>ENGLISH</span> <span class="mx-2 opacity-30">|</span> <span class="opacity-50">日本語</span>
+        <span class="lang-btn active" id="btn-en" onclick="setLang('en')">ENGLISH</span>
+        <span class="mx-2 opacity-30">|</span>
+        <span class="lang-btn" id="btn-fr" onclick="setLang('fr')">FRENCH</span>
     </div>
 
-    <!-- Hero: The Gate to Serenity -->
+    <!-- Hero Section -->
     <section class="h-screen flex flex-col justify-center items-center text-center px-4">
         <div class="fade-in">
             <span class="gold-text tracking-[0.5em] text-xs uppercase mb-6 block">Arashiyama, Kyoto</span>
             <h1 class="text-5xl md:text-7xl font-light mb-4 tracking-tight">Yata Sakujuro</h1>
-            <p class="text-xl md:text-2xl font-light tracking-[0.3em] mb-12 opacity-90">Memorial Museum × Gyokusen Luxury Collection</p>
+            <p class="text-xl md:text-2xl font-light tracking-[0.3em] mb-12 opacity-90" data-lang="en">Memorial Museum × Gyokusen Luxury Collection</p>
+            <p class="text-xl md:text-2xl font-light tracking-[0.3em] mb-12 opacity-90" data-lang="fr">Musée Commémoratif × Collection de Luxe Gyokusen</p>
             <div class="divider mx-auto"></div>
             <p class="jp-serif font-light text-sm tracking-[0.2em] opacity-80">
                 嵐山の静寂に響く、墨の呼吸。
@@ -119,11 +112,20 @@
         <div class="section-container">
             <div class="grid md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-5 fade-in">
-                    <span class="gold-text text-xs tracking-widest uppercase mb-4 block">The Spirit</span>
-                    <h3 class="text-4xl font-light mb-8">Eternal Ink, <br>Global Legacy</h3>
-                    <p class="text-lg opacity-70 mb-8 leading-relaxed">
-                        Honored by the French Republic and enshrined in the Madeleine Church. Yata Sakujuro's brushstrokes transcend borders, capturing the invisible essence of nature.
-                    </p>
+                    <div data-lang="en">
+                        <span class="gold-text text-xs tracking-widest uppercase mb-4 block">The Spirit</span>
+                        <h3 class="text-4xl font-light mb-8">Eternal Ink, <br>Global Legacy</h3>
+                        <p class="text-lg opacity-70 mb-8 leading-relaxed">
+                            Honored by the French Republic and enshrined in the Madeleine Church. Yata Sakujuro's brushstrokes transcend borders, capturing the invisible essence of nature.
+                        </p>
+                    </div>
+                    <div data-lang="fr">
+                        <span class="gold-text text-xs tracking-widest uppercase mb-4 block">L'Esprit</span>
+                        <h3 class="text-4xl font-light mb-8">Encre Éternelle, <br>Héritage Mondial</h3>
+                        <p class="text-lg opacity-70 mb-8 leading-relaxed">
+                            Honoré par la République Française et consacré à l'Église de la Madeleine. Les traits de pinceau de Yata Sakujuro transcendent les frontières, capturant l'essence invisible de la nature.
+                        </p>
+                    </div>
                     <p class="jp-serif text-sm font-light leading-loose opacity-60 border-l border-[#C5A059]/30 pl-6">
                         フランス社会功労奨励章大賞、そしてマドレーヌ寺院への公式収蔵。矢田作十路が描くのは、形ではなく「生命の根源」です。嵐山の四季と共に歩んだ、世界が認める日本の至宝。
                     </p>
@@ -151,11 +153,20 @@
                     </div>
                 </div>
                 <div class="md:col-span-5 order-1 md:order-2 fade-in md:pl-12">
-                    <span class="gold-text text-xs tracking-widest uppercase mb-4 block">The Fusion</span>
-                    <h3 class="text-4xl font-light mb-8">Gyokusen: <br>The Living Art</h3>
-                    <p class="text-lg opacity-70 mb-8 leading-relaxed">
-                        A dialogue between Sumi-e and high fashion. From New York runways to the palaces of Abu Dhabi, Gyokusen redefines luxury through the lens of Japanese craftsmanship.
-                    </p>
+                    <div data-lang="en">
+                        <span class="gold-text text-xs tracking-widest uppercase mb-4 block">The Fusion</span>
+                        <h3 class="text-4xl font-light mb-8">Gyokusen: <br>The Living Art</h3>
+                        <p class="text-lg opacity-70 mb-8 leading-relaxed">
+                            A dialogue between Sumi-e and high fashion. From New York runways to the palaces of Abu Dhabi, Gyokusen redefines luxury through the lens of Japanese craftsmanship.
+                        </p>
+                    </div>
+                    <div data-lang="fr">
+                        <span class="gold-text text-xs tracking-widest uppercase mb-4 block">La Fusion</span>
+                        <h3 class="text-4xl font-light mb-8">Gyokusen: <br>L'Art Vivant</h3>
+                        <p class="text-lg opacity-70 mb-8 leading-relaxed">
+                            Un dialogue entre le Sumi-e et la haute couture. Des défilés de New York aux palais d'Abou Dhabi, Gyokusen redéfinit le luxe à travers l'artisanat japonais.
+                        </p>
+                    </div>
                     <p class="jp-serif text-sm font-light leading-loose opacity-60 border-l border-[#C5A059]/30 pl-6">
                         水墨画を裏地に纏う。ニューヨーク、アブダビ、そして世界の社交界へ。伝統の粋を集めた「Gyokusen」のビスポークは、静かなる自己主張を求める投資家やリーダーたちのための芸術品です。
                     </p>
@@ -164,7 +175,7 @@
         </div>
     </section>
 
-    <!-- Section 4: The Depth (yata3.mp4) -->
+    <!-- Section 4: Video 3 -->
     <section class="py-32">
         <div class="section-container text-center">
             <div class="max-w-5xl mx-auto fade-in">
@@ -173,7 +184,8 @@
                         <source src="yata3.mp4" type="video/mp4">
                     </video>
                 </div>
-                <h3 class="text-3xl font-light italic mb-8">"True art does not speak, it breathes."</h3>
+                <h3 class="text-3xl font-light italic mb-8" data-lang="en">"True art does not speak, it breathes."</h3>
+                <h3 class="text-3xl font-light italic mb-8" data-lang="fr">"Le véritable art ne parle pas, il respire."</h3>
                 <p class="jp-serif text-sm font-extralight tracking-widest opacity-50">
                     真の芸術は語らず、ただそこに息づく。
                 </p>
@@ -185,92 +197,72 @@
     <section class="py-32 bg-[#050505]">
         <div class="section-container max-w-5xl">
             <div class="fade-in mb-24">
-                <span class="gold-text text-xs tracking-widest uppercase mb-4 block text-center">Philosophy & Origin</span>
+                <span class="gold-text text-xs tracking-widest uppercase mb-4 block text-center" data-lang="en">Philosophy & Origin</span>
+                <span class="gold-text text-xs tracking-widest uppercase mb-4 block text-center" data-lang="fr">Philosophie & Origine</span>
                 <h3 class="text-4xl md:text-5xl font-light mb-16 text-center">The Journey of Yata Sakujuro</h3>
                 
-                <!-- Concept Content -->
                 <div class="grid md:grid-cols-2 gap-16 items-start">
                     <div class="fade-in">
-                        <img src="yata4.jpg" alt="Yata Sakujuro" class="w-full h-auto profile-img mb-8" onerror="this.src='https://sakujuro.com/images/history_img01.jpg'">
-                        <p class="text-sm italic opacity-60 text-center tracking-widest uppercase">The Master of Modern Sumi-e</p>
+                        <img src="yata4.jpg" alt="Yata Sakujuro" class="w-full h-auto profile-img mb-8">
+                        <p class="text-sm italic opacity-60 text-center tracking-widest uppercase" data-lang="en">The Master of Modern Sumi-e</p>
+                        <p class="text-sm italic opacity-60 text-center tracking-widest uppercase" data-lang="fr">Le Maître du Sumi-e Moderne</p>
                     </div>
                     <div class="fade-in space-y-8">
-                        <div>
+                        <div data-lang="en">
                             <h4 class="gold-text text-xl mb-4">Capturing the Invisible</h4>
-                            <p class="text-lg opacity-80 leading-relaxed mb-4">
-                                "Ink is not just a color; it is a resonance of the soul." Yata Sakujuro's concept revolves around the sharp observation of nature and the delicate affection for all living creatures. 
-                            </p>
-                            <p class="jp-serif text-sm font-light leading-loose opacity-70">
-                                観察眼の鋭さと、愛情の細やかさ。矢田作十路の水墨画は、単なる技法の継承ではありません。嵐山の静寂の中で自然と対話し、その奥底に潜む「目に見えない魂」を墨の一滴に封じ込める試みです。
-                            </p>
+                            <p class="text-lg opacity-80 leading-relaxed mb-4">"Ink is not just a color; it is a resonance of the soul." His concept revolves around the sharp observation of nature and the delicate affection for all living creatures.</p>
                         </div>
-                        <div>
-                            <h4 class="gold-text text-xl mb-4">A Sanctuary of Art</h4>
-                            <p class="text-lg opacity-80 leading-relaxed mb-4">
-                                This museum was born from a desire to provide a tranquil space where visitors can escape the chaos and reconnect with the spiritual toughness of life.
-                            </p>
-                            <p class="jp-serif text-sm font-light leading-loose opacity-70">
-                                喧騒を離れ、生命の強靭さと静謐さに触れる場所。記念館は、画伯が追求した「精神的な豊かさ」を全世界のゲストと共有するための聖域として設立されました。
-                            </p>
+                        <div data-lang="fr">
+                            <h4 class="gold-text text-xl mb-4">Capturer l'Invisible</h4>
+                            <p class="text-lg opacity-80 leading-relaxed mb-4">"L'encre n'est pas seulement une couleur ; c'est une résonance de l'âme." Son concept repose sur l'observation aiguë de la nature et une affection délicate pour tous les êtres vivants.</p>
                         </div>
+                        <p class="jp-serif text-sm font-light leading-loose opacity-70">
+                            観察眼の鋭さと、愛情の細やかさ。嵐山の静寂の中で自然と対話し、その奥底に潜む「魂」を墨の一滴に封じ込める試みです。
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Chronicle Timeline -->
+            <!-- Chronicle -->
             <div class="fade-in max-w-4xl mx-auto border-t border-white/10 pt-16">
-                <span class="gold-text text-xs tracking-widest uppercase mb-12 block">Chronicle of Excellence</span>
-                
                 <div class="history-item">
-                    <div class="flex flex-col md:flex-row md:justify-between mb-2">
+                    <div class="flex justify-between mb-2">
                         <span class="gold-text font-semibold">2019</span>
-                        <span class="text-xs opacity-40 uppercase tracking-widest">France / Spain</span>
+                        <span class="text-xs opacity-40 uppercase tracking-widest">Paris / Spain</span>
                     </div>
-                    <p class="text-lg font-light mb-2">Official Collection at Madeleine Church, Paris</p>
-                    <p class="jp-serif text-xs opacity-60 font-light">フランス・マドレーヌ寺院へ公式収蔵。スペイン・コリア・デルリオ市庁舎へ作品寄贈。</p>
+                    <p class="text-lg font-light mb-2" data-lang="en">Official Collection at Madeleine Church, Paris</p>
+                    <p class="text-lg font-light mb-2" data-lang="fr">Collection Officielle à l'Église de la Madeleine, Paris</p>
+                    <p class="jp-serif text-xs opacity-60 font-light">フランス・マドレーヌ寺院へ公式収蔵。</p>
                 </div>
-
                 <div class="history-item">
-                    <div class="flex flex-col md:flex-row md:justify-between mb-2">
-                        <span class="gold-text font-semibold">2018</span>
-                        <span class="text-xs opacity-40 uppercase tracking-widest">Paris / South Korea</span>
-                    </div>
-                    <p class="text-lg font-light mb-2">WWI Centenary Ceremony at Arc de Triomphe</p>
-                    <p class="jp-serif text-xs opacity-60 font-light">エトワール凱旋門での第一次世界大戦100周年追悼式列席。韓国大統領へ公式寄贈、国際美術展栄誉賞受賞。</p>
-                </div>
-
-                <div class="history-item">
-                    <div class="flex flex-col md:flex-row md:justify-between mb-2">
+                    <div class="flex justify-between mb-2">
                         <span class="gold-text font-semibold">2017</span>
                         <span class="text-xs opacity-40 uppercase tracking-widest">Europe</span>
                     </div>
-                    <p class="text-lg font-light mb-2">Grand Croix d’Or & Belgo-Hispanic Merit</p>
-                    <p class="jp-serif text-xs opacity-60 font-light">フランス社会功労奨励章大賞、ベルゴイスパニック十字王冠勲章受章。</p>
-                </div>
-
-                <div class="history-item">
-                    <div class="flex flex-col md:flex-row md:justify-between mb-2">
-                        <span class="gold-text font-semibold">2014</span>
-                        <span class="text-xs opacity-40 uppercase tracking-widest">Switzerland</span>
-                    </div>
-                    <p class="text-lg font-light mb-2">Switzerland-Japan 150th Anniversary</p>
-                    <p class="jp-serif text-xs opacity-60 font-light">日本・スイス国交樹立150周年を記念し、スイス大使館等へ作品寄贈。水墨画教室を通じた国際交流。</p>
+                    <p class="text-lg font-light mb-2" data-lang="en">Grand Croix d’Or of Encouragement Public</p>
+                    <p class="text-lg font-light mb-2" data-lang="fr">Grand Croix d’Or de l'Encouragement Public</p>
+                    <p class="jp-serif text-xs opacity-60 font-light">フランス社会功労奨励章大賞受章。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Event Invitation Section (Moved to Bottom) -->
+    <!-- Invitation Section -->
     <section class="py-40 text-center relative">
         <div class="section-container max-w-4xl fade-in">
             <div class="luxury-card">
-                <span class="gold-text tracking-[0.4em] text-xs uppercase mb-8 block">Exclusive Inauguration</span>
-                <h4 class="text-5xl font-light mb-6">Grand Opening Dinner</h4>
+                <span class="gold-text tracking-[0.4em] text-xs uppercase mb-8 block" data-lang="en">Exclusive Inauguration</span>
+                <span class="gold-text tracking-[0.4em] text-xs uppercase mb-8 block" data-lang="fr">Inauguration Exclusive</span>
+                
+                <h4 class="text-5xl font-light mb-6" data-lang="en">Grand Opening Dinner</h4>
+                <h4 class="text-5xl font-light mb-6" data-lang="fr">Dîner de Gala d'Inauguration</h4>
+                
                 <p class="text-xl italic opacity-60 mb-12">In collaboration with Gyokusen</p>
                 
                 <div class="space-y-4 mb-12">
                     <p class="text-2xl tracking-widest">MARCH 30, 2026</p>
-                    <p class="text-lg opacity-80">Doors open at 17:00</p>
+                    <p class="text-lg opacity-80" data-lang="en">Commencing at 17:00</p>
+                    <p class="text-lg opacity-80" data-lang="fr">À partir de 17:00</p>
                 </div>
 
                 <div class="jp-serif space-y-2 mb-12">
@@ -278,35 +270,43 @@
                     <p class="text-sm opacity-60">グランドオープン記念食事会</p>
                 </div>
 
-                <p class="text-xs uppercase gold-text tracking-widest mb-12">By Invitation Only</p>
+                <p class="text-xs uppercase gold-text tracking-widest mb-12" data-lang="en">By Invitation Only</p>
+                <p class="text-xs uppercase gold-text tracking-widest mb-12" data-lang="fr">Sur Invitation Uniquement</p>
                 
                 <a href="mailto:info@flowerangel.org" class="btn-invite">Request Access</a>
             </div>
-            <p class="mt-8 text-[0.6rem] tracking-widest opacity-30 uppercase">Confidential & Private Event</p>
+            <p class="mt-8 text-[0.6rem] tracking-widest opacity-30 uppercase" data-lang="en">Confidential & Private Event</p>
+            <p class="mt-8 text-[0.6rem] tracking-widest opacity-30 uppercase" data-lang="fr">Événement Privé & Confidentiel</p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-20 border-t border-white/5">
-        <div class="section-container text-center">
-            <p class="text-[0.7rem] tracking-[0.3em] opacity-40 uppercase mb-8">
-                &copy; 2026 Yata Sakujuro Memorial Museum. Arashiyama, Japan.
-            </p>
-        </div>
+    <footer class="py-20 border-t border-white/5 text-center">
+        <p class="text-[0.7rem] tracking-[0.3em] opacity-40 uppercase">&copy; 2026 Yata Sakujuro Memorial Museum. Arashiyama, Japan.</p>
     </footer>
 
     <script>
-        // Reveal animation on scroll
-        const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        function setLang(lang) {
+            const body = document.body;
+            const btnEn = document.getElementById('btn-en');
+            const btnFr = document.getElementById('btn-fr');
+            
+            if (lang === 'en') {
+                body.classList.remove('lang-fr');
+                body.classList.add('lang-en');
+                btnEn.classList.add('active');
+                btnFr.classList.remove('active');
+            } else {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-fr');
+                btnFr.classList.add('active');
+                btnEn.classList.remove('active');
+            }
+        }
     </script>
 </body>
 </html>
