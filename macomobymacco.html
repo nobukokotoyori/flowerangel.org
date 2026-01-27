@@ -88,15 +88,26 @@
             <div class="text-xl font-bold tracking-widest uppercase cursor-pointer hover:opacity-80 transition-opacity" onclick="window.scrollTo(0,0)">
                 MACOMO <span class="font-light text-xs ml-1 opacity-80 font-sans">by MACCO</span>
             </div>
+            
             <div class="hidden md:flex space-x-8">
                 <a href="#philosophy" class="nav-link text-sm tracking-widest hover:text-macomo-accent transition-colors opacity-90">PHILOSOPHY</a>
                 <a href="#history" class="nav-link text-sm tracking-widest hover:text-macomo-accent transition-colors opacity-90">HISTORY</a>
                 <a href="#harmony" class="nav-link text-sm tracking-widest hover:text-macomo-accent transition-colors opacity-90">HARMONY</a>
                 <a href="#founder" class="nav-link text-sm tracking-widest hover:text-macomo-accent transition-colors opacity-90">FOUNDER</a>
             </div>
-            <button class="px-6 py-2 border border-white text-xs tracking-widest hover:bg-white hover:text-macomo-dark transition-colors duration-300">
-                GLOBAL SHOP
-            </button>
+
+            <div class="flex items-center gap-6">
+                <!-- Language Selector -->
+                <div class="hidden lg:flex text-[10px] tracking-widest font-sans gap-2 opacity-90">
+                    <a href="#" class="hover:text-macomo-accent transition-colors">ENGLISH</a>
+                    <span class="opacity-50 font-light">|</span>
+                    <a href="#" class="hover:text-macomo-accent transition-colors opacity-60">FRENCH</a>
+                </div>
+                
+                <button class="px-6 py-2 border border-white text-xs tracking-widest hover:bg-white hover:text-macomo-dark transition-colors duration-300">
+                    GLOBAL SHOP
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -426,6 +437,9 @@
         
         <div class="max-w-6xl mx-auto mt-20 pt-8 border-t border-white/5 text-center text-xs text-gray-500 tracking-wide">
             <p>&copy; 2026 MACOMO by MACCO. Spreading Harmony to the World.</p>
+            <p class="mt-4">
+                Produced by <a href="https://flowerangelhk.com/" target="_blank" rel="noopener noreferrer" class="hover:text-macomo-accent transition-colors duration-300">Flower Angel</a>
+            </p>
         </div>
     </footer>
 
