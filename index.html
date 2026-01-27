@@ -7,8 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* エレガントなCinzelフォントと日本語フォントをインポート */
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        /* エレガントな Cormorant Garamond と Noto Sans JP をインポート */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
@@ -22,9 +22,9 @@
             margin: 0;
         }
 
-        .font-brand {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 0.05em;
+        /* タイトル用：自然で優雅なセリフ体 */
+        .font-title {
+            font-family: 'Cormorant Garamond', serif;
         }
 
         /* 舞い散る花びらのアニメーション */
@@ -55,7 +55,7 @@
             100% { transform: translateY(110vh) translateX(100px) rotate(360deg); opacity: 0; }
         }
 
-        /* 4列×3行を1画面に強制収容するためのグリッド設定 */
+        /* 4列×3行のグリッドレイアウト */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -86,7 +86,7 @@
 
         .card-preview {
             width: 100%;
-            height: 45%; /* サブテキストをさらに大きくするため画像を少し小さく */
+            height: 46%; 
             background: #fdf2f8;
             position: relative;
             overflow: hidden;
@@ -97,7 +97,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 20%; /* メインイメージが見えやすい位置に調整 */
+            object-position: center 15%; 
             transition: transform 0.5s ease;
         }
 
@@ -120,29 +120,29 @@
         }
 
         @media (min-width: 768px) {
-            .cards-container { gap: 0.4rem; }
+            .cards-container { gap: 0.45rem; }
             .lang-display { font-size: 10px; }
             .card-content { padding: 0.3rem; }
         }
 
-        /* タイトル：Yata Sakujuro Museumが収まるように極小化 */
+        /* タイトル：Cormorant Garamond を適用 */
+        /* Christmas Sutadon 2025 が収まるようにサイズを微調整 */
         h3 {
-            font-family: 'Cinzel', serif; 
-            font-size: 2.8px; /* さらに縮小して確実に一行に収める */
-            line-height: 1;
-            margin-bottom: 1px;
-            font-weight: 900; 
-            color: #444;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 6.8px; 
+            line-height: 1.1;
+            margin-bottom: 1.5px;
+            font-weight: 700;
+            color: #333;
             white-space: nowrap; 
             overflow: hidden;
             text-overflow: clip; 
-            text-transform: uppercase;
-            letter-spacing: -0.06em; /* 文字間隔をさらにタイトに */
+            letter-spacing: -0.01em; /* わずかに詰めて1列を確実にする */
         }
 
-        /* サブテキスト：さらに大きく、ピンクを強調 */
+        /* サブテキスト：ピンク色で大きく強調 */
         .desc-text {
-            font-size: 9.5px; /* 最大化 */
+            font-size: 9.5px; 
             color: #ffb6c1; 
             line-height: 1.1;
             word-break: break-word;
@@ -150,11 +150,11 @@
         }
 
         @media (min-width: 768px) {
-            h3 { font-size: 4.8px; } /* PCサイズも調整 */
-            .desc-text { font-size: 12.5px; }
+            h3 { font-size: 10.5px; } 
+            .desc-text { font-size: 13.5px; }
         }
 
-        /* SNSグリッド */
+        /* SNSアイコン */
         .social-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -183,23 +183,22 @@
         
         <!-- Header -->
         <header class="flex flex-col items-center mb-1">
-            <h1 class="text-lg md:text-2xl font-brand font-bold text-gray-800 tracking-tighter leading-none">Flower Angel</h1>
+            <h1 class="text-xl md:text-3xl font-title font-semibold text-gray-800 tracking-wide leading-none italic">Flower Angel</h1>
             <p class="text-[6px] md:text-[9px] uppercase tracking-[0.2em] text-pink-300 mt-0.5 font-bold">Produced by Flower Angel</p>
             <div class="lang-display mt-0.5">JAPANESE | ENGLISH | FRENCH</div>
         </header>
 
-        <!-- Main Cards Grid (Fixed 4x3) -->
+        <!-- Main Cards Grid -->
         <main class="flex-grow min-h-0">
             <div class="cards-container">
                 
                 <!-- 1. UZU WORLD Main -->
                 <a href="https://uzuworld.com/" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <!-- メインイメージが見えるようにパラメータ調整 -->
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2F?w=800&h=600" alt="">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2F?w=800&h=600" alt="[UZU WORLD]">
                     </div>
                     <div class="card-content">
-                        <h3>X'mas Sutadon 2025</h3>
+                        <h3>Christmas Sutadon 2025</h3>
                         <p class="desc-text">Economy & Human Cycle</p>
                     </div>
                 </a>
@@ -207,7 +206,7 @@
                 <!-- 2. SAKURA BLOOM 2026 -->
                 <a href="https://uzuworld.com/sakurabloom2026" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2Fsakurabloom2026?w=800&h=600" alt="">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2Fsakurabloom2026?w=800&h=600" alt="[SAKURA BLOOM]">
                     </div>
                     <div class="card-content">
                         <h3>SAKURA BLOOM 2026</h3>
@@ -218,7 +217,7 @@
                 <!-- 3. HINOMOTOICHI -->
                 <a href="https://flowerangel.org/hinomotoichi-globalfamily" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fhinomotoichi-globalfamily?w=800&h=600" alt="">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fhinomotoichi-globalfamily?w=800&h=600" alt="[HINOMOTOICHI]">
                     </div>
                     <div class="card-content">
                         <h3>HINOMOTOICHI</h3>
@@ -229,7 +228,7 @@
                 <!-- 4. Yata Sakujuro Museum -->
                 <a href="https://flowerangel.org/yatasakujuro_gyokusen.html" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fyatasakujuro_gyokusen.html?w=800&h=600" alt="">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fyatasakujuro_gyokusen.html?w=800&h=600" alt="[Yata Sakujuro Museum]">
                     </div>
                     <div class="card-content">
                         <h3>Yata Sakujuro Museum</h3>
@@ -240,7 +239,7 @@
                 <!-- 5. Takuma × Tamara -->
                 <a href="https://flowerangel.org/takumamiyata_tamararice" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ftakumamiyata_tamararice?w=800&h=600" alt="">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ftakumamiyata_tamararice?w=800&h=600" alt="[Takuma × Tamara]">
                     </div>
                     <div class="card-content">
                         <h3>Takuma × Tamara</h3>
@@ -251,7 +250,7 @@
                 <!-- 6. Kyoshin-kai -->
                 <a href="https://flowerangel.org/finethanks" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ffinethanks?w=800&h=600" alt="">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ffinethanks?w=800&h=600" alt="[Kyoshin-kai]">
                     </div>
                     <div class="card-content">
                         <h3>Kyoshin-kai</h3>
@@ -262,7 +261,7 @@
                 <!-- 7. Echoes of Light -->
                 <a href="https://echoes-of-light.jp/" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2F?w=800&h=600" alt="">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2F?w=800&h=600" alt="[Echoes of Light]">
                     </div>
                     <div class="card-content">
                         <h3>Echoes of Light</h3>
@@ -273,7 +272,7 @@
                 <!-- 8. A Story of Hope -->
                 <a href="https://echoes-of-light.jp/sakurabloom2026" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2Fsakurabloom2026?w=800&h=600" alt="">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2Fsakurabloom2026?w=800&h=600" alt="[A Story of Hope]">
                     </div>
                     <div class="card-content">
                         <h3>A Story of Hope</h3>
@@ -284,7 +283,7 @@
                 <!-- 9. Flower Angel HK -->
                 <a href="https://flowerangelhk.com/" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangelhk.com%2F?w=800&h=600" alt="">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangelhk.com%2F?w=800&h=600" alt="[Flower Angel HK]">
                     </div>
                     <div class="card-content">
                         <h3>Flower Angel HK</h3>
@@ -292,13 +291,13 @@
                     </div>
                 </a>
 
-                <!-- 10. Produced by Flower Angel (Social Links) -->
+                <!-- 10. Produced by Flower Angel -->
                 <div class="playing-card rounded-lg bg-white/40">
                     <div class="card-preview bg-pink-50 flex items-center justify-center">
                         <i class="fas fa-dove text-pink-200 text-3xl md:text-5xl"></i>
                     </div>
                     <div class="card-content">
-                        <h3 style="white-space: normal; font-size: 7px;">Connect With Us</h3>
+                        <h3 class="font-title italic" style="white-space: normal; font-size: 10px;">Connect With Us</h3>
                         <div class="social-grid">
                             <a href="https://www.youtube.com/@flower_angel_japan" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
                             <a href="https://www.facebook.com/profile.php?id=61584970334658" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
@@ -309,12 +308,12 @@
                     </div>
                 </div>
 
-                <!-- 11. Placeholder 1 -->
+                <!-- 11. Placeholder -->
                 <div class="playing-card rounded-xl border-dashed border border-pink-100 bg-white/10 flex items-center justify-center">
                     <div class="desc-text text-gray-300 italic uppercase" style="font-size: 6px;">Next Project</div>
                 </div>
 
-                <!-- 12. Placeholder 2 -->
+                <!-- 12. Placeholder -->
                 <div class="playing-card rounded-xl border-dashed border border-pink-100 bg-white/10 flex items-center justify-center">
                     <div class="desc-text text-gray-300 italic uppercase" style="font-size: 6px;">Next Project</div>
                 </div>
@@ -340,7 +339,7 @@
                 const size = Math.random() * 5 + 3;
                 const left = Math.random() * 100;
                 const delay = Math.random() * 20;
-                const duration = Math.random() * 10 + 10;
+                const duration = Math.random() * 8 + 8;
                 const rotate = Math.random() * 360;
 
                 petal.style.width = `${size}px`;
