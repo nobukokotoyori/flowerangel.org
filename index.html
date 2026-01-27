@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -12,7 +12,7 @@
         body {
             font-family: 'Noto Sans JP', sans-serif;
             background: #fffafa;
-            overflow: hidden; /* 1画面に収めるためスクロール禁止 */
+            overflow: hidden; /* Prevent scrolling to fit on one screen */
             color: #4a4a4a;
             height: 100vh;
             height: 100dvh;
@@ -25,7 +25,7 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* 幻想的な背景アニメーション */
+        /* Dreamy petal background animation */
         .flower-bg {
             position: fixed;
             top: 0;
@@ -53,7 +53,7 @@
             100% { transform: translateY(110vh) translateX(100px) rotate(360deg); opacity: 0; }
         }
 
-        /* 4列×3行を1画面に強制収容するためのグリッド設定 */
+        /* Grid settings to force 4 columns x 3 rows on one screen */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -84,7 +84,7 @@
 
         .card-preview {
             width: 100%;
-            height: 60%;
+            height: 55%;
             background: #fdf2f8;
             position: relative;
             overflow: hidden;
@@ -97,7 +97,7 @@
             transition: transform 0.5s ease;
         }
 
-        /* ローディング中のプレースホルダー色 */
+        /* Shimmer effect while loading */
         .card-preview::before {
             content: "";
             position: absolute;
@@ -144,25 +144,21 @@
         h3 {
             font-size: 7px;
             line-height: 1.1;
-            margin-bottom: 1px;
+            margin-bottom: 2px;
             font-weight: 700;
             color: #333;
         }
 
-        @media (min-width: 768px) {
-            h3 { font-size: 11px; }
-        }
-
-        .category-tag {
-            font-size: 5px;
-            color: #ffb6c1;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .desc-text {
+            font-size: 6px;
+            color: #666;
+            line-height: 1.2;
+            word-break: break-word;
         }
 
         @media (min-width: 768px) {
-            .category-tag { font-size: 8px; }
+            h3 { font-size: 10px; }
+            .desc-text { font-size: 8px; }
         }
 
         /* Social Icons Style */
@@ -206,99 +202,99 @@
                 <!-- 1. UZU WORLD Main -->
                 <a href="https://uzuworld.com/" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2F?w=600&h=450" alt="UZU WORLD">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2F?w=600&h=450" alt="">
                     </div>
                     <div class="card-content">
                         <h3>Christmas Sutadon 2025</h3>
-                        <p class="category-tag">UZU WORLD</p>
+                        <p class="desc-text">The cycle of the economic world and the human world</p>
                     </div>
                 </a>
 
                 <!-- 2. SAKURA BLOOM 2026 -->
                 <a href="https://uzuworld.com/sakurabloom2026" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2Fsakurabloom2026?w=600&h=450" alt="SAKURA BLOOM">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2Fsakurabloom2026?w=600&h=450" alt="">
                     </div>
                     <div class="card-content">
                         <h3>SAKURA BLOOM 2026</h3>
-                        <p class="category-tag">UZU WORLD</p>
+                        <p class="desc-text">A new phase starting with cherry blossoms in 2026</p>
                     </div>
                 </a>
 
                 <!-- 3. HINOMOTOICHI -->
                 <a href="https://flowerangel.org/hinomotoichi-globalfamily" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fhinomotoichi-globalfamily?w=600&h=450" alt="HINOMOTOICHI">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fhinomotoichi-globalfamily?w=600&h=450" alt="">
                     </div>
                     <div class="card-content">
                         <h3>HINOMOTOICHI</h3>
-                        <p class="category-tag">Global Family</p>
+                        <p class="desc-text">Global Family</p>
                     </div>
                 </a>
 
                 <!-- 4. Yata Sakujuro Museum -->
                 <a href="https://flowerangel.org/yatasakujuro_gyokusen.html" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fyatasakujuro_gyokusen.html?w=600&h=450" alt="Museum">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fyatasakujuro_gyokusen.html?w=600&h=450" alt="[Image of Museum]">
                     </div>
                     <div class="card-content">
                         <h3>Yata Sakujuro Museum</h3>
-                        <p class="category-tag">Culture</p>
+                        <p class="desc-text">Gyokusen Luxury Collection</p>
                     </div>
                 </a>
 
-                <!-- 5. Miyata × Tamara -->
+                <!-- 5. Takuma × Tamara -->
                 <a href="https://flowerangel.org/takumamiyata_tamararice" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ftakumamiyata_tamararice?w=600&h=450" alt="Art">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ftakumamiyata_tamararice?w=600&h=450" alt="">
                     </div>
                     <div class="card-content">
                         <h3>Takuma × Tamara</h3>
-                        <p class="category-tag">Art Collaboration</p>
+                        <p class="desc-text">FRENCH × RICE Fusion Cuisine</p>
                     </div>
                 </a>
 
                 <!-- 6. Kyoshin-kai -->
                 <a href="https://flowerangel.org/finethanks" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ffinethanks?w=600&h=450" alt="Kyoshin-kai">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ffinethanks?w=600&h=450" alt="">
                     </div>
                     <div class="card-content">
                         <h3>Kyoshin-kai</h3>
-                        <p class="category-tag">finethanks Tokyo</p>
+                        <p class="desc-text">A community of resonating gratitude from Tokyo</p>
                     </div>
                 </a>
 
                 <!-- 7. Echoes of Light -->
                 <a href="https://echoes-of-light.jp/" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2F?w=600&h=450" alt="Echoes of Light">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2F?w=600&h=450" alt="">
                     </div>
                     <div class="card-content">
                         <h3>Echoes of Light</h3>
-                        <p class="category-tag">Entertainment</p>
+                        <p class="desc-text">Promoting a humanitarian economy through art</p>
                     </div>
                 </a>
 
-                <!-- 8. Story of Hope -->
+                <!-- 8. A Story of Hope -->
                 <a href="https://echoes-of-light.jp/sakurabloom2026" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2Fsakurabloom2026?w=600&h=450" alt="Story of Hope">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2Fsakurabloom2026?w=600&h=450" alt="">
                     </div>
                     <div class="card-content">
                         <h3>A Story of Hope</h3>
-                        <p class="category-tag">Project</p>
+                        <p class="desc-text">Charity Concert</p>
                     </div>
                 </a>
 
                 <!-- 9. Flower Angel HK -->
                 <a href="https://flowerangelhk.com/" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangelhk.com%2F?w=600&h=450" alt="HK Legal">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangelhk.com%2F?w=600&h=450" alt="">
                     </div>
                     <div class="card-content">
                         <h3>Flower Angel HK</h3>
-                        <p class="category-tag">International Law</p>
+                        <p class="desc-text">Legal entity for international investment and transactions</p>
                     </div>
                 </a>
 
@@ -308,7 +304,7 @@
                         <i class="fas fa-dove text-pink-200 text-3xl md:text-5xl"></i>
                     </div>
                     <div class="card-content">
-                        <h3 class="font-bold text-gray-800 mb-2">Connect With Us</h3>
+                        <h3 class="font-bold text-gray-800 mb-1 md:mb-2">Connect With Us</h3>
                         <div class="social-grid">
                             <a href="https://www.youtube.com/@flower_angel_japan" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
                             <a href="https://www.facebook.com/profile.php?id=61584970334658" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
@@ -319,14 +315,14 @@
                     </div>
                 </div>
 
-                <!-- 11. Placeholder 2 (Future) -->
+                <!-- 11. Placeholder (Future) -->
                 <div class="playing-card rounded-xl border-dashed border border-pink-100 bg-white/10 flex items-center justify-center">
-                    <div class="category-tag text-gray-300">Coming Soon</div>
+                    <div class="desc-text text-gray-300 italic">NEXT PROJECT</div>
                 </div>
 
-                <!-- 12. Placeholder 3 (Future) -->
+                <!-- 12. Placeholder (Future) -->
                 <div class="playing-card rounded-xl border-dashed border border-pink-100 bg-white/10 flex items-center justify-center">
-                    <div class="category-tag text-gray-300">Coming Soon</div>
+                    <div class="desc-text text-gray-300 italic">NEXT PROJECT</div>
                 </div>
 
             </div>
