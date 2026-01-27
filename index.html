@@ -84,7 +84,7 @@
 
         .card-preview {
             width: 100%;
-            height: 65%;
+            height: 60%;
             background: #fdf2f8;
             position: relative;
             overflow: hidden;
@@ -164,6 +164,26 @@
         @media (min-width: 768px) {
             .category-tag { font-size: 8px; }
         }
+
+        /* Social Icons Style */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 4px;
+            padding: 0 4px;
+        }
+        .social-icon {
+            color: #ffb6c1;
+            transition: color 0.2s;
+            font-size: 14px;
+        }
+        .social-icon:hover {
+            color: #ff6b81;
+        }
+        @media (min-width: 768px) {
+            .social-icon { font-size: 20px; }
+            .social-grid { gap: 10px; }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -175,6 +195,7 @@
         <!-- Header -->
         <header class="flex flex-col items-center mb-2">
             <h1 class="text-lg md:text-2xl font-serif font-bold text-gray-800 tracking-tighter leading-none">Flower Angel</h1>
+            <p class="text-[6px] md:text-[9px] uppercase tracking-[0.2em] text-pink-300 mt-1 font-bold">Produced by Flower Angel</p>
             <div class="lang-display mt-1">JAPANESE | ENGLISH | FRENCH</div>
         </header>
 
@@ -281,19 +302,31 @@
                     </div>
                 </a>
 
-                <!-- 10. Placeholder 1 (Future) -->
-                <div class="playing-card rounded-xl border-dashed border border-pink-100 bg-white/10 flex items-center justify-center">
-                    <div class="category-tag text-gray-300">New Project</div>
+                <!-- 10. Produced by Flower Angel (Social Links) -->
+                <div class="playing-card rounded-lg bg-white/40">
+                    <div class="card-preview bg-pink-50 flex items-center justify-center">
+                        <i class="fas fa-dove text-pink-200 text-3xl md:text-5xl"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="font-bold text-gray-800 mb-2">Connect With Us</h3>
+                        <div class="social-grid">
+                            <a href="https://www.youtube.com/@flower_angel_japan" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61584970334658" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/flower_angel_japan/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@flower_angel_japan" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://line.me/R/ti/p/@yyr4459y" target="_blank" class="social-icon"><i class="fab fa-line"></i></a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 11. Placeholder 2 (Future) -->
                 <div class="playing-card rounded-xl border-dashed border border-pink-100 bg-white/10 flex items-center justify-center">
-                    <div class="category-tag text-gray-300">New Project</div>
+                    <div class="category-tag text-gray-300">Coming Soon</div>
                 </div>
 
                 <!-- 12. Placeholder 3 (Future) -->
                 <div class="playing-card rounded-xl border-dashed border border-pink-100 bg-white/10 flex items-center justify-center">
-                    <div class="category-tag text-gray-300">New Project</div>
+                    <div class="category-tag text-gray-300">Coming Soon</div>
                 </div>
 
             </div>
