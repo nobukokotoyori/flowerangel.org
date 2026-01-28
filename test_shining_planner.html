@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shining Planner株式会社 - 物語の星座を、ビジネスの輝きへ。</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #010103;
+            color: white;
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* 宇宙の深層グラデーション */
+        .bg-gradient-custom {
+            background: radial-gradient(circle at 50% 50%, #1a0b3c 0%, #020205 80%);
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+        }
+
+        /* 星雲のような揺らぎ */
+        .nebula {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+            animation: nebula-pulse 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes nebula-pulse {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+            to { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+
+        /* ロゴの登場アニメーション */
+        .logo-entrance {
+            animation: logo-reveal 3s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+            opacity: 0;
+            filter: blur(20px);
+        }
+
+        @keyframes logo-reveal {
+            0% { transform: scale(1.2); opacity: 0; filter: blur(20px); }
+            100% { transform: scale(1); opacity: 1; filter: blur(0); }
+        }
+
+        /* 浮遊感アニメーション */
+        .float-anim {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* 中央からの閃光エフェクト（5秒周期） */
+        @keyframes flare {
+            0%, 20% { transform: scale(0); opacity: 0; }
+            23% { transform: scale(1); opacity: 1; filter: brightness(2.5); }
+            35% { transform: scale(80); opacity: 0; filter: blur(5px); }
+            100% { transform: scale(100); opacity: 0; }
+        }
+        .animate-flare {
+            animation: flare 5s ease-out infinite;
+        }
+
+        @keyframes flare-ring {
+            0%, 22% { transform: scale(0); opacity: 0; }
+            30% { transform: scale(150); opacity: 0.5; }
+            50% { transform: scale(300); opacity: 0; }
+            100% { opacity: 0; }
+        }
+        .animate-flare-ring {
+            animation: flare-ring 5s ease-out infinite;
+        }
+
+        @keyframes center-shine {
+            0%, 22% { transform: scaleX(0) rotate(-5deg); opacity: 0; }
+            25% { transform: scaleX(1.8) rotate(-5deg); opacity: 1; }
+            40% { transform: scaleX(3) rotate(-5deg); opacity: 0; }
+            100% { opacity: 0; }
+        }
+        .animate-center-shine {
+            animation: center-shine 5s ease-in-out infinite;
+        }
+
+        /* 全体的な発光と文字の強調 */
+        @keyframes logo-glow-pulse {
+            0%, 100% { 
+                filter: drop-shadow(0 0 30px rgba(160, 100, 255, 0.4)) 
+                        drop-shadow(0 0 10px rgba(255, 255, 255, 0.2))
+                        brightness(1.1); 
+            }
+            50% { 
+                filter: drop-shadow(0 0 50px rgba(180, 140, 255, 0.8)) 
+                        drop-shadow(0 0 20px rgba(255, 255, 255, 0.4))
+                        brightness(1.4); 
+            }
+        }
+        .logo-img-glow {
+            animation: logo-glow-pulse 4s ease-in-out infinite;
+        }
+
+        /* 中央の月の部分をピンポイントで光らせるオーバーレイ */
+        .moon-spotlight {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(167, 139, 250, 0.4) 30%, transparent 70%);
+            mix-blend-mode: screen;
+            z-index: 15;
+            pointer-events: none;
+            animation: moon-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes moon-pulse {
+            0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.3); }
+        }
+
+        /* 下部のテキスト部分を光らせるオーバーレイ */
+        .text-spotlight {
+            position: absolute;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 40px;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.5) 0%, transparent 80%);
+            mix-blend-mode: overlay;
+            z-index: 15;
+            pointer-events: none;
+            animation: text-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes text-pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        .glass-card {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(167, 139, 250, 0.4);
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #a78bfa, #ffffff, #f9a8d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-gradient-custom"></div>
+    <div class="nebula"></div>
+    <canvas id="starCanvas"></canvas>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex flex-col items-center justify-center px-4 text-center">
+        <div id="logo-container" class="relative transition-all duration-1000 transform logo-entrance">
+            <div class="float-anim">
+                <div class="relative w-80 h-80 md:w-[600px] md:h-[600px] flex items-center justify-center">
+                    
+                    <!-- ロゴ画像 -->
+                    <img src="shiningplanner.jpg" alt="Shining Planner株式会社 ロゴ" 
+                         class="w-full h-full object-contain relative z-10 logo-img-glow" 
+                         onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');">
+                    
+                    <!-- 月の部分を光らせるエフェクト -->
+                    <div class="moon-spotlight"></div>
+                    
+                    <!-- テキスト部分を光らせるエフェクト -->
+                    <div class="text-spotlight"></div>
+
+                    <!-- フォールバックテキスト -->
+                    <div class="hidden absolute inset-0 flex items-center justify-center z-10 text-center">
+                        <h1 class="text-4xl md:text-7xl font-bold tracking-[0.2em] text-white opacity-90 drop-shadow-[0_0_30px_rgba(167,139,250,0.9)] text-center">
+                            SHINING PLANNER<br><span class="text-2xl md:text-4xl">株式会社</span>
+                        </h1>
+                    </div>
+                    
+                    <!-- 真ん中から「ぴかーん」のアニメーション -->
+                    <div class="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+                        <div class="w-1.5 h-1.5 bg-white rounded-full animate-flare shadow-[0_0_25px_#fff]"></div>
+                        <div class="absolute w-5 h-5 border border-white/60 rounded-full animate-flare-ring"></div>
+                        <div class="absolute w-[300%] h-[2px] bg-gradient-to-r from-transparent via-white/90 to-transparent animate-center-shine"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-12 animate-bounce opacity-30">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="relative z-10 max-w-6xl mx-auto py-32 px-8">
+        <div class="text-center mb-24">
+            <h2 class="text-xs tracking-[0.8em] uppercase text-purple-400 mb-6 font-bold">Creative Planning Agency</h2>
+            <h1 class="text-4xl md:text-7xl font-bold mb-10 tracking-tight leading-tight text-white">
+                物語の星座を、<br>
+                <span class="text-gradient">ビジネスの輝きへ。</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto font-light">
+                Shining Planner株式会社は、アニメーションの持つ無限の熱量を<br class="hidden md:block">
+                確かなプランニングで企業の力に変えるプロフェッショナル集団です。<br class="hidden md:block">
+                輝く「スター」や「作品」という点と点を繋ぎ、新しい価値の星座を描き出します。
+            </p>
+        </div>
+
+        <!-- Service Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glass-card p-10 rounded-[2.5rem] text-center flex flex-col items-center">
+                <div class="mb-8 relative inline-flex items-center justify-center w-20 h-20">
+                    <div class="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl"></div>
+                    <svg class="w-10 h-10 text-purple-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <path d="M12 2L2 12l10 10 10-10L12 2z" opacity="0.2" />
+                        <circle cx="12" cy="12" r="5" class="animate-pulse" />
+                        <path d="M7 12h10M12 7v10" stroke-width="1" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-white">アニメIP × 企業タイアップ</h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-light">作品のファンベースと企業のブランド価値を繋ぐ。物語の文脈を活かした、熱狂的なコラボレーションを設計します。</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2.5rem] text-center flex flex-col items-center">
+                <div class="mb-8 relative inline-flex items-center justify-center w-20 h-20">
+                    <div class="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl"></div>
+                    <svg class="w-10 h-10 text-purple-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <path d="M12 22l-4-4H4v-4l-2-2 2-2V4h4l4-2 4 2h4v4l2 2-2 2v4h-4l-4 4z" opacity="0.2" />
+                        <circle cx="12" cy="11" r="3" />
+                        <path d="M12 14v4M9 17h6" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-white">キャラクタープロデュース</h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-light">愛される「理由」のあるキャラクターを。設定の深掘りからビジュアル開発まで、長く愛されるIPをプロデュース。</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2.5rem] text-center flex flex-col items-center">
+                <div class="mb-8 relative inline-flex items-center justify-center w-20 h-20">
+                    <div class="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl"></div>
+                    <svg class="w-10 h-10 text-purple-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <path d="M3 3h18v18H3z" opacity="0.2" />
+                        <path d="M3 9h18M9 21V9M15 21V9" />
+                        <circle cx="12" cy="6" r="1" fill="currentColor" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-white">イベント企画・運営</h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-light">現実の境界線を越える没入体験を。ファンが「その世界にいる」と実感できるイベントや展示会をプロデュース。</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2.5rem] text-center flex flex-col items-center">
+                <div class="mb-8 relative inline-flex items-center justify-center w-20 h-20">
+                    <div class="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl"></div>
+                    <svg class="w-10 h-10 text-purple-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <path d="M12 2a5 5 0 00-5 5v3a5 5 0 0010 0V7a5 5 0 00-5-5z" />
+                        <path d="M19 10v1a7 7 0 01-14 0v-1M12 18v4M8 22h8" opacity="0.5" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-white">声優・ナレーター手配</h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-light">表現のプロによる「声」の力。豊富なネットワークから、プロジェクトに最も相応しい表現者をご提案します。</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2.5rem] text-center flex flex-col items-center">
+                <div class="mb-8 relative inline-flex items-center justify-center w-20 h-20">
+                    <div class="absolute inset-0 bg-purple-500/10 rounded-full blur-2xl"></div>
+                    <svg class="w-10 h-10 text-purple-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                        <path d="M22 12s-4-9-10-9-10 9-10 9 4 9 10 9 10-9 10-9z" opacity="0.2" />
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" class="animate-pulse" />
+                        <path d="M7 12l2-2m6 0l2 2" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-white">クリエイティブ・動画制作</h3>
+                <p class="text-gray-400 text-sm leading-relaxed font-light">プロモーション動画からロゴ、Webまで。アニメの躍動感と緻密な戦略を融合させた高品質な制作物。</p>
+            </div>
+
+            <div class="relative group p-[1px] bg-gradient-to-br from-white/20 to-transparent rounded-[2.5rem] overflow-hidden">
+                <div class="h-full bg-black/60 backdrop-blur-3xl p-10 rounded-[2.45rem] flex flex-col justify-center items-center text-center">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Contact</h3>
+                    <p class="text-gray-400 text-sm mb-8">
+                        貴社のビジョンを輝かせるプランを<br>
+                        共にデザインしましょう。
+                    </p>
+                    <button class="px-12 py-4 bg-white text-black rounded-full font-bold hover:bg-purple-100 hover:scale-105 transition-all duration-300 shadow-xl">
+                        ご相談はこちら
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-24 border-t border-white/5 text-center">
+        <div class="mb-10 opacity-20 hover:opacity-100 transition-opacity duration-1000">
+            <img src="shiningplanner.jpg" alt="logo footer" class="w-16 h-16 mx-auto grayscale invert"
+                 onerror="this.style.display='none'">
+        </div>
+        <p class="text-gray-500 text-[10px] tracking-[0.6em] uppercase mb-4">
+            Shining Planner Co., Ltd.
+        </p>
+        <p class="text-gray-600 text-[10px] tracking-widest">
+            © 2024 Shining Planner株式会社. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('starCanvas');
+        const ctx = canvas.getContext('2d');
+        const logoContainer = document.getElementById('logo-container');
+
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function init() {
+            particles = Array.from({ length: 120 }, () => ({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                size: Math.random() * 1.5,
+                speed: Math.random() * 0.12 + 0.05,
+                opacity: Math.random(),
+            }));
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // 昇る光の粒子
+            particles.forEach(p => {
+                ctx.fillStyle = `rgba(180, 160, 255, ${p.opacity})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+                p.y -= p.speed;
+                if (p.y < 0) p.y = canvas.height;
+                p.opacity = Math.sin(Date.now() * 0.001 * p.speed + p.x) * 0.4 + 0.5;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resize();
+            init();
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const opacity = Math.max(1 - scrollY / 700, 0);
+            const scale = 1 + scrollY * 0.0004;
+            logoContainer.style.opacity = opacity;
+            logoContainer.style.transform = `scale(${scale})`;
+        });
+
+        resize();
+        init();
+        animate();
+    </script>
+</body>
+</html>
