@@ -103,13 +103,27 @@
             pointer-events: auto;
         }
 
-        /* Direct Keyframe Definition for Guaranteed Animation 
-           確実に動作させるためのCSSアニメーション定義
+        /* Crucial: Force Pulse Animation 
+           強制的にアニメーションを適用するクラス
         */
-        @keyframes slowPulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+        @keyframes deep-breathing {
+            0% { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.5; 
+                transform: scale(1.02); /* わずかな拡大で呼吸感を演出 */
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1);
+            }
+        }
+        
+        .force-pulse {
+            animation: deep-breathing 10s ease-in-out infinite !important;
+            will-change: opacity, transform;
         }
     </style>
 </head>
@@ -184,13 +198,12 @@
                 Image display logic maintained:
                 Mobile: object-contain -> Full logo visible
                 Desktop: object-cover -> Full screen immersion
-                Animation: INLINE STYLE to force animation
+                Animation: force-pulse class used for guaranteed animation
             -->
             <img 
                 src="macomo.jpg" 
                 alt="MACOMO Brand Image" 
-                class="w-full h-full object-contain md:object-cover object-center"
-                style="animation: slowPulse 10s ease-in-out infinite;"
+                class="w-full h-full object-contain md:object-cover object-center force-pulse"
             />
             <!-- Overlay to ensure text readability -->
             <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/30 via-transparent to-macomo-dark/60"></div>
