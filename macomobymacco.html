@@ -36,16 +36,6 @@
                     letterSpacing: {
                         widest: '.2em',
                         superwide: '.3em',
-                    },
-                    // アニメーション設定の復元・定義
-                    animation: {
-                        'slow-pulse': 'pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        pulse: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0.6' },
-                        }
                     }
                 }
             }
@@ -111,6 +101,30 @@
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
+        }
+
+        /* Hero Image Pulse Animation (Custom CSS for reliability) */
+        /* 動きをより明確にするために調整しました */
+        @keyframes slow-pulse-custom {
+            0% { 
+                opacity: 1; 
+                transform: scale(1);
+                filter: brightness(100%);
+            }
+            50% { 
+                opacity: 0.7; /* 透過度を下げて背景色（深緑）と馴染ませる */
+                transform: scale(1.02); /* わずかに拡大して呼吸感を出す */
+                filter: brightness(110%); /* 少し明るくして光の鼓動を表現 */
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: brightness(100%);
+            }
+        }
+        .animate-slow-pulse-custom {
+            animation: slow-pulse-custom 8s ease-in-out infinite;
+            will-change: opacity, transform, filter;
         }
     </style>
 </head>
@@ -184,12 +198,12 @@
             <!-- 
                 Mobile: object-contain -> Shows full image/logo without cropping
                 Desktop (md): object-cover -> Fills the screen for immersion
-                Animation: animate-slow-pulse explicitly defined in config
+                Animation: animate-slow-pulse-custom (defined in style tag)
             -->
             <img 
                 src="macomo.jpg" 
                 alt="MACOMO Brand Image" 
-                class="w-full h-full object-contain md:object-cover object-center animate-slow-pulse"
+                class="w-full h-full object-contain md:object-cover object-center animate-slow-pulse-custom"
             />
             <!-- Overlay to ensure text readability -->
             <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/30 via-transparent to-macomo-dark/60"></div>
@@ -693,7 +707,7 @@
                 "future.title": "Cette plante réapparaît maintenant car...<br />Le Monde est peut-être entré dans<span class='inline-block border-b border-macomo-dark pb-1 mx-2'>L'Ère de l'Harmonie.</span>",
                 "future.subtitle": "Nous entrons dans l'Ère de l'Harmonie.<br/>Makomo est là pour nous guider vers nos racines.",
                 "future.btn": "Découvrir les Produits",
-                "founder.text1": "Depuis plus de 25 ans, j'ai fait face à 'l'esprit, le corps et l'énergie humains' en tant que coiffeuse, thérapeute et esthéticienne.",
+                "founder.text1": "Après 25 ans dédiés à la Beauté et la Santé, elle est arrivée au <span class='text-macomo-dark font-medium border-b border-macomo-accent/30'>'Retour du Chimique au Naturel'.</span>",
                 "founder.text2": "Au-delà de l'aromathérapie, de la phytothérapie et des remèdes naturels — surpassant toute la sagesse naturelle que j'ai manipulée pendant des années, j'ai rencontré l'ancienne plante sacrée 'Makomo', dite être la première plante que Susanoo a plantée sur Terre.",
                 "founder.text3": "Le Makomo est une plante extrêmement rare possédant des bactéries qui ne combattent ni n'entrent en conflit mais s'harmonisent avec tout. Existante dans la vie et les prières des gens depuis la période Jomon, elle détient le pouvoir de nous ramener à la 'purification', la 'régénération' et 'l'équilibre originel'.",
                 "founder.text4": "Mon nom contient le son 'Ma' (Vérité), signifiant 'être vrai et clair'. Je sens que c'est l'axe de ma propre façon de vivre et quelque chose qui résonne profondément avec le Makomo.",
