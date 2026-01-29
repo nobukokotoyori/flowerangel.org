@@ -103,20 +103,33 @@
             pointer-events: auto;
         }
 
-        /* GUARANTEED PULSE ANIMATION 
-           確実に動作するCSSアニメーション定義
+        /* Cloud of Light Animation 
+           光の雲に包まれるような演出
         */
-        @keyframes pulse-effect {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+        @keyframes cloud-flow {
+            0% { 
+                opacity: 0.3; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.7; /* 光が強くなる */
+                transform: scale(1.1); /* ふわりと広がる */
+            }
+            100% { 
+                opacity: 0.3; 
+                transform: scale(1);
+            }
         }
         
-        .pulse-animation {
-            animation-name: pulse-effect;
-            animation-duration: 10s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
+        .light-cloud-layer {
+            position: absolute;
+            inset: 0;
+            /* 中央から広がる白い光のグラデーション */
+            background: radial-gradient(circle at center, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 80%);
+            /* 背景画像と光を美しく合成する */
+            mix-blend-mode: overlay; 
+            animation: cloud-flow 8s ease-in-out infinite;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -187,16 +200,18 @@
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-macomo-dark">
         <div class="absolute inset-0 z-0">
-            <!-- 
-                Using the custom CSS class 'pulse-animation' to guarantee the effect works.
-            -->
+            <!-- Main Image (Static) -->
             <img 
                 src="macomo.jpg" 
                 alt="MACOMO Brand Image" 
-                class="w-full h-full object-contain md:object-cover object-center pulse-animation"
+                class="w-full h-full object-contain md:object-cover object-center"
             />
-            <!-- Overlay to ensure text readability -->
-            <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/30 via-transparent to-macomo-dark/60"></div>
+            
+            <!-- Light Cloud Layer (Animated) -->
+            <div class="light-cloud-layer"></div>
+            
+            <!-- Dark Overlay for Text Readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/40 via-transparent to-macomo-dark/70"></div>
         </div>
 
         <div class="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
