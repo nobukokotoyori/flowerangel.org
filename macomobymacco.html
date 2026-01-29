@@ -102,6 +102,22 @@
             visibility: visible;
             pointer-events: auto;
         }
+
+        /* GUARANTEED PULSE ANIMATION 
+           確実に動作するCSSアニメーション定義
+        */
+        @keyframes pulse-effect {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .pulse-animation {
+            animation-name: pulse-effect;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
     </style>
 </head>
 <body class="font-serif bg-macomo-bg text-macomo-dark overflow-x-hidden w-full antialiased">
@@ -172,13 +188,12 @@
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-macomo-dark">
         <div class="absolute inset-0 z-0">
             <!-- 
-                Reverted animation to the original working state using Tailwind's arbitrary value syntax.
-                animate-[pulse_10s_ease-in-out_infinite]
+                Using the custom CSS class 'pulse-animation' to guarantee the effect works.
             -->
             <img 
                 src="macomo.jpg" 
                 alt="MACOMO Brand Image" 
-                class="w-full h-full object-contain md:object-cover object-center animate-[pulse_10s_ease-in-out_infinite]"
+                class="w-full h-full object-contain md:object-cover object-center pulse-animation"
             />
             <!-- Overlay to ensure text readability -->
             <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/30 via-transparent to-macomo-dark/60"></div>
