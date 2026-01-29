@@ -169,25 +169,30 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- Reverted layout to center alignment, removed specific padding for separation -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-[#5d7c65]">
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-macomo-dark">
+        <!-- Layer 1: Blurred Background for "Full Screen Surface" feel -->
         <div class="absolute inset-0 z-0">
-            <!-- 
-                Using object-contain object-center to ensure the WHOLE logo is visible on both Mobile and PC.
-                The pulse animation is kept as requested.
-            -->
+            <img 
+                src="macomo.jpg" 
+                alt="Background Ambience" 
+                class="w-full h-full object-cover opacity-40 blur-sm scale-110" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/50 via-transparent to-macomo-dark/80"></div>
+        </div>
+
+        <!-- Layer 2: Main Logo Image (Fully Visible) -->
+        <div class="absolute inset-0 z-0 flex items-center justify-center p-6 md:p-0">
             <img 
                 src="macomo.jpg" 
                 alt="MACOMO Brand Image" 
                 class="w-full h-full object-contain object-center animate-[pulse_10s_ease-in-out_infinite]"
             />
-            <!-- Gradient overlay to ensure text readability if it overlaps -->
-            <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/40 via-macomo-dark/20 to-macomo-dark/60"></div>
         </div>
 
+        <!-- Content Overlay -->
         <div class="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
             <div class="fade-in-section delay-[200ms]">
-                <p class="text-sm md:text-base tracking-superwide uppercase mb-4 opacity-90 font-sans" data-i18n="hero.subtitle">
+                <p class="text-sm md:text-base tracking-superwide uppercase mb-4 opacity-90 font-sans text-shadow-sm" data-i18n="hero.subtitle">
                     The Japanese Healing Plant
                 </p>
             </div>
@@ -200,7 +205,7 @@
             </div>
 
             <div class="fade-in-section delay-[600ms]">
-                <p class="text-lg md:text-xl font-light tracking-wide italic opacity-90 mb-12 font-serif" data-i18n="hero.desc">
+                <p class="text-lg md:text-xl font-light tracking-wide italic opacity-90 mb-12 font-serif text-shadow-sm" data-i18n="hero.desc">
                     Illuminating the Truth, Purifying the World.
                 </p>
             </div>
@@ -220,7 +225,7 @@
                 <div class="flex flex-col md:flex-row items-center md:items-start gap-12 lg:gap-20">
                     <div class="md:w-1/2 relative group">
                         <div class="absolute -top-4 -left-4 w-full h-full border border-macomo-dark/10 z-0 transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2"></div>
-                        <!-- Changed image to video (macomo.mov) -->
+                        <!-- Video: macomo.mov -->
                         <video 
                             src="macomo.mov" 
                             autoplay 
