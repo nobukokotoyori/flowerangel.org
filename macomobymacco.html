@@ -102,29 +102,6 @@
             visibility: visible;
             pointer-events: auto;
         }
-
-        /* Crucial: Force Pulse Animation 
-           強制的にアニメーションを適用するクラス
-        */
-        @keyframes deep-breathing {
-            0% { 
-                opacity: 1; 
-                transform: scale(1);
-            }
-            50% { 
-                opacity: 0.5; 
-                transform: scale(1.02); /* わずかな拡大で呼吸感を演出 */
-            }
-            100% { 
-                opacity: 1; 
-                transform: scale(1);
-            }
-        }
-        
-        .force-pulse {
-            animation: deep-breathing 10s ease-in-out infinite !important;
-            will-change: opacity, transform;
-        }
     </style>
 </head>
 <body class="font-serif bg-macomo-bg text-macomo-dark overflow-x-hidden w-full antialiased">
@@ -195,15 +172,13 @@
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-macomo-dark">
         <div class="absolute inset-0 z-0">
             <!-- 
-                Image display logic maintained:
-                Mobile: object-contain -> Full logo visible
-                Desktop: object-cover -> Full screen immersion
-                Animation: force-pulse class used for guaranteed animation
+                Reverted animation to the original working state using Tailwind's arbitrary value syntax.
+                animate-[pulse_10s_ease-in-out_infinite]
             -->
             <img 
                 src="macomo.jpg" 
                 alt="MACOMO Brand Image" 
-                class="w-full h-full object-contain md:object-cover object-center force-pulse"
+                class="w-full h-full object-contain md:object-cover object-center animate-[pulse_10s_ease-in-out_infinite]"
             />
             <!-- Overlay to ensure text readability -->
             <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/30 via-transparent to-macomo-dark/60"></div>
