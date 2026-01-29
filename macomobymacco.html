@@ -36,6 +36,16 @@
                     letterSpacing: {
                         widest: '.2em',
                         superwide: '.3em',
+                    },
+                    // アニメーション設定の復元・定義
+                    animation: {
+                        'slow-pulse': 'pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        pulse: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.6' },
+                        }
                     }
                 }
             }
@@ -169,17 +179,17 @@
     </nav>
 
     <!-- Hero Section -->
-    <!-- Reverted to single image structure but optimized for logo visibility -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-macomo-dark">
         <div class="absolute inset-0 z-0">
             <!-- 
-                Mobile: object-contain -> Shows full image/logo without cropping (adds bars if needed, blended by bg color)
+                Mobile: object-contain -> Shows full image/logo without cropping
                 Desktop (md): object-cover -> Fills the screen for immersion
+                Animation: animate-slow-pulse explicitly defined in config
             -->
             <img 
                 src="macomo.jpg" 
                 alt="MACOMO Brand Image" 
-                class="w-full h-full object-contain md:object-cover object-center animate-[pulse_10s_ease-in-out_infinite]"
+                class="w-full h-full object-contain md:object-cover object-center animate-slow-pulse"
             />
             <!-- Overlay to ensure text readability -->
             <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/30 via-transparent to-macomo-dark/60"></div>
