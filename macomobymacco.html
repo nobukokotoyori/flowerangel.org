@@ -103,15 +103,15 @@
             pointer-events: auto;
         }
 
-        /* Hero Image Pulse Animation (Custom CSS for reliability) */
-        /* 元のアニメーション（不透明度の変化）に戻しました */
-        @keyframes slow-pulse-custom {
+        /* Original Pulse Animation Restore 
+           最初のアニメーション設定をCSSで完全復元
+        */
+        @keyframes pulse-slow {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
+            50% { opacity: 0.5; }
         }
-        .animate-slow-pulse-custom {
-            animation: slow-pulse-custom 10s ease-in-out infinite;
-            will-change: opacity;
+        .animate-pulse-slow {
+            animation: pulse-slow 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
     </style>
 </head>
@@ -183,14 +183,15 @@
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-macomo-dark">
         <div class="absolute inset-0 z-0">
             <!-- 
-                Mobile: object-contain -> Shows full image/logo without cropping
-                Desktop (md): object-cover -> Fills the screen for immersion
-                Animation: animate-slow-pulse-custom (defined in style tag)
+                Image display logic maintained:
+                Mobile: object-contain -> Full logo visible
+                Desktop: object-cover -> Full screen immersion
+                Animation: animate-pulse-slow (Restored to original CSS animation)
             -->
             <img 
                 src="macomo.jpg" 
                 alt="MACOMO Brand Image" 
-                class="w-full h-full object-contain md:object-cover object-center animate-slow-pulse-custom"
+                class="w-full h-full object-contain md:object-cover object-center animate-pulse-slow"
             />
             <!-- Overlay to ensure text readability -->
             <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/30 via-transparent to-macomo-dark/60"></div>
@@ -283,8 +284,7 @@
                     <span class="text-macomo-light tracking-widest text-sm uppercase font-sans" data-i18n="hist.subtitle">The Sacred Plant</span>
                     <h2 class="text-4xl md:text-5xl font-medium mt-4" data-i18n="hist.title">神の草 — Makomo</h2>
                     <p class="mt-6 text-gray-300 font-light leading-relaxed max-w-2xl mx-auto" data-i18n="hist.desc">
-                        神話の時代、<span class="text-white border-b border-macomo-accent/50 pb-1">素戔嗚（スサノオ）が最初に地上に植えた植物</span>と伝えられています。<br>
-                        縄文時代より日本人の生活に深く根付き、私たちを守り続けてきた聖なる存在です。
+                        神話の時代、<span class="text-white border-b border-macomo-accent/50 pb-1">素戔嗚（スサノオ）が最初に地上に植えた植物</span>と伝えられています。<br>縄文時代より日本人の生活に深く根付き、私たちを守り続けてきた聖なる存在です。
                     </p>
                 </div>
             </div>
