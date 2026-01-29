@@ -56,11 +56,6 @@
             transform: translateY(0);
         }
         
-        /* Group Hover Scale */
-        .group:hover .group-hover\:scale-x-100 {
-            transform: scaleX(1);
-        }
-        
         /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -88,7 +83,7 @@
             text-decoration-color: #d4af37;
         }
 
-        /* Mobile Menu Animation */
+        /* Mobile Menu */
         #mobile-menu {
             transition: opacity 0.3s ease-in-out, visibility 0.3s;
         }
@@ -101,35 +96,6 @@
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
-        }
-
-        /* Cloud of Light Animation 
-           光の雲に包まれるような演出
-        */
-        @keyframes cloud-flow {
-            0% { 
-                opacity: 0.3; 
-                transform: scale(1);
-            }
-            50% { 
-                opacity: 0.7; /* 光が強くなる */
-                transform: scale(1.1); /* ふわりと広がる */
-            }
-            100% { 
-                opacity: 0.3; 
-                transform: scale(1);
-            }
-        }
-        
-        .light-cloud-layer {
-            position: absolute;
-            inset: 0;
-            /* 中央から広がる白い光のグラデーション */
-            background: radial-gradient(circle at center, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 80%);
-            /* 背景画像と光を美しく合成する */
-            mix-blend-mode: overlay; 
-            animation: cloud-flow 8s ease-in-out infinite;
-            pointer-events: none;
         }
     </style>
 </head>
@@ -151,7 +117,7 @@
                 <a href="#founder" class="nav-link text-sm tracking-widest hover:text-macomo-accent transition-colors opacity-90" data-i18n="nav.founder">FOUNDER</a>
             </div>
 
-            <!-- Right Side Controls (Lang & Shop & Hamburger) -->
+            <!-- Right Side Controls -->
             <div class="flex items-center gap-4 md:gap-6">
                 <!-- Desktop Language & Shop -->
                 <div class="hidden lg:flex items-center gap-6">
@@ -177,7 +143,6 @@
 
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-macomo-dark/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center hidden">
-            <!-- Mobile Menu Links -->
             <div class="flex flex-col items-center space-y-8 text-xl font-light tracking-widest">
                 <a href="#philosophy" class="mobile-link hover:text-macomo-accent transition-colors" onclick="toggleMenu()" data-i18n="nav.philosophy">PHILOSOPHY</a>
                 <a href="#history" class="mobile-link hover:text-macomo-accent transition-colors" onclick="toggleMenu()" data-i18n="nav.history">HISTORY</a>
@@ -185,8 +150,6 @@
                 <a href="#founder" class="mobile-link hover:text-macomo-accent transition-colors" onclick="toggleMenu()" data-i18n="nav.founder">FOUNDER</a>
                 <a href="#" class="mobile-link text-macomo-accent border-b border-macomo-accent pb-1 mt-4" data-i18n="nav.shop">GLOBAL SHOP</a>
             </div>
-
-            <!-- Mobile Language Selector -->
             <div class="mt-16 flex text-xs tracking-widest font-sans gap-4 opacity-80">
                 <button onclick="setLanguage('ja')" class="lang-btn hover:text-macomo-accent transition-colors active" id="btn-mob-ja">JP</button>
                 <span class="opacity-30">|</span>
@@ -198,20 +161,18 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-macomo-dark">
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <!-- Main Image (Static) -->
+            <!-- 
+                Reverted to the original Unsplash image and the original working Tailwind JIT animation syntax.
+            -->
             <img 
-                src="macomo.jpg" 
-                alt="MACOMO Brand Image" 
-                class="w-full h-full object-contain md:object-cover object-center"
+                src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                alt="Nature sunlight" 
+                class="w-full h-full object-cover animate-[pulse_10s_ease-in-out_infinite]"
             />
-            
-            <!-- Light Cloud Layer (Animated) -->
-            <div class="light-cloud-layer"></div>
-            
-            <!-- Dark Overlay for Text Readability -->
-            <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/40 via-transparent to-macomo-dark/70"></div>
+            <!-- Dark Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/40 via-macomo-dark/20 to-macomo-dark/80"></div>
         </div>
 
         <div class="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
