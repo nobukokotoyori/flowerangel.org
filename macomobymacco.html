@@ -104,27 +104,14 @@
         }
 
         /* Hero Image Pulse Animation (Custom CSS for reliability) */
-        /* 動きをより明確にするために調整しました */
+        /* 元のアニメーション（不透明度の変化）に戻しました */
         @keyframes slow-pulse-custom {
-            0% { 
-                opacity: 1; 
-                transform: scale(1);
-                filter: brightness(100%);
-            }
-            50% { 
-                opacity: 0.7; /* 透過度を下げて背景色（深緑）と馴染ませる */
-                transform: scale(1.02); /* わずかに拡大して呼吸感を出す */
-                filter: brightness(110%); /* 少し明るくして光の鼓動を表現 */
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-                filter: brightness(100%);
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
         }
         .animate-slow-pulse-custom {
-            animation: slow-pulse-custom 8s ease-in-out infinite;
-            will-change: opacity, transform, filter;
+            animation: slow-pulse-custom 10s ease-in-out infinite;
+            will-change: opacity;
         }
     </style>
 </head>
