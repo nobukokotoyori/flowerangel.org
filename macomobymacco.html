@@ -169,27 +169,22 @@
     </nav>
 
     <!-- Hero Section -->
+    <!-- Reverted to single image structure but optimized for logo visibility -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden bg-macomo-dark">
-        <!-- Layer 1: Blurred Background for "Full Screen Surface" feel -->
         <div class="absolute inset-0 z-0">
-            <img 
-                src="macomo.jpg" 
-                alt="Background Ambience" 
-                class="w-full h-full object-cover opacity-40 blur-sm scale-110" 
-            />
-            <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/50 via-transparent to-macomo-dark/80"></div>
-        </div>
-
-        <!-- Layer 2: Main Logo Image (Fully Visible) -->
-        <div class="absolute inset-0 z-0 flex items-center justify-center p-6 md:p-0">
+            <!-- 
+                Mobile: object-contain -> Shows full image/logo without cropping (adds bars if needed, blended by bg color)
+                Desktop (md): object-cover -> Fills the screen for immersion
+            -->
             <img 
                 src="macomo.jpg" 
                 alt="MACOMO Brand Image" 
-                class="w-full h-full object-contain object-center animate-[pulse_10s_ease-in-out_infinite]"
+                class="w-full h-full object-contain md:object-cover object-center animate-[pulse_10s_ease-in-out_infinite]"
             />
+            <!-- Overlay to ensure text readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/30 via-transparent to-macomo-dark/60"></div>
         </div>
 
-        <!-- Content Overlay -->
         <div class="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
             <div class="fade-in-section delay-[200ms]">
                 <p class="text-sm md:text-base tracking-superwide uppercase mb-4 opacity-90 font-sans text-shadow-sm" data-i18n="hero.subtitle">
