@@ -103,15 +103,13 @@
             pointer-events: auto;
         }
 
-        /* Original Pulse Animation Restore 
-           最初のアニメーション設定をCSSで完全復元
+        /* Direct Keyframe Definition for Guaranteed Animation 
+           確実に動作させるためのCSSアニメーション定義
         */
-        @keyframes pulse-slow {
-            0%, 100% { opacity: 1; }
+        @keyframes slowPulse {
+            0% { opacity: 1; }
             50% { opacity: 0.5; }
-        }
-        .animate-pulse-slow {
-            animation: pulse-slow 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            100% { opacity: 1; }
         }
     </style>
 </head>
@@ -186,12 +184,13 @@
                 Image display logic maintained:
                 Mobile: object-contain -> Full logo visible
                 Desktop: object-cover -> Full screen immersion
-                Animation: animate-pulse-slow (Restored to original CSS animation)
+                Animation: INLINE STYLE to force animation
             -->
             <img 
                 src="macomo.jpg" 
                 alt="MACOMO Brand Image" 
-                class="w-full h-full object-contain md:object-cover object-center animate-pulse-slow"
+                class="w-full h-full object-contain md:object-cover object-center"
+                style="animation: slowPulse 10s ease-in-out infinite;"
             />
             <!-- Overlay to ensure text readability -->
             <div class="absolute inset-0 bg-gradient-to-b from-macomo-dark/30 via-transparent to-macomo-dark/60"></div>
