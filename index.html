@@ -87,7 +87,7 @@
         .card-preview {
             width: 100%;
             height: 66%; /* 写真の表示割合 66% */
-            background: #fdf2f8;
+            background: #001a33; 
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid rgba(255, 192, 203, 0.1);
@@ -97,7 +97,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 15%; 
+            object-position: top center; 
             transition: transform 0.5s ease;
         }
 
@@ -122,7 +122,7 @@
         @media (min-width: 768px) {
             .cards-container { gap: 0.4rem; }
             .lang-display { font-size: 10px; }
-            .card-content { padding: 0.1rem 0.2rem; }
+            .content-area { padding: 0.1rem 0.2rem; }
         }
 
         /* タイトル：Cormorant Garamond */
@@ -137,6 +137,7 @@
             overflow: hidden;
             text-overflow: clip; 
             letter-spacing: -0.02em;
+            text-transform: uppercase;
         }
 
         /* サブテキスト：ピンク色で大きく強調 */
@@ -191,21 +192,21 @@
         <main class="flex-grow min-h-0">
             <div class="cards-container">
                 
-                <!-- 1. Christmas Sutadon 2025 -->
+                <!-- 1. UZU WORLD (宇宙イメージに戻しました) -->
                 <a href="https://uzuworld.com/" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2F?w=800&h=600" alt="[UZU WORLD]">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1024&auto=format&fit=crop" alt="[UZU WORLDの和と宇宙の調和イメージ]">
                     </div>
                     <div class="card-content">
-                        <h3>Christmas Sutadon 2025</h3>
-                        <p class="desc-text">Economy & Human Cycle</p>
+                        <h3>UZU WORLD</h3>
+                        <p class="desc-text">Humanitarian Economy</p>
                     </div>
                 </a>
 
                 <!-- 2. SAKURA BLOOM 2026 -->
                 <a href="https://uzuworld.com/sakurabloom2026" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2Fsakurabloom2026?w=800&h=600" alt="[SAKURA BLOOM]">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fuzuworld.com%2Fsakurabloom2026?w=1024&h=768" alt="[SAKURA BLOOM]">
                     </div>
                     <div class="card-content">
                         <h3>SAKURA BLOOM 2026</h3>
@@ -216,7 +217,7 @@
                 <!-- 3. HINOMOTOICHI -->
                 <a href="https://flowerangel.org/hinomotoichi-globalfamily" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fhinomotoichi-globalfamily?w=800&h=600" alt="[HINOMOTOICHI]">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fhinomotoichi-globalfamily?w=1024&h=768" alt="[HINOMOTOICHI]">
                     </div>
                     <div class="card-content">
                         <h3>HINOMOTOICHI</h3>
@@ -227,7 +228,7 @@
                 <!-- 4. Yata Sakujuro Museum -->
                 <a href="https://flowerangel.org/yatasakujuro_gyokusen.html" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fyatasakujuro_gyokusen.html?w=800&h=600" alt="[Yata Sakujuro Museum]">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fyatasakujuro_gyokusen.html?w=1024&h=768" alt="[Museum]">
                     </div>
                     <div class="card-content">
                         <h3>Yata Sakujuro Museum</h3>
@@ -238,7 +239,7 @@
                 <!-- 5. Takuma × Tamara -->
                 <a href="https://flowerangel.org/takumamiyata_tamararice" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ftakumamiyata_tamararice?w=800&h=600" alt="[Takuma × Tamara]">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ftakumamiyata_tamararice?w=1024&h=768" alt="[Art Collab]">
                     </div>
                     <div class="card-content">
                         <h3>Takuma × Tamara</h3>
@@ -249,7 +250,7 @@
                 <!-- 6. Kyoshin-kai -->
                 <a href="https://flowerangel.org/finethanks" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ffinethanks?w=800&h=600" alt="[Kyoshin-kai]">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Ffinethanks?w=1024&h=768" alt="[Kyoshin-kai]">
                     </div>
                     <div class="card-content">
                         <h3>Kyoshin-kai</h3>
@@ -260,7 +261,7 @@
                 <!-- 7. Echoes of Light -->
                 <a href="https://echoes-of-light.jp/" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2F?w=800&h=600" alt="[Echoes of Light]">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2F?w=1024&h=768" alt="[Echoes of Light]">
                     </div>
                     <div class="card-content">
                         <h3>Echoes of Light</h3>
@@ -271,7 +272,7 @@
                 <!-- 8. A Story of Hope -->
                 <a href="https://echoes-of-light.jp/sakurabloom2026" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2Fsakurabloom2026?w=800&h=600" alt="[A Story of Hope]">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fechoes-of-light.jp%2Fsakurabloom2026?w=1024&h=768" alt="[A Story of Hope]">
                     </div>
                     <div class="card-content">
                         <h3>A Story of Hope</h3>
@@ -279,10 +280,10 @@
                     </div>
                 </a>
 
-                <!-- 9. MACOMO by MACCO (NEW) -->
+                <!-- 9. MACOMO by MACCO -->
                 <a href="https://flowerangel.org/macomobymacco" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fmacomobymacco?w=800&h=600" alt="[MACOMO by MACCO]">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangel.org%2Fmacomobymacco?w=1024&h=768" alt="[MACOMO by MACCO]">
                     </div>
                     <div class="card-content">
                         <h3>MACOMO by MACCO</h3>
@@ -290,15 +291,21 @@
                     </div>
                 </a>
 
-                <!-- 10. Placeholder -->
-                <div class="playing-card rounded-xl border-dashed border border-pink-100 bg-white/10 flex items-center justify-center">
-                    <div class="desc-text text-gray-300 italic uppercase" style="font-size: 6px;">Next Project</div>
-                </div>
+                <!-- 10. Shining Planner -->
+                <a href="https://shining-planner.jp/" target="_blank" class="playing-card rounded-lg">
+                    <div class="card-preview">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fshining-planner.jp%2F?w=1280&h=960&v=fresh_v3" alt="[Shining Plannerのヘッダー]">
+                    </div>
+                    <div class="card-content">
+                        <h3>Shining Planner</h3>
+                        <p class="desc-text">Character & Anime</p>
+                    </div>
+                </a>
 
-                <!-- 11. Flower Angel HK (Target: Last Rows) -->
+                <!-- 11. Flower Angel HK -->
                 <a href="https://flowerangelhk.com/" target="_blank" class="playing-card rounded-lg">
                     <div class="card-preview">
-                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangelhk.com%2F?w=800&h=600" alt="[Flower Angel HK]">
+                        <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fflowerangelhk.com%2F?w=1024&h=768" alt="[Flower Angel HK]">
                     </div>
                     <div class="card-content">
                         <h3>Flower Angel HK</h3>
@@ -306,7 +313,7 @@
                     </div>
                 </a>
 
-                <!-- 12. Connect With Us (Target: Very Last) -->
+                <!-- 12. Connect With Us -->
                 <div class="playing-card rounded-lg bg-white/40">
                     <div class="card-preview bg-pink-50 flex items-center justify-center">
                         <i class="fas fa-dove text-pink-200 text-3xl md:text-5xl"></i>
