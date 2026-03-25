@@ -125,6 +125,11 @@
             background: rgba(230, 180, 34, 0.05);
             color: #8c7b6c;
             white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+        .header-badge:hover {
+            background: rgba(230, 180, 34, 0.1);
+            transform: translateY(-1px);
         }
 
         .chef-photo-container {
@@ -167,13 +172,32 @@
             color: var(--sakura-pink);
             transform: translateY(-3px);
         }
+
+        .inline-link {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .inline-link:hover {
+            color: var(--rice-gold);
+            text-decoration-color: var(--rice-gold);
+        }
+        
+        .timeline-link {
+            transition: color 0.3s ease;
+        }
+        .timeline-link:hover {
+            color: var(--rice-gold);
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
     <div id="petals-container"></div>
 
-    <!-- Navigation -->
+    <!-- Navigation (Simplified name for Nav Bar) -->
     <nav class="fixed w-full z-50 glass-nav border-b border-pink-50">
         <div class="max-w-7xl mx-auto px-6 h-32 flex flex-col justify-center">
             <div class="flex justify-between items-center mb-2">
@@ -186,17 +210,19 @@
                 </div>
             </div>
             <div class="flex items-center space-x-3 overflow-x-auto no-scrollbar pb-1">
-                <div class="header-badge flex items-center">
+                <!-- Hyperlink for Imperial Hotel -->
+                <a href="https://www.imperialhotel.co.jp/en?stt_lang=en" target="_blank" rel="noopener noreferrer" class="header-badge flex items-center">
                     <i class="fas fa-hotel mr-1 text-[8px]"></i> Imperial Hotel Tokyo
-                </div>
-                <div class="header-badge flex items-center border-pink-200 bg-pink-50/30 text-pink-500">
+                </a>
+                <!-- Hyperlink for Quintessence -->
+                <a href="https://guide.michelin.com/jp/en/tokyo-region/tokyo/restaurant/quintessence-1193907" target="_blank" rel="noopener noreferrer" class="header-badge flex items-center border-pink-200 bg-pink-50/30 text-pink-500">
                     <i class="fas fa-star mr-1 text-[8px]"></i> Quintessence (3-Star, 19 Consecutive Years)
-                </div>
+                </a>
                 <div class="hidden md:flex space-x-6 text-[9px] font-bold uppercase tracking-widest text-gray-400 ml-auto">
-                    <a href="#vision" class="hover:text-pink-400">Roots</a>
-                    <a href="#heritage" class="hover:text-pink-400">Heritage</a>
-                    <a href="#activities" class="hover:text-pink-400">Experience</a>
-                    <a href="#tamara" class="hover:text-pink-400">The Farm</a>
+                    <a href="#vision" class="hover:text-pink-400 transition">Roots</a>
+                    <a href="#heritage" class="hover:text-pink-400 transition">Heritage</a>
+                    <a href="#activities" class="hover:text-pink-400 transition">Experience</a>
+                    <a href="#tamara" class="hover:text-pink-400 transition">The Farm</a>
                 </div>
             </div>
         </div>
@@ -239,7 +265,7 @@
         </div>
     </section>
 
-    <!-- Roadmap (Updated with requested changes) -->
+    <!-- Roadmap -->
     <section id="roadmap" class="event-banner relative z-20 text-center">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-5 items-center gap-4">
             <div class="md:col-span-1">
@@ -284,45 +310,48 @@
                     </p>
                     <div class="text-gray-700">
                         <span class="lang-content" 
-                           data-en="Born in 1991. Career at Imperial Hotel Tokyo and the 3-star Michelin giant Quintessence. Chef Miyata recognized a fundamental gap: French cuisine had not become an everyday meal in Japan. By pairing elite French technique with TAMARA RICE by Yamachiyo Farm, he pioneers the 'French with Rice' movement to create a cultural base everyone can understand."
-                           data-fr="Né en 1991. Carrière à l'Hôtel Impérial et au Quintessence 3 étoiles. Le Chef Miyata a associé la technique française au riz TAMARA.">
-                           Born in 1991. Career at Imperial Hotel Tokyo and the 3-star Michelin giant Quintessence. Chef Miyata recognized a fundamental gap: French cuisine had not become an everyday meal in Japan.
+                           data-en="Born in 1991. Career at <a href='https://www.imperialhotel.co.jp/en?stt_lang=en' target='_blank' class='inline-link'>Imperial Hotel Tokyo</a> and the 3-star Michelin giant <a href='https://guide.michelin.com/jp/en/tokyo-region/tokyo/restaurant/quintessence-1193907' target='_blank' class='inline-link'>Quintessence</a>. Chef Miyata recognized a fundamental gap: French cuisine had not become an everyday meal in Japan. By pairing elite French technique with TAMARA RICE by Yamachiyo Farm, he pioneers the 'French with Rice' movement to create a cultural base everyone can understand."
+                           data-fr="Né en 1991. Carrière à l'<a href='https://www.imperialhotel.co.jp/en?stt_lang=en' target='_blank' class='inline-link'>Hôtel Impérial</a> et au <a href='https://guide.michelin.com/jp/en/tokyo-region/tokyo/restaurant/quintessence-1193907' target='_blank' class='inline-link'>Quintessence 3 étoiles</a>. Le Chef Miyata a associé la technique française au riz TAMARA.">
+                           Born in 1991. Career at Imperial Hotel Tokyo and the 3-star Michelin giant Quintessence. Chef Miyata recognized a fundamental gap.
                         </span>
-                        <span class="ja-text">1991年生まれ。帝国ホテル、カンテサンスといった日本の食文化の頂点でキャリアを積む中で、宮田シェフはある違和感を覚えました。「なぜイタリアンやタイ料理は日常なのに、フレンチは浸透していないのか」。現在は早稲田にて、やまちよ農園の高波動米と食べるフレンチを掲げる【みやた食堂】を経営。三つ星の技を家庭の食卓へ繋ぐ、文化の架け橋としての活動を続けています。</span>
+                        <span class="ja-text">1991年生まれ。<a href="https://www.imperialhotel.co.jp/en?stt_lang=en" target="_blank" class="inline-link">帝国ホテル</a>、<a href="https://guide.michelin.com/jp/en/tokyo-region/tokyo/restaurant/quintessence-1193907" target="_blank" class="inline-link">カンテサンス</a>といった日本の食文化の頂点でキャリアを積む中で、宮田シェフはある違和感を覚えました。「なぜイタリアンやタイ料理は日常なのに、フレンチは浸透していないのか」。現在は早稲田にて、やまちよ農園の高波動米と食べるフレンチを掲げる【みやた食堂】を経営。三つ星の技を家庭の食卓へ繋ぐ、文化の架け橋としての活動を続けています。</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Career Timeline -->
+    <!-- Elite Career Timeline (Updated with Valinol, Simplicité, Maison Kaiser links) -->
     <section id="heritage" class="py-32 bg-gray-50 text-left">
         <div class="max-w-7xl mx-auto px-6">
             <h3 class="text-pink-400 font-black uppercase tracking-[0.4em] text-xs text-center mb-16 serif">Elite Career Timeline</h3>
             <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Imperial -->
                 <div class="bg-white p-10 rounded-[3rem] shadow-sm flex flex-col">
                     <span class="text-[10px] font-black text-gray-400 mb-4 uppercase tracking-widest">Foundation</span>
-                    <h4 class="text-2xl font-black mb-4 serif uppercase">Imperial Hotel Tokyo</h4>
+                    <h4 class="text-2xl font-black mb-4 serif uppercase"><a href="https://www.imperialhotel.co.jp/en?stt_lang=en" target="_blank" class="hover:text-gray-600 transition">Imperial Hotel Tokyo</a></h4>
                     <p class="text-xs text-gray-500 leading-relaxed">
                         <span class="lang-content" data-en="Mastering standard hospitality and classical French base." data-fr="Maîtriser l'hospitalité standard et la base française classique.">Mastering standard hospitality and classical French base.</span>
                         <span class="ja-text">日本最高峰のホスピタリティの原点。クラシックな技法と『お客様第一』の精神を徹底的に習得。</span>
                     </p>
                 </div>
+                <!-- Quintessence -->
                 <div class="bg-white p-10 rounded-[3rem] shadow-md border-t-8 border-pink-300 flex flex-col">
                     <span class="text-[10px] font-black text-pink-400 mb-4 uppercase tracking-widest">Pinnacle</span>
-                    <h4 class="text-2xl font-black mb-4 serif uppercase">Quintessence</h4>
+                    <h4 class="text-2xl font-black mb-4 serif uppercase"><a href="https://guide.michelin.com/jp/en/tokyo-region/tokyo/restaurant/quintessence-1193907" target="_blank" class="hover:text-pink-400 transition">Quintessence</a></h4>
                     <p class="text-xs text-gray-500 leading-relaxed">
                         <span class="lang-content" data-en="19 consecutive years of 3-Star Michelin excellence." data-fr="19 années consécutives d'excellence 3 étoiles Michelin.">19 consecutive years of 3-Star Michelin excellence.</span>
                         <span class="ja-text">日本フレンチ界の絶対的な頂点。岸田周三シェフのもと、19年連続三つ星の精密な技術を体得。</span>
                     </p>
                 </div>
+                <!-- Excellence with specific links -->
                 <div class="bg-white p-10 rounded-[3rem] shadow-sm flex flex-col">
-                    <span class="text-[10px] font-black text-gray-400 mb-4 uppercase tracking-widest">Mastery</span>
+                    <span class="text-[10px] font-black text-gray-400 mb-4 uppercase tracking-widest">Advanced Mastery</span>
                     <h4 class="text-2xl font-black mb-4 serif uppercase">Further Excellence</h4>
                     <ul class="text-xs text-gray-500 space-y-3">
-                        <li>• Restaurant Valinol (ヴァリノール)</li>
-                        <li>• Simplicité (サンプリシテ)</li>
-                        <li>• Maison Kaiser (メゾンカイザー)</li>
+                        <li>• <a href="https://valinortokyo.com/" target="_blank" class="timeline-link">Restaurant Valinol (ヴァリノール)</a></li>
+                        <li>• <a href="https://www.simplicite123.com/" target="_blank" class="timeline-link">Simplicité (サンプリシテ)</a></li>
+                        <li>• <a href="https://maisonkayser.jp/" target="_blank" class="timeline-link">Maison Kaiser (メゾンカイザー)</a></li>
                         <li class="font-black text-gray-900 mt-4 serif">Current: Miyata Shokudo (Waseda)</li>
                     </ul>
                 </div>
@@ -330,7 +359,7 @@
         </div>
     </section>
 
-    <!-- Engagement & Fusion Experiences -->
+    <!-- Engagement -->
     <section id="activities" class="py-32 bg-white text-left">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h3 class="text-pink-400 font-black uppercase tracking-[0.4em] text-xs mb-4 serif">Engagement</h3>
