@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flower Angel Asset Code | Sovereign Portal</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700;900&family=Inter:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+          },
+          colors: {
+            gold: {
+              pale: '#fbf5e6',
+              light: '#f1dca7',
+              DEFAULT: '#d4af37',
+              dark: '#aa820a',
+              bronze: '#7d5c06',
+              deep: '#1e180a',
+            },
+            obsidian: {
+              deepest: '#030405',
+              dark: '#080a0d',
+              card: '#0f1216',
+              border: '#231e13',
+            }
+          },
+          boxShadow: {
+            'sovereign': '0 15px 50px rgba(0, 0, 0, 0.8)',
+            'jewel-glow': '0 0 55px rgba(244, 86, 149, 0.15)',
+            'jewel-active': '0 0 80px rgba(244, 86, 149, 0.35)',
+            'card-glow': '0 0 35px rgba(13, 15, 18, 0.95)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Premium Luxury Styles */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #f1dca7 0%, #d4af37 50%, #aa820a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Highly visible and premium gold font for numbers */
+    .code-number {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+    }
+
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 45%,
+        rgba(244, 130, 170, 0.15) 50%,
+        transparent 55%
+      );
+      transform: rotate(45deg);
+      transition: transform 0.6s ease;
+      opacity: 0;
+    }
+    .shimmer:hover::after {
+      animation: shimmerEffect 2.2s ease-in-out infinite;
+      opacity: 1;
+    }
+
+    @keyframes shimmerEffect {
+      0% { transform: translate(-30%, -30%) rotate(45deg); }
+      100% { transform: translate(30%, 30%) rotate(45deg); }
+    }
+
+    /* Cosmic Dust particle float */
+    .floating-dust {
+      animation: floatDust 25s linear infinite;
+    }
+    @keyframes floatDust {
+      0% { transform: translateY(100vh) scale(0.6) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.25; }
+      85% { opacity: 0.25; }
+      100% { transform: translateY(-10vh) scale(1.1) rotate(360deg); opacity: 0; }
+    }
+
+    /* 3D Wing Flapping Styles - Exquisite physics matching high jewelry craftsmanship */
+    .wing-left-origin {
+      transform-origin: 326px 225px; /* Pivot point perfectly matches where the wing joins the triangle edge */
+      transition: transform 0.9s cubic-bezier(0.25, 1, 0.2, 1);
+      animation: idleBreatheLeft 10s ease-in-out infinite;
+    }
+    .wing-right-origin {
+      transform-origin: 474px 225px; /* Pivot point perfectly matches where the wing joins the triangle edge */
+      transition: transform 0.9s cubic-bezier(0.25, 1, 0.2, 1);
+      animation: idleBreatheRight 10s ease-in-out infinite;
+    }
+
+    /* Elegant, slow jewelry idle breathing */
+    @keyframes idleBreatheLeft {
+      0%, 100% { transform: rotate(0deg) skewY(0deg) scale(1); }
+      50% { transform: rotate(-5deg) skewY(-1deg) scaleX(0.98); }
+    }
+    @keyframes idleBreatheRight {
+      0%, 100% { transform: rotate(0deg) skewY(0deg) scale(1); }
+      50% { transform: rotate(5deg) skewY(1deg) scaleX(0.98); }
+    }
+
+    /* Active flap animations on click or modal resonance */
+    .active-flap-left {
+      animation: activeFlapLeft 1.4s cubic-bezier(0.19, 1, 0.22, 1) !important;
+    }
+    .active-flap-right {
+      animation: activeFlapRight 1.4s cubic-bezier(0.19, 1, 0.22, 1) !important;
+    }
+
+    @keyframes activeFlapLeft {
+      0% { transform: rotate(0deg); }
+      20% { transform: rotate(-28deg) skewY(-4deg) scale(1.05); }
+      50% { transform: rotate(8deg) skewY(1deg) scale(0.97); }
+      75% { transform: rotate(-3deg); }
+      100% { transform: rotate(0deg); }
+    }
+    @keyframes activeFlapRight {
+      0% { transform: rotate(0deg); }
+      20% { transform: rotate(28deg) skewY(4deg) scale(1.05); }
+      50% { transform: rotate(-8deg) skewY(-1deg) scale(0.97); }
+      75% { transform: rotate(3deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* Subtle shimmer over the central heart elements */
+    .jewel-sparkle {
+      animation: jewelSparkle 4s ease-in-out infinite;
+    }
+    @keyframes jewelSparkle {
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(251, 245, 230, 0.25)); opacity: 0.9; }
+      50% { filter: drop-shadow(0 0 12px rgba(244, 86, 149, 0.85)); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-obsidian-deepest text-zinc-400 font-sans min-h-screen relative overflow-x-hidden selection:bg-gold-deep selection:text-gold-light">
+
+  <!-- Sovereignty Space Ambiance -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Deep Amber-Gold Nebula with Pink Aura Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[1200px] h-[500px] md:h-[850px] bg-gradient-to-b from-[#241318] to-transparent rounded-full filter blur-[150px] opacity-75"></div>
+    <div class="absolute bottom-1/4 right-0 w-[600px] h-[600px] bg-[#070b10] rounded-full filter blur-[130px] opacity-40"></div>
+    <div class="absolute inset-0 z-0 opacity-10" id="cosmic-dust-container"></div>
+  </div>
+
+  <!-- Classified Cryptographic Header -->
+  <header class="relative z-10 border-b border-gold-border bg-obsidian-deepest/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <span class="font-serif text-[10px] tracking-[0.45em] text-gold-dark/40 font-bold">CELESTIAL WELLSPRING:</span>
+        <span class="font-serif text-xs tracking-[0.3em] font-medium text-gold hover:opacity-80 transition-all cursor-pointer">
+          flowerangel.org/code
+        </span>
+      </div>
+      <nav class="flex items-center gap-6 text-[10px] font-serif tracking-[0.3em] text-zinc-600">
+        <a href="#section-phase1" class="hover:text-gold transition-colors">PHASE I</a>
+        <span class="text-gold-border">|</span>
+        <a href="#section-phase2" class="hover:text-gold transition-colors">PHASE II</a>
+        <span class="text-gold-border">|</span>
+        <a href="#section-phase3" class="hover:text-gold transition-colors">PHASE III</a>
+        <span class="text-gold-border">|</span>
+        <a href="#section-phase4" class="hover:text-gold transition-colors">PHASE IV</a>
+        <span class="text-gold-border">|</span>
+        <a href="#bloom" class="hover:text-gold font-bold transition-all text-white">BLOOM 27</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Interactive Master Jewel Shield -->
+  <section class="relative z-10 max-w-5xl mx-auto px-6 pt-16 pb-12 text-center">
+    
+    <!-- True Jewelry Master SVG Representation (White backgrounds deleted, pink plates removed, enhanced heart lines) -->
+    <div class="mb-12 flex justify-center">
+      <div class="relative group cursor-pointer" onclick="triggerDivineFlap()">
+        <!-- Multi-layered Luxury Pink and Gold Jewel Aura -->
+        <div class="absolute -inset-10 bg-gradient-to-r from-gold-deep/60 via-purple-900/10 to-[#3c1524] rounded-full opacity-60 group-hover:opacity-100 blur-3xl transition-all duration-1000"></div>
+        
+        <!-- Amulet Glass Matrix Base -->
+        <div class="relative w-full max-w-[560px] aspect-[1.65] bg-gradient-to-b from-obsidian-card/40 to-obsidian-dark/40 rounded-3xl border border-gold-border shadow-sovereign p-4 backdrop-blur-xl flex items-center justify-center transition-all duration-700 group-hover:shadow-jewel-active group-hover:border-gold/30">
+          
+          <svg class="w-full h-full select-none" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- 18K Yellow Gold Metallic Gradients with high contrast reflecting precious metal plating -->
+              <linearGradient id="gold-18k" x1="120" y1="60" x2="680" y2="420" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#8a6f27"/>
+                <stop offset="20%" stop-color="#f1dca7"/>
+                <stop offset="40%" stop-color="#b89332"/>
+                <stop offset="55%" stop-color="#fff4d4"/>
+                <stop offset="70%" stop-color="#d4af37"/>
+                <stop offset="85%" stop-color="#aa820a"/>
+                <stop offset="100%" stop-color="#554112"/>
+              </linearGradient>
+
+              <!-- Absolute Heart Gradients (Deeper and softer reds, rose-pinks with crystal cut facets) -->
+              <radialGradient id="ruby-cut" cx="45%" cy="40%" r="55%">
+                <stop offset="0%" stop-color="#ffb3ba"/>
+                <stop offset="20%" stop-color="#ff5e7e"/>
+                <stop offset="60%" stop-color="#e91e63"/>
+                <stop offset="90%" stop-color="#9c0d38"/>
+                <stop offset="100%" stop-color="#4d0014"/>
+              </radialGradient>
+
+              <radialGradient id="citrine-cut" cx="45%" cy="40%" r="55%">
+                <stop offset="0%" stop-color="#ffebaa"/>
+                <stop offset="35%" stop-color="#f49b1a"/>
+                <stop offset="80%" stop-color="#a45c06"/>
+                <stop offset="100%" stop-color="#4d2700"/>
+              </radialGradient>
+
+              <radialGradient id="peridot-cut" cx="45%" cy="40%" r="55%">
+                <stop offset="0%" stop-color="#f2ffa8"/>
+                <stop offset="35%" stop-color="#b5c82b"/>
+                <stop offset="80%" stop-color="#647306"/>
+                <stop offset="100%" stop-color="#2c3300"/>
+              </radialGradient>
+
+              <radialGradient id="pink-cut" cx="45%" cy="40%" r="55%">
+                <stop offset="0%" stop-color="#ffe4ec"/>
+                <stop offset="25%" stop-color="#ff79b0"/>
+                <stop offset="65%" stop-color="#e91e63"/>
+                <stop offset="90%" stop-color="#900c3f"/>
+                <stop offset="100%" stop-color="#4a001a"/>
+              </radialGradient>
+
+              <radialGradient id="amethyst-cut" cx="45%" cy="40%" r="55%">
+                <stop offset="0%" stop-color="#ecd4ff"/>
+                <stop offset="35%" stop-color="#8830bf"/>
+                <stop offset="80%" stop-color="#49106e"/>
+                <stop offset="100%" stop-color="#210036"/>
+              </radialGradient>
+
+              <radialGradient id="smoky-cut" cx="45%" cy="40%" r="55%">
+                <stop offset="0%" stop-color="#d9bead"/>
+                <stop offset="40%" stop-color="#7c5a45"/>
+                <stop offset="80%" stop-color="#473123"/>
+                <stop offset="100%" stop-color="#1f120a"/>
+              </radialGradient>
+
+              <radialGradient id="sapphire-cut" cx="45%" cy="40%" r="55%">
+                <stop offset="0%" stop-color="#a4c6ff"/>
+                <stop offset="35%" stop-color="#2261d4"/>
+                <stop offset="80%" stop-color="#0d3178"/>
+                <stop offset="100%" stop-color="#00210f"/>
+              </radialGradient>
+
+              <radialGradient id="emerald-cut" cx="45%" cy="40%" r="55%">
+                <stop offset="0%" stop-color="#b5ffd7"/>
+                <stop offset="35%" stop-color="#129759"/>
+                <stop offset="80%" stop-color="#08542f"/>
+                <stop offset="100%" stop-color="#00210f"/>
+              </radialGradient>
+
+              <!-- Absolute Drop Shadow for structural suspension effect -->
+              <filter id="jewelry-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.85"/>
+              </filter>
+            </defs>
+
+            <!-- Main Suspended Jewellery Group -->
+            <g filter="url(#jewelry-shadow)">
+              
+              <!-- LEFT WING - 18K Gold structural wing housing 3 heart gem settings -->
+              <g id="master-wing-left" class="wing-left-origin">
+                <!-- Outer Arch curves mimicking detailed master craftsmanship wireframes -->
+                <path d="M326 225 C200 190, 110 110, 132 30 C165 20, 220 70, 272 155 C295 188, 315 210, 326 225 Z" fill="none" stroke="url(#gold-18k)" stroke-width="5.5" stroke-linecap="round"/>
+                <path d="M326 225 C216 195, 155 140, 160 80 C180 60, 230 100, 268 175" fill="none" stroke="url(#gold-18k)" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M326 225 C240 205, 188 165, 192 110 C210 90, 252 120, 280 185" fill="none" stroke="url(#gold-18k)" stroke-width="1.5" stroke-linecap="round"/>
+                
+                <!-- Heart Prong settings (Double Gold prong details emphasizing Heart feel) -->
+                <!-- Upper Ruby Setting -->
+                <circle cx="166" cy="42" r="14.5" fill="none" stroke="url(#gold-18k)" stroke-width="1.5"/>
+                <path d="M166 31 C157 26, 147 31, 152 42 L166 54 L180 42 C185 31, 175 26, 166 31 Z" fill="url(#ruby-cut)"/>
+                <!-- Inner heart facets to highlight Heart feel -->
+                <path d="M166 35 L166 48 M161 39 L171 39" stroke="#ffebf0" stroke-width="0.75" opacity="0.6"/>
+                
+                <!-- Middle Citrine Setting -->
+                <circle cx="188" cy="98" r="14.5" fill="none" stroke="url(#gold-18k)" stroke-width="1.5"/>
+                <path d="M188 87 C180 82, 169 87, 174 98 L188 110 L202 98 C207 87, 196 82, 188 87 Z" fill="url(#citrine-cut)"/>
+                <path d="M188 91 L188 104 M183 95 L193 95" stroke="#fff4e0" stroke-width="0.75" opacity="0.6"/>
+                
+                <!-- Lower Peridot Setting -->
+                <circle cx="225" cy="155" r="14.5" fill="none" stroke="url(#gold-18k)" stroke-width="1.5"/>
+                <path d="M225 144 C217 139, 206 144, 211 155 L225 167 L239 155 C244 144, 233 139, 225 144 Z" fill="url(#peridot-cut)"/>
+                <path d="M225 148 L225 161 M220 152 L230 152" stroke="#f6ffd1" stroke-width="0.75" opacity="0.6"/>
+              </g>
+
+
+              <!-- RIGHT WING - 18K Gold structural wing housing 3 heart gem settings -->
+              <g id="master-wing-right" class="wing-right-origin">
+                <!-- Outer Arch curves mimicking detailed master craftsmanship wireframes -->
+                <path d="M474 225 C600 190, 690 110, 668 30 C635 20, 580 70, 528 155 C505 188, 485 210, 474 225 Z" fill="none" stroke="url(#gold-18k)" stroke-width="5.5" stroke-linecap="round"/>
+                <path d="M474 225 C584 195, 645 140, 640 80 C620 60, 570 100, 532 175" fill="none" stroke="url(#gold-18k)" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M474 225 C560 205, 612 165, 608 110 C590 90, 548 120, 520 185" fill="none" stroke="url(#gold-18k)" stroke-width="1.5" stroke-linecap="round"/>
+
+                <!-- Gem Prong settings -->
+                <!-- Upper Pink Sapphire Setting -->
+                <circle cx="634" cy="42" r="14.5" fill="none" stroke="url(#gold-18k)" stroke-width="1.5"/>
+                <path d="M634 32 C626 27, 616 32, 621 42 L634 54 L647 42 C652 32, 642 27, 634 32 Z" fill="url(#pink-cut)"/>
+                <path d="M634 36 L634 49 M629 40 L639 40" stroke="#fff0f5" stroke-width="0.75" opacity="0.6"/>
+
+                <!-- Middle Amethyst Setting -->
+                <circle cx="612" cy="98" r="14.5" fill="none" stroke="url(#gold-18k)" stroke-width="1.5"/>
+                <path d="M612 87 C604 82, 594 87, 599 98 L612 110 L625 98 C630 87, 620 82, 612 87 Z" fill="url(#amethyst-cut)"/>
+                <path d="M612 91 L612 104 M607 95 L617 95" stroke="#f6e8ff" stroke-width="0.75" opacity="0.6"/>
+
+                <!-- Lower Smoky Topaz Setting -->
+                <circle cx="575" cy="155" r="14.5" fill="none" stroke="url(#gold-18k)" stroke-width="1.5"/>
+                <path d="M575 144 C567 139, 557 144, 562 155 L575 167 L588 155 C593 144, 583 139, 575 144 Z" fill="url(#smoky-cut)"/>
+                <path d="M575 148 L575 161 M570 152 L580 152" stroke="#fff4eb" stroke-width="0.75" opacity="0.5"/>
+              </g>
+
+
+              <!-- CENTRAL TRINITY FILIGREE SHIELD (Open skeletal frame, pink body deleted) -->
+              <g id="master-central-shield">
+                <!-- Massive 18K Gold Triangular Bezel Base with thick polished borders -->
+                <polygon points="400,90 545,340 255,340" fill="none" stroke="url(#gold-18k)" stroke-width="8.5" stroke-linejoin="round"/>
+                
+                <!-- Inner Fine Gold Bezel wire, showcasing intricate nested frame -->
+                <polygon points="400,105 533,330 267,330" fill="none" stroke="#aa820a" stroke-width="2.5" stroke-linejoin="round" opacity="0.9"/>
+                
+                <!-- Internal Gold Filigree struts bridging the triangle space - enhancing the 3D jewelry feel -->
+                <line x1="400" y1="90" x2="400" y2="235" stroke="url(#gold-18k)" stroke-width="2.5" opacity="0.8"/>
+                <line x1="255" y1="340" x2="350" y2="280" stroke="url(#gold-18k)" stroke-width="2" opacity="0.8"/>
+                <line x1="545" y1="340" x2="450" y2="280" stroke="url(#gold-18k)" stroke-width="2" opacity="0.8"/>
+
+                <!-- Concentric Sacred Heart Petal Wheel suspension system (Refined for a deep jewelry Heart expression) -->
+                <g transform="translate(400, 255)">
+                  <!-- Micro Prong Ring backing -->
+                  <circle r="48" stroke="url(#gold-18k)" stroke-width="1.2" stroke-dasharray="2,6"/>
+                  <circle r="56" stroke="url(#gold-18k)" stroke-width="0.8" opacity="0.5"/>
+                  
+                  <!-- 10 Exquisitely Segmented Radial Heart Petals in high-clarity spectral jewels (Engraved facets) -->
+                  <g id="petal-group" class="jewel-sparkle">
+                    <!-- Red / Coral Heart -->
+                    <g transform="rotate(0) translate(0,-26)">
+                      <path id="svg-petal-0" d="M0 -9 C-6 -14, -12 -9, -6 0 L0 9 L6 0 C12 -9, 6 -14, 0 -9 Z" fill="url(#ruby-cut)" stroke="url(#gold-18k)" stroke-width="0.85" class="transition-all duration-300 hover:scale-115 cursor-pointer"/>
+                      <path d="M0 -5 L0 4" stroke="#ffebf0" stroke-width="0.6" opacity="0.75"/>
+                    </g>
+                    <!-- Orange / Coral Heart -->
+                    <g transform="rotate(36) translate(0,-26)">
+                      <path id="svg-petal-1" d="M0 -9 C-6 -14, -12 -9, -6 0 L0 9 L6 0 C12 -9, 6 -14, 0 -9 Z" fill="url(#citrine-cut)" stroke="url(#gold-18k)" stroke-width="0.85" class="transition-all duration-300 hover:scale-115 cursor-pointer"/>
+                      <path d="M0 -5 L0 4" stroke="#fff4e0" stroke-width="0.6" opacity="0.75"/>
+                    </g>
+                    <!-- Gold / Yellow Heart -->
+                    <g transform="rotate(72) translate(0,-26)">
+                      <path id="svg-petal-2" d="M0 -9 C-6 -14, -12 -9, -6 0 L0 9 L6 0 C12 -9, 6 -14, 0 -9 Z" fill="url(#citrine-cut)" stroke="url(#gold-18k)" stroke-width="0.85" class="transition-all duration-300 hover:scale-115 cursor-pointer"/>
+                      <path d="M0 -5 L0 4" stroke="#fffdeb" stroke-width="0.6" opacity="0.75"/>
+                    </g>
+                    <!-- Peridot / Olive Heart -->
+                    <g transform="rotate(108) translate(0,-26)">
+                      <path id="svg-petal-3" d="M0 -9 C-6 -14, -12 -9, -6 0 L0 9 L6 0 C12 -9, 6 -14, 0 -9 Z" fill="url(#peridot-cut)" stroke="url(#gold-18k)" stroke-width="0.85" class="transition-all duration-300 hover:scale-115 cursor-pointer"/>
+                      <path d="M0 -5 L0 4" stroke="#f6ffd1" stroke-width="0.6" opacity="0.75"/>
+                    </g>
+                    <!-- Emerald / Green Heart -->
+                    <g transform="rotate(144) translate(0,-26)">
+                      <path id="svg-petal-4" d="M0 -9 C-6 -14, -12 -9, -6 0 L0 9 L6 0 C12 -9, 6 -14, 0 -9 Z" fill="url(#emerald-cut)" stroke="url(#gold-18k)" stroke-width="0.85" class="transition-all duration-300 hover:scale-115 cursor-pointer"/>
+                      <path d="M0 -5 L0 4" stroke="#e0ffe2" stroke-width="0.6" opacity="0.75"/>
+                    </g>
+                    <!-- Aquamarine Heart -->
+                    <g transform="rotate(180) translate(0,-26)">
+                      <path id="svg-petal-5" d="M0 -9 C-6 -14, -12 -9, -6 0 L0 9 L6 0 C12 -9, 6 -14, 0 -9 Z" fill="url(#emerald-cut)" stroke="url(#gold-18k)" stroke-width="0.85" class="transition-all duration-300 hover:scale-115 cursor-pointer"/>
+                      <path d="M0 -5 L0 4" stroke="#e6ffff" stroke-width="0.6" opacity="0.75"/>
+                    </g>
+                    <!-- Cobalt Sapphire Heart -->
+                    <g transform="rotate(216) translate(0,-26)">
+                      <path id="svg-petal-6" d="M0 -9 C-6 -14, -12 -9, -6 0 L0 9 L6 0 C12 -9, 6 -14, 0 -9 Z" fill="url(#sapphire-cut)" stroke="url(#gold-18k)" stroke-width="0.85" class="transition-all duration-300 hover:scale-115 cursor-pointer"/>
+                      <path d="M0 -5 L0 4" stroke="#e6f2ff" stroke-width="0.6" opacity="0.75"/>
+                    </g>
+                    <!-- Deep Amethyst Heart -->
+                    <g transform="rotate(252) translate(0,-26)">
+                      <path id="svg-petal-7" d="M0 -9 C-6 -14, -12 -9, -6 0 L0 9 L6 0 C12 -9, 6 -14, 0 -9 Z" fill="url(#amethyst-cut)" stroke="url(#gold-18k)" stroke-width="0.85" class="transition-all duration-300 hover:scale-115 cursor-pointer"/>
+                      <path d="M0 -5 L0 4" stroke="#f6e8ff" stroke-width="0.6" opacity="0.75"/>
+                    </g>
+                    <!-- Lavender Orchid Heart -->
+                    <g transform="rotate(288) translate(0,-26)">
+                      <path id="svg-petal-8" d="M0 -9 C-6 -14, -12 -9, -6 0 L0 9 L6 0 C12 -9, 6 -14, 0 -9 Z" fill="url(#amethyst-cut)" stroke="url(#gold-18k)" stroke-width="0.85" class="transition-all duration-300 hover:scale-115 cursor-pointer"/>
+                      <path d="M0 -5 L0 4" stroke="#ffebff" stroke-width="0.6" opacity="0.75"/>
+                    </g>
+                    <!-- Pink Tourmaline Heart -->
+                    <g transform="rotate(324) translate(0,-26)">
+                      <path id="svg-petal-9" d="M0 -9 C-6 -14, -12 -9, -6 0 L0 9 L6 0 C12 -9, 6 -14, 0 -9 Z" fill="url(#pink-cut)" stroke="url(#gold-18k)" stroke-width="0.85" class="transition-all duration-300 hover:scale-115 cursor-pointer"/>
+                      <path d="M0 -5 L0 4" stroke="#fff0f5" stroke-width="0.6" opacity="0.75"/>
+                    </g>
+                  </g>
+
+                  <!-- Absolute Center Prong & Rose Cut Heart Diamond Core -->
+                  <circle cx="0" cy="0" r="10" fill="none" stroke="url(#gold-18k)" stroke-width="1.2"/>
+                  <path d="M0 -4 C-3 -6, -6 -4, -3 0 L0 4 L3 0 C6 -4, 3 -6, 0 -4 Z" fill="url(#pink-cut)" stroke="url(#gold-18k)" stroke-width="0.5" class="animate-pulse"/>
+                </g>
+              </g>
+
+            </g>
+          </svg>
+          
+          <div class="absolute bottom-3 right-4 flex items-center gap-2 bg-obsidian-deepest/90 border border-gold/20 px-3 py-1 rounded-md">
+            <span class="w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse"></span>
+            <span class="text-[9px] font-serif tracking-[0.25em] text-pink-300/90 font-semibold">CELESTIAL HARMONY</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Title and Subtext (Sovereign Typography Update - Revelation of New Assets and Producer's Compass) -->
+    <div class="relative max-w-3xl mx-auto">
+      <h2 class="font-serif text-sm tracking-[0.35em] text-gold mb-4 italic">The Revelation of Celestial Assets</h2>
+      <h1 class="font-serif text-4xl md:text-6xl font-normal tracking-[0.1em] text-white leading-tight">
+        Flower Angel Asset Code
+      </h1>
+      
+      <!-- Elegant skeletal divider -->
+      <div class="my-8 flex justify-center items-center gap-5">
+        <div class="w-20 h-[1px] bg-gradient-to-r from-transparent to-gold-dark/40"></div>
+        <div class="w-1.5 h-1.5 rotate-45 border border-gold bg-obsidian-deepest"></div>
+        <div class="w-20 h-[1px] bg-gradient-to-l from-transparent to-gold-dark/40"></div>
+      </div>
+      
+      <p class="font-serif text-zinc-500 text-xs md:text-sm tracking-[0.15em] leading-relaxed max-w-2xl mx-auto px-4">
+        A celestial wellspring designed for producers to bloom the exquisite flowers of the soul across past, present, and future. This framework establishes absolute clarity, humanitarian flow, and physical infrastructure across dimensions 0 to 12, culminating in the pristine state of Bloom 27.
+      </p>
+
+      <!-- Connection Actions -->
+      <div class="mt-8 flex justify-center gap-4">
+        <button onclick="triggerDivineFlap()" class="px-6 py-3.5 rounded-none bg-gold-deep/20 border border-gold/30 text-[10px] tracking-[0.3em] text-gold-light hover:bg-gold-deep/40 hover:border-gold transition-all duration-500 shadow-gold-thin flex items-center gap-2">
+          ACTIVATE SOVEREIGN HARMONY
+        </button>
+        <button onclick="scrollToBloom()" class="px-6 py-3.5 rounded-none bg-gradient-to-r from-gold via-gold-light to-gold-dark text-[10px] tracking-[0.3em] text-obsidian-deepest font-bold hover:brightness-110 transition-all duration-500 shadow-lg">
+          SHIFT TO BLOOM
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Timeline Filter Matrix (Relocated right before the core timeline content for absolute clarity) -->
+  <section class="relative z-10 max-w-5xl mx-auto px-6 mb-12">
+    <div class="bg-obsidian-card/80 border border-gold-border p-4 rounded-none flex flex-wrap items-center justify-between gap-4 shadow-sovereign">
+      <div class="flex items-center gap-2 text-[10px] text-zinc-500 font-serif">
+        <span class="mr-3 tracking-widest font-bold">MATRIX PHASES</span>
+        <button onclick="filterPhase('all')" id="btn-all" class="px-3 py-1.5 border border-gold bg-gold text-obsidian-deepest transition-all font-bold tracking-widest">ALL</button>
+        <button onclick="filterPhase('phase1')" id="btn-phase1" class="px-3 py-1.5 border border-transparent hover:border-gold-border transition-all tracking-widest">PHASE I</button>
+        <button onclick="filterPhase('phase2')" id="btn-phase2" class="px-3 py-1.5 border border-transparent hover:border-gold-border transition-all tracking-widest">PHASE II</button>
+        <button onclick="filterPhase('phase3')" id="btn-phase3" class="px-3 py-1.5 border border-transparent hover:border-gold-border transition-all tracking-widest">PHASE III</button>
+        <button onclick="filterPhase('phase4')" id="btn-phase4" class="px-3 py-1.5 border border-transparent hover:border-gold-border transition-all tracking-widest">PHASE IV</button>
+      </div>
+      <div class="relative w-full md:w-64">
+        <input type="text" id="search-input" onkeyup="searchCodes()" placeholder="FILTER CORE VALUES..." 
+          class="w-full bg-obsidian-deepest border border-gold-border px-4 py-2 text-[11px] text-white focus:outline-none focus:border-gold placeholder-zinc-700 font-serif tracking-widest">
+      </div>
+    </div>
+  </section>
+
+  <!-- Divine Code Timeline Matrix -->
+  <main class="relative z-10 max-w-5xl mx-auto px-6 pb-24">
+    
+    <!-- Phase 1 -->
+    <div class="code-phase-section" id="section-phase1">
+      <div class="mb-8 pl-4 border-l-2 border-gold flex items-center justify-between">
+        <div>
+          <h3 class="text-[10px] font-serif tracking-[0.3em] text-gold font-bold">PHASE I</h3>
+          <h4 class="text-base font-serif tracking-[0.2em] text-white">The Elements of Existence</h4>
+        </div>
+        <span class="text-[10px] font-serif tracking-[0.2em] text-zinc-600">01 / 04</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        
+        <!-- Code 0 (Unified Perpetual Gold numbers & Larger Text & Gold Border & Gold Tag) -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="0" data-phase="phase1">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">0</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Air</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 0</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Air -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">The absolute state of origin, resetting reality to its purest void. It clears the static and noise of a chaotic world, preserving a pristine starting point—the primordial breath of art and intellect before form exists.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">Zero is not a void; it is the infinity holding all unmanifested potentials.</p>
+          </div>
+        </div>
+
+        <!-- Code 1 -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="1" data-phase="phase1">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">1</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Water</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 1</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Water -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">A pure stream cutting through the complex knot of legacy models. Driving absolute transparency across structures, contracts, and humanitarian streams, guiding participants to shine in their truest clarity.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">One represents the origin, the first pristine drop of absolute individual sovereignty.</p>
+          </div>
+        </div>
+
+        <!-- Code 2 -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="2" data-phase="phase1">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">2</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Consciousness</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 2</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Consciousness -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">A sharp awakening. Waking up to reality with relentless vision, unaffected by outdated dogmas. The convergence where independent, awakened minds meet to create a true synergy of connection.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">Two is the birth of the second eye, looking at existence with objective precision.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="code-phase-section" id="section-phase2">
+      <div class="mb-8 pl-4 border-l-2 border-gold flex items-center justify-between">
+        <div>
+          <h3 class="text-[10px] font-serif tracking-[0.3em] text-gold font-bold">PHASE II</h3>
+          <h4 class="text-base font-serif tracking-[0.2em] text-white">The Core of Being</h4>
+        </div>
+        <span class="text-[10px] font-serif tracking-[0.2em] text-zinc-600">02 / 04</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        
+        <!-- Code 3 -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="3" data-phase="phase2">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">3</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Soul</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 3</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Soul -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">The eternal, uncompromised spark of IP and artistic passion. Remaining sacred beneath commercial pressures, transcending the limits of physical time to radiate pure spirit for generations.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">Three is expression and geometry—the birth of new forms from unified poles.</p>
+          </div>
+        </div>
+
+        <!-- Code 4 -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="4" data-phase="phase2">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">4</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Heart</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 4</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Heart -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">A core of absolute harmony and altruism residing within the golden triangle of contrast. A sovereign force bridging borders and connecting souls through the pure velocity of connection.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">Four represents foundational stability, grounding absolute connection into physical reality.</p>
+          </div>
+        </div>
+
+        <!-- Code 5 -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="5" data-phase="phase2">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">5</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Soil</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 5</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Soil -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">The clean, physical foundation where sustainable models take root. The essential infrastructure for food and legacy craftsmanship, grasped firmly by five fingers to manifest tangible, real-world value.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">Five is human sensory capability, active acquisition, and physical network execution.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="code-phase-section" id="section-phase3">
+      <div class="mb-8 pl-4 border-l-2 border-gold flex items-center justify-between">
+        <div>
+          <h3 class="text-[10px] font-serif tracking-[0.3em] text-gold font-bold">PHASE III</h3>
+          <h4 class="text-base font-serif tracking-[0.2em] text-white">Movement and Alignment</h4>
+        </div>
+        <span class="text-[10px] font-serif tracking-[0.2em] text-zinc-600">03 / 04</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        
+        <!-- Code 6 -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="6" data-phase="phase3">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">6</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Flow</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 6</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Flow -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">The perfect, unhindered circulation of capital, energy, and art across borders. A beautiful economic pulse flowing without resistance to enrich every node in the ecosystem.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">Six is the perfect equilibrium of the hexagon—ideal balance in movement.</p>
+          </div>
+        </div>
+
+        <!-- Code 7 -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="7" data-phase="phase3">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">7</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Luck</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 7</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Luck -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">Divine alignment and perfect timing. Fitting flawlessly into the cosmic clock without forced control, surrendering to the higher arrangement that triggers extraordinary synchronicity.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">Seven is the frequency of celestial order, aligning timing without forced human effort.</p>
+          </div>
+        </div>
+
+        <!-- Code 8 -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="8" data-phase="phase3">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">8</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Infinity</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 8</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Infinity -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">The self-sustaining loop of abundance, verified by immutable logs. Translating pure energy into tangible permanence, ensuring the ecosystem self-perpetuates across generations.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">Eight represents sovereign balance. Transposed horizontally, it becomes the mark of Infinity.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="code-phase-section" id="section-phase4">
+      <div class="mb-8 pl-4 border-l-2 border-gold flex items-center justify-between">
+        <div>
+          <h3 class="text-[10px] font-serif tracking-[0.3em] text-gold font-bold">PHASE IV</h3>
+          <h4 class="text-base font-serif tracking-[0.2em] text-white">Expansion and Order</h4>
+        </div>
+        <span class="text-[10px] font-serif tracking-[0.2em] text-zinc-600">04 / 04</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        
+        <!-- Code 9 -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="9" data-phase="phase4">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">9</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Integration</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 9</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Integration -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">The ultimate synthesis of contrasting forces. Blending the physical and spiritual, commerce and altruism, local roots and global reach into an unclouded, unified whole.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">Nine is completion—the synthesis of all prior frequencies into systemic wholeness.</p>
+          </div>
+        </div>
+
+        <!-- Code 10 -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold/30 hover:border-gold/60 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer" data-code="10" data-phase="phase4">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">10</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Genesis</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 10</h3>
+            <h4 class="text-lg md:text-xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Genesis and Go -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">The moment of absolute initiation. Closing the gates of legacy systems to trigger a higher dimension of reality, releasing the shot of the new era with unwavering sovereign will.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">Ten (1 + 0 = 1) is returning to absolute source, operating on a higher dimension of scale.</p>
+          </div>
+        </div>
+
+        <!-- Code 11 (Special Messenger Highlighted - Max Size and Bold Gold Framework) -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border-2 border-gold hover:border-gold rounded-none p-6 transition-all duration-500 shadow-md hover:shadow-gold-strong flex flex-col justify-between cursor-pointer shimmer md:col-span-2" data-code="11" data-phase="phase4">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-5xl gold-gradient-text">11</span>
+              <span class="px-3 py-1.5 text-[9px] tracking-[0.3em] font-serif bg-gold-deep/30 text-gold border border-gold rounded-none font-bold uppercase animate-pulse">Master Antenna</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 11</h3>
+            <h4 class="text-xl md:text-2xl font-serif tracking-[0.1em] gold-gradient-text font-bold">- Gateway / Awakening -</h4>
+            
+            <!-- Structural, uncompromised definition container -->
+            <div class="my-6 p-4 bg-obsidian-deepest border-l-2 border-gold">
+              <p class="font-serif text-sm md:text-base text-gold-light tracking-widest leading-relaxed font-semibold">
+                Eleven defines the sacred connection: the divine messenger, the antenna linking heaven and earth, pure intuition, and the gateway of absolute innovation.
+              </p>
+            </div>
+            
+            <p class="text-xs text-zinc-400 leading-relaxed font-sans font-light">Transcending intellectual limitations and ego constraints. The precise portal through which sovereign intelligence scales from regional origins to global dominance.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4 flex justify-between items-center">
+            <div>
+              <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+              <p class="text-[11px] text-zinc-500 font-serif italic">The master gateway frequency. The two pillars of uncompromised vertical alignment.</p>
+            </div>
+            <div class="w-8 h-8 rounded-full border border-gold flex items-center justify-center text-[10px] font-serif text-gold">11</div>
+          </div>
+        </div>
+
+        <!-- Code 12 (Keeps original Cosmos boundary style for contrast against Gateway) -->
+        <div class="code-card group bg-obsidian-card hover:bg-obsidian-light border border-gold-border hover:border-gold/50 rounded-none p-6 transition-all duration-500 shadow-sm hover:shadow-gold-thin flex flex-col justify-between cursor-pointer shimmer md:col-span-2" data-code="12" data-phase="phase4">
+          <div>
+            <div class="flex justify-between items-start mb-5">
+              <span class="code-number text-4xl gold-gradient-text">12</span>
+              <span class="px-2.5 py-1 text-[9px] tracking-[0.2em] font-serif bg-obsidian-deepest text-gold-light border border-gold uppercase">Cosmos</span>
+            </div>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 12</h3>
+            <h4 class="text-sm font-serif tracking-[0.1em] text-white group-hover:text-gold-light transition-colors">- Cosmos / Order -</h4>
+            <p class="text-xs text-zinc-400 leading-relaxed mt-4 font-sans font-light">The completion of the pristine cycle, where all assets spin in a perfect orbital harmony. Establishing cosmic order over initial chaos, completing the physical chronicle.</p>
+          </div>
+          <div class="border-t border-gold-border mt-6 pt-4">
+            <span class="text-[9px] tracking-[0.2em] font-serif text-gold block mb-1">NUMEROLOGY</span>
+            <p class="text-[11px] text-zinc-500 font-serif italic">The completion of the wheel. All operations finalized into absolute systemic order.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- The Core Destination: Bloom 27 -->
+    <div class="relative mt-24" id="bloom">
+      <div class="absolute -top-16 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <div class="w-[1px] h-16 bg-gradient-to-b from-gold-dark to-purple-900"></div>
+      </div>
+
+      <!-- Sovereign Bloom Vault (Exquisite Symmetrical Altar Layout - Completely Centered) -->
+      <div class="relative bg-gradient-to-br from-obsidian-card to-obsidian-deepest border-2 border-gold/40 rounded-none p-8 md:p-12 shadow-gold-strong overflow-hidden group">
+        
+        <!-- Subtle backlighting -->
+        <div class="absolute -top-32 -right-32 w-80 h-80 bg-gold/5 rounded-full blur-[90px] opacity-85 animate-pulse"></div>
+        <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-purple-950/15 rounded-full blur-[90px] opacity-85 animate-pulse"></div>
+
+        <!-- Fully Centered Flex Layout for Symmetry -->
+        <div class="relative z-10 flex flex-col items-center text-center gap-8">
+          
+          <!-- Master Badge (Perfect Center Alignment & Perfect Radial Typography Balance with Optical Offset Adjustment) -->
+          <!-- Shifted the entire badge container right by 8px to balance visually on wide layouts -->
+          <div class="flex-shrink-0 translate-x-[8px]">
+            <div class="relative w-40 h-40 rounded-full bg-gradient-to-tr from-gold-border via-[#2a1d13] to-obsidian-deepest shadow-xl flex items-center justify-center p-[2px]">
+              <div class="w-full h-full rounded-full bg-obsidian-deepest flex flex-col items-center justify-center">
+                <!-- Optically adjusted: shifted '27' slightly right (2px) to balance the visual weight of '2' and '7' inside the circle -->
+                <span class="code-number text-7xl gold-gradient-text leading-none mt-1 translate-x-[2px]">27</span>
+                <span class="font-serif text-[10px] tracking-[0.3em] text-zinc-500 mt-1.5 font-bold">BLOOM</span>
+              </div>
+            </div>
+            <div class="mt-5 inline-block px-3.5 py-1.5 bg-gold-deep/30 border border-gold/20 text-gold-light text-[9px] font-serif tracking-[0.3em] rounded-none uppercase font-bold">The Core Destination</div>
+          </div>
+
+          <!-- Description content (Bloom is fully colorized in sovereign gold gradient) -->
+          <div class="flex-grow text-center">
+            <h2 class="font-serif text-xs tracking-[0.35em] text-gold font-bold mb-3 uppercase">The Core Destination</h2>
+            <h3 class="text-[10px] font-serif tracking-[0.25em] text-zinc-500 mb-1">Flower Angel Asset Code 27</h3>
+            <h1 class="font-serif text-3xl md:text-5xl font-bold tracking-[0.05em] gold-gradient-text mb-4">
+              - Bloom -
+            </h1>
+            <p class="font-serif text-xs md:text-sm tracking-[0.15em] leading-relaxed text-zinc-400 mb-6 max-w-2xl mx-auto">
+              The absolute convergence where all prior codes are synthesized, elevated, and actualized into truest existence. All systemic blockages are dissolved, allowing the creator and the entire network to flourish in pure, unhindered alignment across past, present, and future.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-gold-border pt-6 text-left max-w-4xl mx-auto">
+              <div class="p-4 bg-obsidian-deepest/60 border border-gold-border">
+                <span class="text-[9px] font-serif tracking-[0.25em] text-gold block mb-1">Three Cubed (3^3)</span>
+                <p class="text-[11px] text-zinc-500 leading-relaxed mt-2 font-serif">Crystallizing structural, physical, and legal frameworks across three physical dimensions into absolute completion.</p>
+              </div>
+              <div class="p-4 bg-obsidian-deepest/60 border border-gold-border">
+                <span class="text-[9px] font-serif tracking-[0.25em] text-gold block mb-1">Universal Altruism (2+7=9)</span>
+                <p class="text-[11px] text-zinc-500 leading-relaxed mt-2 font-serif">Synthesizing into the master value of humanitarianism, pure altruism, and planetary order.</p>
+              </div>
+              <div class="p-4 bg-obsidian-deepest/60 border border-gold-border">
+                <span class="text-[9px] font-serif tracking-[0.25em] text-gold block mb-1">Multi-Dimensional Shift</span>
+                <p class="text-[11px] text-zinc-500 leading-relaxed mt-2 font-serif">Choosing the absolute parallel timeline where abundance and pristine creation operate without friction.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sovereign Action Panel -->
+        <div class="mt-8 flex justify-center">
+          <button onclick="triggerSovereignDrop()" class="px-7 py-4 rounded-none bg-white text-obsidian-deepest text-[10px] tracking-[0.3em] font-bold hover:bg-gold-light transition-all duration-500 shadow-lg border border-transparent hover:border-gold">
+            ACTIVATE SOVEREIGN HARMONY
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Cryptographic Decryption Modal (Zen Mode) -->
+  <div id="modal-container" class="fixed inset-0 bg-obsidian-deepest/90 backdrop-blur-md z-50 flex items-center justify-center p-6 hidden opacity-0 transition-opacity duration-500">
+    <div id="modal-card" class="bg-obsidian-card border border-gold-border rounded-none max-w-lg w-full p-8 shadow-sovereign relative transform scale-95 transition-transform duration-500">
+      <button onclick="closeZenMode()" class="absolute top-6 right-6 text-zinc-500 hover:text-white font-serif text-[10px] tracking-widest transition-colors">&times; SHIELD TERMINAL</button>
+      
+      <div class="text-center">
+        <span id="modal-badge" class="code-number text-7xl gold-gradient-text block mb-1">0</span>
+        <span id="modal-tag" class="px-3 py-1 bg-gold-deep/30 border border-gold/20 text-gold-light text-[9px] tracking-[0.25em] font-serif rounded-none uppercase font-bold">AIR</span>
+        
+        <div class="w-16 h-[1px] bg-gold-border mx-auto my-6"></div>
+        
+        <h3 id="modal-title" class="font-serif text-xl font-normal text-white tracking-[0.1em] mb-1">- Title -</h3>
+        <h4 id="modal-subtitle" class="font-serif text-[10px] text-zinc-500 tracking-[0.3em] mb-4">Subtitle</h4>
+        <p id="modal-text" class="font-sans text-xs md:text-sm text-zinc-400 leading-relaxed mb-6 font-light">Detail descriptions.</p>
+        
+        <div class="bg-obsidian-deepest p-4 border border-gold-border text-left">
+          <span class="text-[9px] tracking-[0.25em] text-gold block mb-1">DECRYPTED VIBRATION & NUMEROLOGY</span>
+          <p id="modal-numerology" class="text-xs text-zinc-500 font-serif italic leading-relaxed">Numerology background info.</p>
+        </div>
+        
+        <button onclick="triggerPulseEffect()" class="mt-6 px-6 py-3 bg-gold text-obsidian-deepest text-[10px] tracking-[0.3em] font-bold rounded-none hover:bg-gold-light transition-all shadow-md">
+          HARMONIZE FREQUENCY
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Celestial Sovereign Footer (Proclamation from Heaven for the Souls Blooming across past, present, and future) -->
+  <footer class="relative z-10 border-t border-gold-border bg-obsidian-deepest py-16 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <span class="font-serif text-[10px] tracking-[0.5em] text-gold block mb-4">THE CELESTIAL SOVEREIGN FLOWER ANGEL ASSET CODE</span>
+      <p class="font-serif text-xs md:text-sm text-gold-light leading-relaxed mb-6 max-w-xl mx-auto tracking-widest italic">
+        "Let humanity awaken to the true essence of happiness, where the soul’s flower blooms eternal—across past, present, and future. This is the celestial wellspring." This heavenly message is bestowed upon producers destined to guide the sacred flowering of humanity.
+      </p>
+      <div class="w-16 h-[1px] bg-gold-border mx-auto mb-6"></div>
+      <p class="font-serif text-[9px] text-zinc-700 tracking-[0.3em]">
+        &copy; 2026 FLOWER ANGEL ASSET CODE. ALL SOULS BLOOMING ACROSS PAST, PRESENT, AND FUTURE.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Notification Banner -->
+  <div id="toast" class="fixed bottom-6 right-6 bg-obsidian-card border border-gold text-white px-6 py-4 rounded-none shadow-sovereign z-50 flex items-center gap-3 transition-all transform translate-y-20 opacity-0 pointer-events-none font-serif text-xs">
+    <span class="text-gold" id="toast-icon">|</span>
+    <span id="toast-message" class="tracking-widest">WELLSPRING FLOWING</span>
+  </div>
+
+  <script>
+    // Web Audio Synthesizer (Generates celestial high-jewelry resonance tones when clicked)
+    let audioCtx = null;
+    function playCelestialTone(freq1, freq2, duration = 1.4) {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        
+        const now = audioCtx.currentTime;
+        const gainNode = audioCtx.createGain();
+        gainNode.gain.setValueAtTime(0.08, now);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        // Sinusoidal warm chime oscillators
+        const osc1 = audioCtx.createOscillator();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(freq1, now);
+
+        const osc2 = audioCtx.createOscillator();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(freq2, now);
+
+        osc1.connect(gainNode);
+        osc2.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        osc1.start(now);
+        osc2.start(now);
+        osc1.stop(now + duration);
+        osc2.stop(now + duration);
+      } catch (e) {
+        // Fail silently
+      }
+    }
+
+    // Dynamic particles generation in dark universe space
+    const dustContainer = document.getElementById('cosmic-dust-container');
+    const particleColors = ['#f1dca7', '#d4af37', '#aa820a', '#ffffff'];
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'absolute rounded-full floating-dust pointer-events-none';
+      const size = Math.random() * 2 + 1;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.backgroundColor = particleColors[Math.floor(Math.random() * particleColors.length)];
+      particle.style.animationDelay = `${Math.random() * 25}s`;
+      particle.style.animationDuration = `${Math.random() * 20 + 15}s`;
+      dustContainer.appendChild(particle);
+    }
+
+    // Interactive Action Flap for the Wings
+    function triggerDivineFlap() {
+      // Elegant crystal harp chords (A5 and C#6) - Pure high jewelry tone
+      playCelestialTone(880.00, 1109.73, 1.8);
+      
+      const wingLeft = document.getElementById('master-wing-left');
+      const wingRight = document.getElementById('master-wing-right');
+      
+      wingLeft.classList.remove('active-flap-left');
+      wingRight.classList.remove('active-flap-right');
+      
+      void wingLeft.offsetWidth;
+      void wingRight.offsetWidth;
+      
+      wingLeft.classList.add('active-flap-left');
+      wingRight.classList.add('active-flap-right');
+      
+      showToast("Celestial Harmony Resonated. Core Frequency Locked.", "RESONATE");
+    }
+
+    // Interactivity: Filter asset phases
+    function filterPhase(phase) {
+      playCelestialTone(440.00, 554.37, 0.6); // Ethereal low chime transition
+      const sections = document.querySelectorAll('.code-phase-section');
+      const cards = document.querySelectorAll('.code-card');
+      
+      const btnAll = document.getElementById('btn-all');
+      const btnP1 = document.getElementById('btn-phase1');
+      const btnP2 = document.getElementById('btn-phase2');
+      const btnP3 = document.getElementById('btn-phase3');
+      const btnP4 = document.getElementById('btn-phase4');
+      
+      const btns = [btnAll, btnP1, btnP2, btnP3, btnP4];
+      btns.forEach(btn => {
+        btn.classList.remove('bg-gold', 'text-obsidian-deepest', 'font-bold');
+        btn.classList.add('hover:border-gold-border');
+        btn.style.borderColor = 'transparent';
+      });
+
+      const currentBtn = document.getElementById(`btn-${phase}`);
+      currentBtn.classList.add('bg-gold', 'text-obsidian-deepest', 'font-bold');
+      currentBtn.classList.remove('hover:border-gold-border');
+      currentBtn.style.borderColor = '#d4af37';
+
+      cards.forEach(card => {
+        if (phase === 'all' || card.getAttribute('data-phase') === phase) {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+          card.style.opacity = '0';
+        }
+      });
+      
+      sections.forEach(sec => {
+        const visibleCards = sec.querySelectorAll(`.code-card[data-phase="${phase}"]`);
+        if (phase === 'all' || visibleCards.length > 0) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+
+    // Real-time search filter
+    function searchCodes() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const cards = document.querySelectorAll('.code-card');
+      
+      cards.forEach(card => {
+        const title = card.querySelector('h4').innerText.toLowerCase();
+        const desc = card.querySelector('p').innerText.toLowerCase();
+        const num = card.querySelector('.gold-gradient-text').innerText.toLowerCase();
+        
+        if (title.includes(query) || desc.includes(query) || num.includes(query)) {
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+          card.style.display = 'flex';
+        } else {
+          card.style.opacity = '0';
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Classed ledger details
+    const modalData = {
+      "0": {
+        title: "- Air -",
+        subtitle: "Flower Angel Asset Code 0",
+        text: "The absolute state of origin, resetting reality to its purest void. It clears the static and noise of a chaotic world, preserving a pristine starting point—the primordial breath of art and intellect before form exists.",
+        numerology: "Zero represents structural voidness, containing all possible potentials within absolute silence.",
+        tag: "Air"
+      },
+      "1": {
+        title: "- Water -",
+        subtitle: "Flower Angel Asset Code 1",
+        text: "A pure stream cutting through the complex knot of legacy models. Driving absolute transparency across structures, contracts, and humanitarian streams, guiding participants to shine in their truest clarity.",
+        numerology: "One is structural origination. The initial drop of sovereign individual awareness.",
+        tag: "Water"
+      },
+      "2": {
+        title: "- Consciousness -",
+        subtitle: "Flower Angel Asset Code 2",
+        text: "A sharp awakening. Waking up to reality with relentless vision, unaffected by outdated dogmas. The convergence where independent, awakened minds meet to create a true synergy of connection.",
+        numerology: "Two is objective analysis. Observing structural integrity with precision.",
+        tag: "Consciousness"
+      },
+      "3": {
+        title: "- Soul -",
+        subtitle: "Flower Angel Asset Code 3",
+        text: "The eternal, uncompromised spark of IP and artistic passion. Remaining sacred beneath commercial pressures, transcending the limits of physical time to radiate pure spirit for generations.",
+        numerology: "Three is the manifestation of harmony and geometry. Creating a true third dimension.",
+        tag: "Soul"
+      },
+      "4": {
+        title: "- Heart -",
+        subtitle: "Flower Angel Asset Code 4",
+        text: "A core of absolute harmony and altruism residing within the golden triangle of contrast. A sovereign force bridging borders and connecting souls through the pure velocity of connection.",
+        numerology: "Four represents dimensional boundaries, grounding dynamic light into stable existence.",
+        tag: "Heart"
+      },
+      "5": {
+        title: "- Soil -",
+        subtitle: "Flower Angel Asset Code 5",
+        text: "The clean, physical foundation where sustainable models take root. The essential infrastructure for food and legacy craftsmanship, grasped firmly by five fingers to manifest tangible, real-world value.",
+        numerology: "Five is active physical conquest, sensory experience, and tactile material gains.",
+        tag: "Soil"
+      },
+      "6": {
+        title: "- Flow -",
+        subtitle: "Flower Angel Asset Code 6",
+        text: "The perfect, unhindered circulation of capital, energy, and art across borders. A beautiful economic pulse flowing without resistance to enrich every node in the ecosystem.",
+        numerology: "Six is physical balance, hexagonal harmony, and clean flow.",
+        tag: "Flow"
+      },
+      "7": {
+        title: "- Luck -",
+        subtitle: "Flower Angel Asset Code 7",
+        text: "Divine alignment and perfect timing. Fitting flawlessly into the cosmic clock without forced control, surrendering to the higher arrangement that triggers extraordinary synchronicity.",
+        numerology: "Seven is the frequency of celestial order, aligning timing without forced human effort.",
+        tag: "Luck"
+      },
+      "8": {
+        title: "- Infinity -",
+        subtitle: "Flower Angel Asset Code 8",
+        text: "The self-sustaining loop of abundance, verified by immutable logs. Translating pure energy into tangible permanence, ensuring the ecosystem self-perpetuates across generations.",
+        numerology: "Eight represents sovereign balance, complete manifestation, and endless regeneration.",
+        tag: "Infinity"
+      },
+      "9": {
+        title: "- Integration -",
+        subtitle: "Flower Angel Asset Code 9",
+        text: "The ultimate synthesis of contrasting forces. Blending the physical and spiritual, commerce and altruism, local roots and global reach into an unclouded, unified whole.",
+        numerology: "Nine is terminal completion, finalizing all elements into structural wholeness.",
+        tag: "Integration"
+      },
+      "10": {
+        title: "- Genesis and Go -",
+        subtitle: "Flower Angel Asset Code 10",
+        text: "The moment of absolute initiation. Closing the gates of legacy systems to trigger a higher dimension of reality, releasing the shot of the new era with unwavering sovereign will.",
+        numerology: "Ten (1 + 0 = 1) is starting over at a higher octave. Pure genesis.",
+        tag: "Genesis"
+      },
+      "11": {
+        title: "- Gateway / Awakening -",
+        subtitle: "Flower Angel Asset Code 11",
+        text: "Eleven defines the sacred connection: the divine messenger, the antenna linking heaven and earth, pure intuition, and the gateway of absolute innovation.",
+        numerology: "The master frequency. Two perfect parallel pillars of absolute alignment.",
+        tag: "Gateway"
+      },
+      "12": {
+        title: "- Cosmos / Order -",
+        subtitle: "Flower Angel Asset Code 12",
+        text: "The completion of the pristine cycle, where all assets spin in a perfect orbital harmony. Establishing cosmic order over initial chaos, completing the physical chronicle.",
+        numerology: "Twelve is the complete spatial order, establishing universal laws.",
+        tag: "Cosmos"
+      }
+    };
+
+    const cards = document.querySelectorAll('.code-card');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const codeNum = card.getAttribute('data-code');
+        openZenMode(codeNum);
+      });
+      card.addEventListener('mouseenter', () => {
+        const codeNum = parseInt(card.getAttribute('data-code'));
+        highlightPetal(codeNum);
+      });
+      card.addEventListener('mouseleave', () => {
+        resetPetals();
+      });
+    });
+
+    function highlightPetal(num) {
+      if (num >= 0 && num <= 9) {
+        const petal = document.getElementById(`svg-petal-${num}`);
+        if (petal) {
+          petal.style.transform = "scale(1.4)";
+          petal.style.filter = "drop-shadow(0 0 18px rgba(244, 86, 149, 1))";
+        }
+      }
+    }
+
+    // Modal Sacred Focus View (Zen mode)
+    function openZenMode(codeNum) {
+      playCelestialTone(587.33, 783.99, 1.4); // Ethereal crystalline fifth
+      const data = modalData[codeNum];
+      if (!data) return;
+
+      document.getElementById('modal-badge').innerText = codeNum;
+      document.getElementById('modal-tag').innerText = data.tag;
+      document.getElementById('modal-title').innerText = data.title;
+      document.getElementById('modal-subtitle').innerText = data.subtitle;
+      document.getElementById('modal-text').innerText = data.text;
+      document.getElementById('modal-numerology').innerText = data.numerology;
+
+      const container = document.getElementById('modal-container');
+      const card = document.getElementById('modal-card');
+      
+      container.classList.remove('hidden');
+      setTimeout(() => {
+        container.classList.add('opacity-100');
+        card.classList.remove('scale-95');
+        card.classList.add('scale-100');
+      }, 10);
+    }
+
+    function closeZenMode() {
+      const container = document.getElementById('modal-container');
+      const card = document.getElementById('modal-card');
+      
+      container.classList.remove('opacity-100');
+      card.classList.remove('scale-100');
+      card.classList.add('scale-95');
+      
+      setTimeout(() => {
+        container.classList.add('hidden');
+      }, 400);
+    }
+
+    function triggerPulseEffect() {
+      playCelestialTone(659.25, 987.77, 2.2); // Perfect third harmony
+      showToast("Vibrational alignment broadcasted across the sovereign nodes.", "HARMONIZE");
+      const badge = document.getElementById('modal-badge');
+      badge.classList.add('scale-125', 'text-gold');
+      setTimeout(() => {
+        badge.classList.remove('scale-125', 'text-gold');
+      }, 800);
+    }
+
+    // Scroll with tone feedback
+    function scrollToBloom() {
+      playCelestialTone(523.25, 659.25, 1.0);
+      document.getElementById('bloom').scrollIntoView({ behavior: 'smooth' });
+      showToast("Sovereign Shift: Routing path directly to Bloom 27.", "NAVIGATE");
+    }
+
+    // Sovereign Drop
+    function triggerSovereignDrop() {
+      // Sovereign expansion chord (C#5 & G#5 & E6)
+      playCelestialTone(554.37, 830.61, 2.8);
+      showToast("Sovereign matrix locked. Real-world physical execution initiated.", "HARMONIZE");
+      
+      // Gentle background deep ambient wave
+      document.body.style.backgroundColor = "#1a060d";
+      setTimeout(() => {
+        document.body.style.backgroundColor = "#030405";
+      }, 2000);
+    }
+
+    // Toast notifications
+    function showToast(message, icon = "ACCESS") {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').innerText = message;
+      document.getElementById('toast-icon').innerText = icon;
+      
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 4500);
+    }
+  </script>
+</body>
+</html>
