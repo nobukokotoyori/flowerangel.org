@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAKURA BLOOM 2027</title>
     
-    <!-- Tailwind CSS with custom premium space palette mimicking 9a89ed6d-76d8-4717-bc88-98b5687407f5_6.jpeg -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,14 +28,12 @@
         }
     </script>
 
-    <!-- Google Fonts & FontAwesome Icons for clean responsive look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* High-end Cosmic Scrollbar styling */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -51,7 +48,6 @@
             background: rgba(255, 77, 148, 0.6);
         }
 
-        /* Glassmorphic Space Container Styling */
         .cosmic-card {
             background: rgba(4, 8, 21, 0.75);
             backdrop-filter: blur(25px);
@@ -65,7 +61,6 @@
             box-shadow: 0 0 40px rgba(255, 77, 148, 0.2);
         }
 
-        /* Standardized elegant style for ampersand */
         .clean-amp {
             font-family: 'Inter', sans-serif !important;
             font-weight: 300 !important;
@@ -73,7 +68,6 @@
             color: #ffaec9;
         }
 
-        /* Stellar space visual ray gradients */
         .cosmic-space-gradient {
             background: radial-gradient(circle at 50% 0%, rgba(255, 77, 148, 0.12) 0%, rgba(2, 5, 18, 0) 70%);
         }
@@ -82,7 +76,6 @@
             pointer-events: none;
         }
 
-        /* 100% Guaranteed visible "Soft White Sakura" ambient glow */
         .sakura-white-glow {
             background: radial-gradient(circle, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.03) 40%, rgba(255, 255, 255, 0) 70%);
             filter: blur(110px);
@@ -91,7 +84,6 @@
             mix-blend-mode: screen;
         }
 
-        /* High-vibration text reflections */
         .glow-sakura {
             text-shadow: 0 0 15px rgba(255, 77, 148, 0.8), 0 0 5px rgba(255, 255, 255, 0.6);
         }
@@ -99,7 +91,6 @@
             text-shadow: 0 0 12px rgba(229, 193, 167, 0.6);
         }
 
-        /* Stellar micro-hover floating animations */
         @keyframes floatSpace {
             0%, 100% { transform: translateY(0) scale(1); opacity: 0.85; }
             50% { transform: translateY(-6px) scale(1.02); opacity: 1; }
@@ -111,25 +102,19 @@
 </head>
 <body class="bg-cosmicblack text-gray-200 font-sans antialiased selection:bg-cosmicpink selection:text-white overflow-x-hidden relative">
 
-    <!-- Ambient Stellar Background Elements mimicking 9a89ed6d-76d8-4717-bc88-98b5687407f5_6.jpeg -->
     <div class="absolute top-0 left-0 w-full h-[1400px] cosmic-space-gradient pointer-events-none z-0"></div>
     <div class="absolute top-1/4 left-[-10%] w-[60%] h-[500px] bg-cosmicpink/5 nebula-glow rounded-full z-0"></div>
     <div class="absolute top-2/3 right-[-10%] w-[50%] h-[600px] bg-deepvelvet/15 nebula-glow rounded-full z-0"></div>
 
-    <!-- HERO HEADER SECTION WITH INTERACTIVE SPACE MAP -->
     <header class="relative w-full min-h-screen flex flex-col justify-center items-center pt-12 overflow-hidden bg-cosmicblack">
         
-        <!-- Live HTML5 interactive orbital engine backdrop (Loads instantly, image merges on load) -->
         <div class="absolute inset-0 z-0">
             <canvas id="cosmicCanvas" class="w-full h-full block bg-cosmicblack"></canvas>
-            <!-- Bottom shadow feather overlay -->
             <div class="absolute bottom-0 left-0 w-full h-44 bg-gradient-to-t from-cosmicblack via-cosmicblack/95 to-transparent"></div>
         </div>
 
-        <!-- Cosmic Text Overlay -->
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center mt-6 pointer-events-none">
             
-            <!-- Global Slogan with Comma and space float (Corrected: "世界が変わる、時が来た。") -->
             <div class="mb-4 space-y-2 space-float">
                 <span class="font-serif text-2xl md:text-4xl text-cosmicpink tracking-[0.2em] glow-sakura block">
                     世界が変わる、時が来た。
@@ -142,12 +127,10 @@
                 </span>
             </div>
 
-            <!-- Main Title Header with customized sleek & ampersand -->
             <h1 class="font-serif text-5xl md:text-8xl font-bold tracking-widest mb-4 text-white drop-shadow-2xl">
                 SAKURA BLOOM <span class="text-goldglow glow-gold font-sans font-semibold">2027</span>
             </h1>
 
-            <!-- Live Calendar-sync Countdown Timer -->
             <div class="inline-block cosmic-card rounded-2xl px-6 py-4 md:px-10 md:py-5 pointer-events-auto border border-pink-500/20 mb-10 shadow-2xl">
                 <div class="text-[10px] md:text-xs tracking-[0.3em] uppercase text-cosmicpink mb-3 font-semibold glow-sakura text-center">
                     Countdown to the Next 27th Cosmic Alignment
@@ -176,7 +159,6 @@
             </div>
         </div>
 
-        <!-- Scroll Indicator Anchor -->
         <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-auto">
             <a href="#origin" class="text-white/40 hover:text-cosmicpink transition-colors duration-300">
                 <p class="text-[10px] uppercase tracking-[0.3em] mb-1">Enter Cosmic Origin</p>
@@ -185,9 +167,7 @@
         </div>
     </header>
 
-    <!-- THE ORIGIN SECTION (The Sacred Seed & Nurture Process) -->
     <section id="origin" class="relative py-24 px-6 md:px-12 max-w-7xl mx-auto z-10">
-        <!-- Soft White Sakura ambient glow directly behind this section -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
             <div class="w-[70%] h-[400px] sakura-white-glow rounded-full"></div>
         </div>
@@ -208,12 +188,10 @@
 
             <div class="lg:col-span-7 cosmic-card p-8 md:p-12 rounded-3xl space-y-8 relative overflow-hidden">
                 
-                <!-- Beautiful Seed Narrative with 3-language Parallel Flow (Always visible without labels) -->
                 <div class="space-y-6 text-sm md:text-base text-gray-300 leading-relaxed border-l-2 border-cosmicpink/30 pl-4 md:pl-6">
                     <div>
                         <h3 class="text-lg font-serif text-cosmicpink font-medium glow-sakura mb-2">みんなで植えた平和の種</h3>
                         <p>
-                            中東戦争のさなか、平和への切なる願いと、数え切れない魂のために捧げられた祈り。それがSAKURA BLOOM 2026の原点です。<br><br>
                             私たちは、あのとき地球に<strong>「愛と平和の種」をみんなで植えました。</strong><br>
                             そして今、<strong>毎月27日に愛の水をやり、祈りの栄養をたっぷりと注いでいます。</strong><br>
                             すべては、2027年春の美しい大輪の奇跡、<strong>SAKURA BLOOM 2027で満開にBLOOM（開花）させるために。</strong>
@@ -222,15 +200,13 @@
 
                     <div class="border-t border-white/5 pt-6">
                         <p class="italic text-gray-300">
-                            Born from a deep prayer for peace amidst the Middle East conflict, SAKURA BLOOM 2026 represents the seed of love we planted in the planetary field together. <br><br>
-                            Now, <strong>every 27th of the month, we water and nurture this precious seed</strong> with high-vibrational love and conscious intention, preparing for its ultimate magnificent bloom at <strong>SAKURA BLOOM 2027 in Spring.</strong>
+                            We planted the "seed of love and peace" on Earth together. Now, <strong>every 27th of the month, we water and nurture this precious seed</strong> with high-vibrational love and conscious intention, preparing for its ultimate magnificent bloom at <strong>SAKURA BLOOM 2027 in Spring.</strong>
                         </p>
                     </div>
 
                     <div class="border-t border-white/5 pt-6">
                         <p class="italic text-gray-300/80">
-                            Née d'une prière profonde pour la paix au milieu du conflit au Moyen-Orient, SAKURA BLOOM 2026 représente la graine d'amour que nous avons plantée ensemble dans la Terre.<br><br>
-                            Désormais, <strong>chaque 27 du mois, nous l'arrosons et lui apportons de la lumière</strong> et des intentions pures, afin qu'elle s'épanouisse en un immense éclat spirituel au printemps de <strong>SAKURA BLOOM 2027.</strong>
+                            Nous avons planté ensemble la "graine d'amour et de paix" sur Terre. Aujourd'hui, <strong>chaque 27 du mois, nous l'arrosons d'amour et la nourrissons de prières</strong>, pour l'épanouissement final lors de <strong>SAKURA BLOOM 2027.</strong>
                         </p>
                     </div>
                 </div>
@@ -238,22 +214,20 @@
         </div>
     </section>
 
-    <!-- UNIVERSAL SOUL PARTICLE STATEMENT (Always Fully Visible in Parallel Layout) -->
     <section class="relative py-12 bg-cosmicblack/40 border-y border-white/5 overflow-hidden">
-        <!-- Soft White Sakura ambient glow directly behind this section -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
             <div class="w-[80%] h-[200px] bg-pink-100/[0.06] blur-[120px] rounded-full"></div>
         </div>
 
         <div class="max-w-6xl mx-auto px-6 relative z-10 text-center">
             <div class="max-w-4xl mx-auto space-y-6">
-                <!-- Single unified board displaying all translations together -->
                 <div class="p-6 md:p-10 rounded-2xl border border-white/10 bg-cosmicnavy/60 shadow-2xl relative overflow-hidden">
                     <span class="absolute top-4 left-4 text-xs font-mono text-cosmicpink tracking-widest uppercase">Universal Alignment</span>
                     
                     <div class="space-y-6 text-center pt-4">
                         <p class="font-serif text-lg md:text-2xl text-white font-medium leading-relaxed tracking-wide">
-                            「あなたのピュアな魂の想いは素粒子となり、空間海を越え、光の速度で世界へと届く。」
+                            あなたのピュアな魂の想いは素粒子となり、<br>
+                            空間海を越え、光の速度で世界へと届く
                         </p>
                         
                         <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-goldglow to-transparent mx-auto"></div>
@@ -273,9 +247,7 @@
         </div>
     </section>
 
-    <!-- DISCOGRAPHY SECTION -->
     <section id="discography" class="relative py-24 px-6 md:px-12 max-w-7xl mx-auto z-10">
-        <!-- Soft White Sakura ambient glow directly behind this section -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
             <div class="w-[60%] h-[500px] sakura-white-glow rounded-full"></div>
         </div>
@@ -288,7 +260,6 @@
 
         <div class="space-y-12">
             
-            <!-- HIGHLIGHT SINGLE: ONE DAY (Refined Frame Dimensions - Smaller Image) -->
             <div class="cosmic-card rounded-3xl p-6 md:p-8 border border-pink-500/20 shadow-2xl relative overflow-hidden">
                 <div class="absolute top-4 right-4 bg-cosmicpink/20 border border-cosmicpink/40 px-3 py-1 rounded-full text-[9px] uppercase tracking-widest text-white font-bold">
                     Featured Single
@@ -296,7 +267,6 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     
-                    <!-- Jacket Artwork - Kept Elegant and Small -->
                     <div class="lg:col-span-3 flex justify-center">
                         <div class="relative w-36 h-36 md:w-40 md:h-40 overflow-hidden rounded-full border-2 border-goldglow/35 shadow-2xl group">
                             <img src="onedaypic.jpg" alt="One Day Jacket Artwork" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" onerror="this.onerror=null; this.src='https://placehold.co/300x300/040815/dfb28e?text=One+Day+Harmony';">
@@ -306,7 +276,6 @@
                         </div>
                     </div>
 
-                    <!-- Story and Metadata with sleek & ampersand -->
                     <div class="lg:col-span-9 space-y-4">
                         <div>
                             <span class="text-[10px] text-goldglow font-semibold tracking-wider block mb-1">RELEASED JULY 27, 2026</span>
@@ -315,7 +284,6 @@
                             </h3>
                         </div>
 
-                        <!-- Trilingual Parallel Context Inside the Exquisite Frame (Always visible without labels) -->
                         <div class="border-t border-white/10 pt-4 space-y-6 text-xs md:text-sm leading-relaxed text-gray-300">
                             <div>
                                 <p class="font-medium text-goldglow mb-1">【絶望の底で灯した一筋の光】</p>
@@ -328,20 +296,12 @@
                                 Dans un état de n'avoir ni carte d'identité ni rien d'autre depuis des décennies pour commencer, puis trahie par ceux en qui j'avais confiance. Ma santé brisée, j'étais sur le point de perdre même le faible espoir en l'avenir. Pourtant, le simple fait de tisser la voix profonde de mon cœur en chanson est devenu mon sanctuaire tranquille et m'a guérie. Un unique rayon de lumière nommé "One day", allumé au plus profond du désespoir, commence ses pas ici comme le voyage vers SAKURA BLOOM 2027.
                             </div>
                         </div>
-
-                        <div class="pt-2">
-                            <a href="https://linkco.re/02SErg25" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-goldglow to-cosmicpink text-cosmicblack font-bold text-xs hover:shadow-lg hover:shadow-cosmicpink/20 transition-all duration-300">
-                                <i class="fa-solid fa-circle-play"></i> Stream Single / 配信ストアへ
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- TWO COLUMN TRACK GRID -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
-                <!-- ALBUM: SAKURA BLOOM 2026 -->
                 <div class="cosmic-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between">
                     <div class="space-y-4">
                         <div class="flex justify-between items-start">
@@ -354,16 +314,15 @@
                         
                         <div class="w-full h-[1px] bg-white/10"></div>
 
-                        <!-- Stories (Always visible parallel flow without label tags) -->
                         <div class="text-xs text-gray-300 leading-relaxed space-y-4">
                             <div>
-                                中東戦争の真っ入り、平和への切なる願いと、多くの過去・現在・未来の魂の花のために捧げられた記念碑的作品。
+                                Harmonyが夢を叶えた舞台に関わる一人一人に向けて「ありがとう」の気持ちを込めて作られたアルバム。SAKURA BLOOM 2027の指針となる。
                             </div>
                             <div class="border-t border-white/5 pt-2">
-                                A monumental work dedicated during the Middle East war, born from an earnest prayer for peace and for the countless blossoms of souls—past, present, and future.
+                                An album created with gratitude for each person involved in the stages where Harmony fulfilled her dreams. It serves as a guiding star for SAKURA BLOOM 2027.
                             </div>
                             <div class="border-t border-white/5 pt-2">
-                                Une œuvre monumentale dédiée pendant la guerre au Moyen-Orient, née d'une prière ardente pour la paix et pour les innombrables fleurs d'âmes du passé, du présent et de l'avenir.
+                                Un album créé avec gratitude pour chaque personne impliquée dans les scènes où Harmony a réalisé ses rêves. Il sert de boussole pour SAKURA BLOOM 2027.
                             </div>
                         </div>
                     </div>
@@ -376,7 +335,6 @@
                     </div>
                 </div>
 
-                <!-- SINGLE: MOTHER'S LOVE (June 22 Release date updated) -->
                 <div class="cosmic-card rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between">
                     <div class="space-y-4">
                         <div class="flex justify-between items-start">
@@ -389,16 +347,15 @@
                         
                         <div class="w-full h-[1px] bg-white/10"></div>
 
-                        <!-- Stories (Always visible parallel flow without labels) -->
                         <div class="text-xs text-gray-300 leading-relaxed space-y-4">
                             <div>
-                                二十歳の誕生日の佳き日の前にドロップされた、心に温かく響く魂の1stシングル。母の愛からすべては始まります。
+                                母親の愛を経験したことのないHarmonyが母の愛に初めて触れてできた歌。
                             </div>
                             <div class="border-t border-white/5 pt-2">
-                                A heartwarming track celebrating pure love and mother's deep affection, dropped on June 22 to mark the source of all love.
+                                A song created when Harmony, who had never experienced a mother's love, touched it for the first time.
                             </div>
                             <div class="border-t border-white/5 pt-2">
-                                Un titre chaleureux célébrant l'amour maternel profond, sorti le 22 juin pour symboliser la source véritable de toute création.
+                                Une chanson créée lorsque Harmony, qui n'avait jamais connu l'amour d'une mère, l'a touché pour la première fois.
                             </div>
                         </div>
                     </div>
@@ -413,7 +370,6 @@
 
             </div>
 
-            <!-- UPCOMING PROJECT WITH DETAILED LAUNCH STATUS (IWATE SHIZUKUISHI & HINOMOTOICHI WATER SOURCE ADDED) -->
             <div class="cosmic-card rounded-2xl p-6 md:p-8 border border-goldglow/20 bg-gradient-to-r from-cosmicblack to-deepvelvet/10 relative overflow-hidden">
                 <div class="absolute right-6 top-6 text-goldglow/10 text-5xl">
                     <i class="fa-solid fa-mountain-sun"></i>
@@ -426,28 +382,24 @@
                     『HINOMOTOICHI 〜神山の祈り〜』
                 </h4>
                 
-                <!-- Always visible multilingual narrative -->
                 <div class="text-xs md:text-sm text-gray-300 leading-relaxed max-w-4xl space-y-4">
                     <div>
                         <p class="font-semibold text-goldglow">【雫石の地から響く讃歌】</p>
-                        岩手県雫石町にある、息をのむような美しい400エーカー（約160ヘクタール）の広大な大地であり、あの奇跡の「日ノ本一Water」の源泉がある聖なる地への訪問から着想を得たプロジェクト。大地、山々、地球全体へ向けた祈りを込めた讃歌。
-                        <p class="mt-2 text-goldglow font-semibold">
-                            <i class="fa-solid fa-circle-info mr-1"></i> 先行して「HINOMOTOICHI 〜神山の祈り〜 (Instrumental)」が、すでに『SAKURA BLOOM 2026』アルバムにてローンチされ世界へ響き渡っています。公式な現地への訪問完了後に、満を持して本プロジェクトの次の形態が始動します。
-                        </p>
+                        Harmonyの夢を叶えた奇跡の歌。岩手県雫石町にある、息をのむような美しい400エーカー（約160ヘクタール）の広大な大地であり、あの奇跡の「日ノ本一天然水」の源泉がある聖なる大地、山々、地球全体へ向けた祈りを込めた讃歌。
+                    </div>
+                    
+                    <div class="text-gray-300">
+                        <p class="text-goldglow">先行して「HINOMOTOICHI 〜神山の祈り〜 (Instrumental)」が、すでに『SAKURA BLOOM 2026』アルバムにてローンチされ世界へ響き渡っています。公式ツアーによる現地への訪問完了後に、満を持して本プロジェクトの次の形態が始動します。</p>
                     </div>
 
                     <div class="border-t border-white/5 pt-4 text-gray-300">
                         Conceived from a visit to the breathtaking, sacred 400-acre land in Shizukuishi, Iwate Prefecture, which is home to the source of the miraculous "Hinomotoichi Water." A song of earth, mountains, and global humanitarian prayers.
-                        <p class="mt-2 text-goldglow font-semibold">
-                            <i class="fa-solid fa-circle-info mr-1"></i> Ahead of this, "HINOMOTOICHI 〜神山の祈り〜 (Instrumental)" has already been launched successfully as part of the "SAKURA BLOOM 2026" album.
-                        </p>
+                        <p class="mt-2 text-goldglow">Ahead of this, "HINOMOTOICHI 〜神山の祈り〜 (Instrumental)" has already been launched successfully as part of the "SAKURA BLOOM 2026" album. Official launch of the next phase will begin after the completion of the official tour visit.</p>
                     </div>
 
                     <div class="border-t border-white/5 pt-4 text-gray-300/80">
-                        Conçu à partir d'une visite sur la terre sacrée et époustouflante de 400 acres à Shizukuishi, préfecture d'Autriche/Iwate, qui abrite la source de l'eau miraculeuse "Hinomotoichi Water". Un chant de la terre, des montagnes et des prières humanitaires globales.
-                        <p class="mt-2 text-goldglow font-semibold">
-                            <i class="fa-solid fa-circle-info mr-1"></i> En amont, "HINOMOTOICHI 〜神山の祈り〜 (Instrumental)" a déjà été lancé au sein de l'album officiel "SAKURA BLOOM 2026".
-                        </p>
+                        Conçu à partir d'une visite sur la terre sacrée et époustouflante de 400 acres à Shizukuishi, préfecture d'Iwate, qui abrite la source de l'eau miraculeuse "Hinomotoichi Water". Un chant de la terre, des montagnes et des prières humanitaires globales.
+                        <p class="mt-2 text-goldglow">En amont, "HINOMOTOICHI 〜神山の祈り〜 (Instrumental)" a déjà été lancé avec succès au sein de l'album "SAKURA BLOOM 2026". Le lancement officiel de la prochaine phase débutera après l'achèvement de la visite officielle.</p>
                     </div>
                 </div>
             </div>
@@ -455,9 +407,7 @@
         </div>
     </section>
 
-    <!-- ROADMAP TIMELINE SECTION (AMENDED AS SIMPLY ROADMAP - ENGLISH ONLY) -->
     <section id="roadmap" class="relative py-24 bg-cosmicblack/40 border-y border-white/5">
-        <!-- Soft White Sakura ambient glow directly behind this section -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
             <div class="w-[70%] h-[600px] sakura-white-glow rounded-full"></div>
         </div>
@@ -470,120 +420,96 @@
 
             <div class="relative border-l border-white/10 ml-4 md:ml-32 space-y-10">
                 
-                <!-- 2026.03.27 -->
                 <div class="relative pl-8 md:pl-12 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-cosmicpink group-hover:scale-125 transition-transform"></div>
                     <div class="absolute left-[-120px] top-1 hidden md:block w-24 text-right text-xs font-mono text-cosmicpink">2026.03.27</div>
                     <div class="cosmic-card p-5 rounded-xl">
                         <span class="md:hidden text-xs font-mono text-cosmicpink block mb-1">2026.03.27</span>
                         <h4 class="font-serif text-base font-bold text-white mb-2">SAKURA BLOOM 2026 (The Origin <span class="clean-amp">&amp;</span> Prayer)</h4>
-                        
-                        <!-- English-only Description Block -->
                         <div class="text-xs text-gray-300 space-y-3 leading-relaxed border-t border-white/5 pt-2">
                             <p>The initial seed was planted in our planetary field to project light over dark times.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2026.06.22 (Updated Date) -->
                 <div class="relative pl-8 md:pl-12 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-goldglow group-hover:scale-125 transition-transform"></div>
                     <div class="absolute left-[-120px] top-1 hidden md:block w-24 text-right text-xs font-mono text-goldglow">2026.06.22</div>
                     <div class="cosmic-card p-5 rounded-xl">
                         <span class="md:hidden text-xs font-mono text-goldglow block mb-1">2026.06.22</span>
                         <h4 class="font-serif text-base font-bold text-white mb-2">1st Single 『Mother's love』 Launch</h4>
-                        
-                        <!-- English-only Description Block -->
                         <div class="text-xs text-gray-300 space-y-3 leading-relaxed border-t border-white/5 pt-2">
                             <p>Official release of the heartwarming first track starting from mother's infinite love.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2026.07.07 -->
                 <div class="relative pl-8 md:pl-12 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-cosmicpink group-hover:scale-125 transition-transform"></div>
                     <div class="absolute left-[-120px] top-1 hidden md:block w-24 text-right text-xs font-mono text-cosmicpink">2026.07.07</div>
                     <div class="cosmic-card p-5 rounded-xl">
                         <span class="md:hidden text-xs font-mono text-cosmicpink block mb-1">2026.07.07</span>
                         <h4 class="font-serif text-base font-bold text-white mb-2">SAKURA BLOOM 2026 Album Release</h4>
-                        
-                        <!-- English-only Description Block -->
                         <div class="text-xs text-gray-300 space-y-3 leading-relaxed border-t border-white/5 pt-2">
-                            <p>Official album release matching the sacred Tanabata and landmark anniversary.</p>
+                            <p>Official album release matching the sacred Tanabata, Harmony's life first birthday, and the special 20th birthday when she was told 'Happy Birthday' for the first time.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2026.07.27 -->
                 <div class="relative pl-8 md:pl-12 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-cosmicpink group-hover:scale-125 transition-transform"></div>
                     <div class="absolute left-[-120px] top-1 hidden md:block w-24 text-right text-xs font-mono text-cosmicpink">2026.07.27</div>
                     <div class="cosmic-card p-5 rounded-xl">
                         <span class="md:hidden text-xs font-mono text-cosmicpink block mb-1">2026.07.27</span>
-                        <h4 class="font-serif text-base font-bold text-white mb-2">2nd Single 『One day』 Launch <span class="clean-amp">&amp;</span> Monthly 27th Global Syncスタート！</h4>
-                        
-                        <!-- English-only Description Block -->
+                        <h4 class="font-serif text-base font-bold text-white mb-2">2nd Single 『One day』 Launch <span class="clean-amp">&amp;</span> Monthly 27th Global Sync Begins!</h4>
                         <div class="text-xs text-gray-300 space-y-3 leading-relaxed border-t border-white/5 pt-2">
                             <p>Monthly focus cycle begins: watering our planted seed with global conscious intention waves.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2026 Late 27th -->
                 <div class="relative pl-8 md:pl-12 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-white/20 group-hover:scale-125 transition-transform"></div>
-                    <div class="absolute left-[-120px] top-1 hidden md:block w-24 text-right text-xs font-mono text-white/50">2026 Late 27th</div>
+                    <div class="absolute left-[-120px] top-1 hidden md:block w-24 text-right text-xs font-mono text-white/50">2026 Late 27th (2026.8.27, 9.27, 10.27, 11.27, 12.27)</div>
                     <div class="cosmic-card p-5 rounded-xl border border-dashed border-white/10">
-                        <span class="md:hidden text-xs font-mono text-white/50 block mb-1">2026 Late 27th</span>
+                        <span class="md:hidden text-xs font-mono text-white/50 block mb-1">2026 Late 27th (2026.8.27, 9.27, 10.27, 11.27, 12.27)</span>
                         <h4 class="font-serif text-base font-bold text-white mb-2">Pre-Event Activation</h4>
-                        
-                        <!-- English-only Description Block -->
                         <div class="text-xs text-gray-300 space-y-3 leading-relaxed border-t border-white/5 pt-2">
                             <p>Interconnected performances dedicated to earth harmonics and high-vibrational shifts.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2027.01.27 (Location Hidden/Vague) -->
                 <div class="relative pl-8 md:pl-12 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-goldglow group-hover:scale-125 transition-transform"></div>
                     <div class="absolute left-[-120px] top-1 hidden md:block w-24 text-right text-xs font-mono text-goldglow">2027.01.27</div>
                     <div class="cosmic-card p-5 rounded-xl">
                         <span class="md:hidden text-xs font-mono text-goldglow block mb-1">2027.01.27</span>
                         <h4 class="font-serif text-base font-bold text-white mb-2">Global Gateway Sync (TBD)</h4>
-                        
-                        <!-- English-only Description Block -->
                         <div class="text-xs text-gray-300 space-y-3 leading-relaxed border-t border-white/5 pt-2">
                             <p>Location TBD. Synchronizing the cosmic gateway somewhere in the world to radiate healing energy.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2027.02.27 (Location Hidden/Vague) -->
                 <div class="relative pl-8 md:pl-12 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-cosmicpink group-hover:scale-125 transition-transform"></div>
                     <div class="absolute left-[-120px] top-1 hidden md:block w-24 text-right text-xs font-mono text-cosmicpink">2027.02.27</div>
                     <div class="cosmic-card p-5 rounded-xl">
                         <span class="md:hidden text-xs font-mono text-cosmicpink block mb-1">2027.02.27</span>
                         <h4 class="font-serif text-base font-bold text-white mb-2">Global Network Connection (TBD)</h4>
-                        
-                        <!-- English-only Description Block -->
                         <div class="text-xs text-gray-300 space-y-3 leading-relaxed border-t border-white/5 pt-2">
                             <p>Connecting the major gateways somewhere in the world, completing the network alignment.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2027 Spring (Location Hidden/Vague) -->
                 <div class="relative pl-8 md:pl-12 group">
                     <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-goldglow group-hover:scale-125 transition-transform"></div>
-                    <div class="absolute left-[-120px] top-1 hidden md:block w-24 text-right text-xs font-mono text-goldglow">2027 Spring</div>
+                    <div class="absolute left-[-120px] top-1 hidden md:block w-24 text-right text-xs font-mono text-goldglow">2027.3.27</div>
                     <div class="cosmic-card p-6 bg-gradient-to-r from-goldglow/10 to-cosmicpink/10 border border-goldglow/40 rounded-xl">
-                        <span class="md:hidden text-xs font-mono text-goldglow block mb-1">2027 Spring</span>
+                        <span class="md:hidden text-xs font-mono text-goldglow block mb-1">2027.3.27</span>
                         <h4 class="font-serif text-lg font-bold text-white mb-2">SAKURA BLOOM 2027 Grand Festival</h4>
-                        
-                        <!-- English-only Description Block -->
                         <div class="text-xs text-gray-300 space-y-3 leading-relaxed border-t border-white/5 pt-2">
                             <p>Scheduled somewhere in the world. A grand festival uniting global energy, music, and humanitarian co-creation.</p>
                         </div>
@@ -594,15 +520,12 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE GEOLOCATION INTENTION PORTAL (Encourages organic action) -->
     <section class="relative py-24 px-6 md:px-12 max-w-6xl mx-auto text-center z-10 font-sans">
-        <!-- Soft White Sakura ambient glow directly behind this section -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
             <div class="w-[80%] h-[400px] bg-pink-100/[0.09] blur-[150px] rounded-full"></div>
         </div>
 
         <div class="cosmic-card p-8 md:p-12 rounded-3xl relative overflow-hidden z-10">
-            <!-- Background WebGL/Canvas Interaction Node Backdrop -->
             <div class="absolute inset-0 z-0 opacity-40">
                 <canvas id="interactionCanvas" class="w-full h-full block bg-transparent"></canvas>
             </div>
@@ -617,7 +540,7 @@
                 
                 <div class="text-xs md:text-sm text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed space-y-4">
                     <p>
-                        毎月27日、想いを美しいアクションに変えて、世界中で魂を表現していきましょう。あなたの「祈りの光」を世界地図に重ね、地球にピンクの輝きを響かせてみませんか？
+                        毎月27日、想いを美しいアクションに変えて、世界中で魂を表現していきましょう。あなたの「祈りの光」を世界地図に重ね、地球にピンクの輝きを響かせてみましょう。
                     </p>
                     <p class="italic text-white/60 text-[11px] md:text-xs">
                         Every 27th, let us turn our pure intentions into beautiful actions and express our souls globally. Why not align your light of prayer on the map and let the earth resonate with pink radiance?
@@ -627,7 +550,6 @@
                     </p>
                 </div>
 
-                <!-- Dynamic Intention Radiator -->
                 <div class="relative max-w-lg mx-auto bg-black/40 p-6 rounded-2xl border border-white/5 text-left">
                     <h4 class="text-xs uppercase font-mono tracking-widest text-goldglow mb-4 text-center">Radiate Intention Wave</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -664,21 +586,17 @@
         </div>
     </section>
 
-    <!-- FOOTER WITH FLOWER ANGEL OFFICIAL SOCIAL MEDIA LINKS (ONLY YOUTUBE AS DIRECTED) -->
     <footer class="relative z-10 border-t border-white/5 bg-cosmicblack/95 py-12 px-6">
-        <!-- Soft White Sakura ambient glow in the footer corners -->
         <div class="absolute bottom-0 right-0 w-[40%] h-[200px] sakura-white-glow pointer-events-none z-0"></div>
         
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
             
-            <!-- Brand Mark -->
             <div class="flex items-center gap-3">
                 <div class="flex flex-col">
                     <span class="font-serif tracking-widest text-white text-sm">SAKURA BLOOM 2027</span>
                 </div>
             </div>
 
-            <!-- Flower Angel Channels - YouTube Only -->
             <div class="flex flex-col items-center md:items-start gap-2">
                 <span class="text-[10px] tracking-widest uppercase text-goldglow font-semibold">Flower Angel Channel</span>
                 <div class="flex gap-4">
@@ -688,7 +606,6 @@
                 </div>
             </div>
 
-            <!-- Copyright and Philosophy Credits -->
             <div class="text-center md:text-right">
                 <p class="text-[10px] tracking-wider text-white/30">
                     &copy; 2026-2027. Dedicated to Universal Peace <span class="clean-amp">&amp;</span> Soul Blossoms.
@@ -700,19 +617,15 @@
         </div>
     </footer>
 
-    <!-- STARDUST STARFIELD ORBIT ENGINE SCRIPT -->
     <script>
-        // Live countdown calculation syncing dynamically with the 27th of every month
         function startCountdown() {
             function updateTimer() {
                 const now = new Date();
                 let year = now.getFullYear();
                 let month = now.getMonth();
                 
-                // Target the 27th at midnight
                 let targetDate = new Date(year, month, 27, 0, 0, 0);
 
-                // If target passed this month, project to next month
                 if (now >= targetDate) {
                     month++;
                     if (month > 11) {
@@ -739,14 +652,12 @@
             setInterval(updateTimer, 1000);
         }
 
-        // Live Cosmic Starfield Earth Canvas engine (Guaranteed immediate rendering)
         let canvas, ctx;
         let particles = [];
         let activePinkRays = [];
         let activeCustomDots = [];
         let time = 0;
 
-        // Normalized positions relative to the space satellite view (9a89ed6d-76d8-4717-bc88-98b5687407f5_6.jpeg)
         let coordinates = {
             japan: { x: 0.648, y: 0.280, name: "Japan Core" },
             cebu: { x: 0.748, y: 0.690, name: "Cebu Hub" },
@@ -766,12 +677,10 @@
 
             window.addEventListener('resize', resizeCanvas);
 
-            // Populate initial ambient stardust particles
             for (let i = 0; i < 120; i++) {
                 spawnSoulParticle(true);
             }
 
-            // User Click Integration
             canvas.addEventListener('click', (e) => {
                 const rect = canvas.getBoundingClientRect();
                 const mouseX = e.clientX - rect.left;
@@ -786,7 +695,6 @@
             canvas.height = Math.max(380, Math.min(window.innerHeight * 0.85, 680));
         }
 
-        // Stardust stream moving from world nodes towards Japan/Cebu to feed the Sakura heart
         class SoulParticle {
             constructor(startX, startY, targetKey, isGolden = false, startProgress = 0) {
                 this.x = startX;
@@ -814,7 +722,6 @@
 
                 if (!fromCoord || !toCoord) return;
 
-                // Curved atmospheric flow lines
                 const cx = (fromCoord.x + toCoord.x) / 2;
                 const cy = (fromCoord.y + toCoord.y) / 2 - 30;
 
@@ -822,7 +729,6 @@
                 this.x = (1-t)*(1-t)*fromCoord.x + 2*(1-t)*t*cx + t*t*toCoord.x;
                 this.y = (1-t)*(1-t)*fromCoord.y + 2*(1-t)*t*cy + t*t*toCoord.y;
 
-                // Add wavy rotation
                 this.x += Math.sin(t * Math.PI * 4) * (this.randomOffset * 0.15);
                 this.y += Math.cos(t * Math.PI * 4) * (this.randomOffset * 0.15);
 
@@ -843,7 +749,6 @@
             }
         }
 
-        // Translate the responsive bounds directly to accurate viewport pixels considering drift and scale
         function getAbsoluteCoords(key, dx, dy, dWidth, dHeight, driftX, driftY, scale) {
             if (key === 'world') {
                 const keys = ['middleEast', 'europe', 'americas', 'africa', 'asia'];
@@ -871,7 +776,6 @@
             particles.push(new SoulParticle(0, 0, target, isGolden, randomInit ? Math.random() : 0));
         }
 
-        // STRIKING COSMIC RAY DOWNWARDS ON PLANET
         function triggerSpaceRay(x, y) {
             activePinkRays.push({
                 x: x,
@@ -886,7 +790,6 @@
                     } else {
                         this.alpha -= 0.04;
                         if (this.sparks.length === 0) {
-                            // Burst cherry stardust on impact
                             for (let i = 0; i < 12; i++) {
                                 this.sparks.push({
                                     sx: this.x,
@@ -927,7 +830,6 @@
                         ctx.lineTo(this.x, this.targetY);
                         ctx.stroke();
                         
-                        // Render impact stardust
                         this.sparks.forEach(s => {
                             if (s.sa > 0) {
                                 ctx.beginPath();
@@ -942,30 +844,24 @@
             });
         }
 
-        // TRIGGER THE USER SELECTION RADIATION (Fires down onto bottom Canvas)
         function radiateIntentionToMap() {
             const region = document.getElementById('userRegion').value;
             const theme = document.getElementById('userIntention').value;
 
-            // Get bottom interactive map Canvas variables
             const intCanvas = document.getElementById('interactionCanvas');
             const intCtx = intCanvas.getContext('2d');
             
-            // Map region selection directly to coordinate bounds
             const intWidth = intCanvas.width;
             const intHeight = intCanvas.height;
             
-            // Compute target absolute position
             const relX = coordinates[region] ? coordinates[region].x : 0.5;
             const relY = coordinates[region] ? coordinates[region].y : 0.5;
             
             const px = relX * intWidth;
             const py = relY * intHeight;
 
-            // Spawn localized cherry stardust rings on bottom Canvas
             triggerInteractionSparks(px, py);
 
-            // Display response message
             const feedback = document.getElementById('interactionFeedback');
             feedback.classList.remove('hidden');
             feedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> Intention "${theme}" synchronized globally!`;
@@ -974,7 +870,6 @@
             }, 4000);
         }
 
-        // Precise 5-Petal Sakura Constellation centered dynamically between Cebu and Japan
         function drawSakuraPetals(cx, cy, radius, pulseAlpha) {
             ctx.save();
             ctx.strokeStyle = `rgba(255, 174, 201, ${0.45 * pulseAlpha})`;
@@ -984,7 +879,6 @@
             
             ctx.beginPath();
             let first = true;
-            // Draw math polar curve representing a cherry blossom (representing Japan and Cebu linking)
             for (let theta = 0; theta <= Math.PI * 2; theta += 0.02) {
                 let petalFactor = Math.sin(5.0 * theta / 2.0);
                 let r = radius * (0.55 + 0.45 * Math.abs(petalFactor));
@@ -1002,7 +896,6 @@
             ctx.closePath();
             ctx.stroke();
 
-            // Star nodes on vertices of the Sakura Constellation
             for (let i = 0; i < 5; i++) {
                 let theta = (i * Math.PI * 2 / 5) - Math.PI / 2;
                 let x = cx + Math.cos(theta) * radius;
@@ -1016,12 +909,10 @@
             ctx.restore();
         }
 
-        // MAIN ANIMATION LOOP (Fully self-contained mathematical 3D rendering)
         function animate() {
-            time += 1; // Increment animation time tracker
+            time += 1;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Calculate responsive bounds
             const imgRatio = 1920 / 1080;
             const canvasRatio = canvas.width / canvas.height;
             let dWidth, dHeight, dx, dy;
@@ -1038,19 +929,15 @@
                 dy = 0;
             }
 
-            // Dynamic camera drift and orbit scale simulating real cosmic movement of Earth
             let scale = 1.04 + Math.sin(time * 0.0005) * 0.02;
             let driftX = Math.sin(time * 0.0008) * 12;
             let driftY = Math.cos(time * 0.0006) * 8;
 
-            // --- PICTURE-LESS HIGH-END COSMIC EARTH GENERATOR ---
-            // Render the glowing 3D-sphere Earth model with rich radial gradients mimicking 9a89ed6d-76d8-4717-bc88-98b5687407f5_6.jpeg
             ctx.save();
             let planetX = canvas.width / 2 + driftX;
-            let planetY = canvas.height * 0.95 + driftY; // Placed low to show the earth's elegant curved horizon
+            let planetY = canvas.height * 0.95 + driftY; 
             let planetRadius = Math.max(canvas.width, canvas.height) * 0.58 * scale;
 
-            // 1. Deep space background atmosphere glow
             let spaceGlow = ctx.createRadialGradient(planetX, planetY - 100, planetRadius * 0.7, planetX, planetY, planetRadius * 1.15);
             spaceGlow.addColorStop(0, '#04081d');
             spaceGlow.addColorStop(0.5, '#020512');
@@ -1059,29 +946,26 @@
             ctx.fillStyle = spaceGlow;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // 2. Render the celestial blue/pink Earth sphere
             ctx.beginPath();
             ctx.arc(planetX, planetY, planetRadius, 0, Math.PI * 2);
             let earthGrad = ctx.createRadialGradient(planetX, planetY - 200, planetRadius * 0.4, planetX, planetY, planetRadius);
-            earthGrad.addColorStop(0, '#0c1a40'); // Glowing deep satellite waters
+            earthGrad.addColorStop(0, '#0c1a40'); 
             earthGrad.addColorStop(0.4, '#07102b');
             earthGrad.addColorStop(0.8, '#030614');
             earthGrad.addColorStop(1, '#010207');
             ctx.fillStyle = earthGrad;
             ctx.fill();
 
-            // 3. Render procedural continental glow of city lights and atmospheric structures (eliminates image dependencies)
             ctx.save();
-            ctx.clip(); // Limit mapping inside Earth spherical boundaries
+            ctx.clip(); 
             
-            // Render procedurally generated starry gold/pink glowing city nodes representing night-view continents
-            let seed = 42; // Static seed for constant mapping shape
+            let seed = 42; 
             function randomPrng() {
                 let x = Math.sin(seed++) * 10000;
                 return x - Math.floor(x);
             }
             
-            ctx.fillStyle = 'rgba(229, 193, 167, 0.12)'; // Soft gold atmosphere dust continents
+            ctx.fillStyle = 'rgba(229, 193, 167, 0.12)'; 
             for (let i = 0; i < 45; i++) {
                 let rx = planetX + (randomPrng() - 0.5) * planetRadius * 1.8;
                 let ry = planetY - randomPrng() * planetRadius * 0.8;
@@ -1091,8 +975,7 @@
                 ctx.fill();
             }
 
-            // Glow network dots
-            ctx.fillStyle = 'rgba(255, 174, 201, 0.2)'; // Pink energy veins
+            ctx.fillStyle = 'rgba(255, 174, 201, 0.2)';
             for (let i = 0; i < 25; i++) {
                 let rx = planetX + (randomPrng() - 0.5) * planetRadius * 1.6;
                 let ry = planetY - randomPrng() * planetRadius * 0.7;
@@ -1102,30 +985,26 @@
             }
             ctx.restore();
 
-            // 4. Exquisite atmospheric outer glow (Atmosphere Rim)
             ctx.beginPath();
             ctx.arc(planetX, planetY, planetRadius, 0, Math.PI * 2);
             let rimGlow = ctx.createRadialGradient(planetX, planetY, planetRadius * 0.96, planetX, planetY, planetRadius * 1.05);
             rimGlow.addColorStop(0, 'rgba(255, 174, 201, 0)');
-            rimGlow.addColorStop(0.2, 'rgba(255, 174, 201, 0.25)'); // Cosmic Pink atmospheric veil
-            rimGlow.addColorStop(0.5, 'rgba(100, 180, 255, 0.45)');  // Earth Core Deep Blue sky
-            rimGlow.addColorStop(0.9, 'rgba(229, 193, 167, 0.1)'); // Golden Solar flare margin
+            rimGlow.addColorStop(0.2, 'rgba(255, 174, 201, 0.25)'); 
+            rimGlow.addColorStop(0.5, 'rgba(100, 180, 255, 0.45)');  
+            rimGlow.addColorStop(0.9, 'rgba(229, 193, 167, 0.1)'); 
             rimGlow.addColorStop(1, 'rgba(229, 193, 167, 0)');
             ctx.fillStyle = rimGlow;
             ctx.fill();
             ctx.restore();
 
-            // Get live positions linked to camera drift
             const cebuPos = getAbsoluteCoords('cebu', dx, dy, dWidth, dHeight, driftX, driftY, scale);
             const japanPos = getAbsoluteCoords('japan', dx, dy, dWidth, dHeight, driftX, driftY, scale);
 
-            // Render glowing anchor node orbits
             Object.keys(coordinates).forEach(key => {
                 const node = getAbsoluteCoords(key, dx, dy, dWidth, dHeight, driftX, driftY, scale);
                 if (node) {
                     ctx.save();
                     
-                    // Balloon lines rising vertically with "27th" as seen in source image
                     ctx.beginPath();
                     ctx.moveTo(node.x, node.y);
                     ctx.lineTo(node.x, node.y - 30);
@@ -1136,7 +1015,6 @@
                     ctx.lineWidth = 1;
                     ctx.stroke();
 
-                    // Glowing '27th' balloon bubble with premium holo-neon gradients
                     let balloonPulse = Math.sin(time * 0.03 + (node.x * 0.01)) * 1.5;
                     let bubbleGrad = ctx.createRadialGradient(node.x, node.y - 30, 2, node.x, node.y - 30, 8 + balloonPulse);
                     bubbleGrad.addColorStop(0, 'rgba(4, 8, 21, 0.95)');
@@ -1151,7 +1029,6 @@
                     ctx.fill();
                     ctx.stroke();
 
-                    // Surrounding dotted hologram circle
                     ctx.beginPath();
                     ctx.arc(node.x, node.y - 30, 13 + balloonPulse * 0.5, 0, Math.PI * 2);
                     ctx.strokeStyle = 'rgba(255, 174, 201, 0.35)';
@@ -1166,19 +1043,16 @@
                     ctx.textAlign = "center";
                     ctx.fillText("27", node.x, node.y - 30);
 
-                    // Core anchor dot
                     ctx.beginPath();
                     ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
                     ctx.fillStyle = key === 'cebu' || key === 'japan' ? '#ff4d94' : '#e5c1a7';
                     ctx.fill();
 
-                    // Soft pulsing rings
                     ctx.beginPath();
                     ctx.arc(node.x, node.y, 8 + Math.sin(time * 0.05) * 1.8, 0, Math.PI * 2);
                     ctx.strokeStyle = key === 'cebu' || key === 'japan' ? 'rgba(255, 77, 148, 0.25)' : 'rgba(229, 193, 167, 0.15)';
                     ctx.stroke();
 
-                    // Node Label
                     ctx.font = "8px 'Inter', sans-serif";
                     ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
                     ctx.fillText(key.toUpperCase(), node.x, node.y + 12);
@@ -1187,7 +1061,6 @@
                 }
             });
 
-            // Render specific requested custom radial gradients for Americas (right/left edge) and Africa (far left)
             const africaPos = getAbsoluteCoords('africa', dx, dy, dWidth, dHeight, driftX, driftY, scale);
             const americasPos = getAbsoluteCoords('americas', dx, dy, dWidth, dHeight, driftX, driftY, scale);
 
@@ -1219,31 +1092,28 @@
                 ctx.restore();
             }
 
-            // Render massive radial glow coming from the right screen boundary
             ctx.save();
             let rightScreenGlow = ctx.createRadialGradient(canvas.width, canvas.height * 0.4, 5, canvas.width, canvas.height * 0.4, canvas.width * 0.7);
-            rightScreenGlow.addColorStop(0, 'rgba(229, 193, 167, 0.28)'); // Luminous gold flare
-            rightScreenGlow.addColorStop(0.3, 'rgba(255, 77, 148, 0.14)'); // Elegant celestial pink
+            rightScreenGlow.addColorStop(0, 'rgba(229, 193, 167, 0.28)'); 
+            rightScreenGlow.addColorStop(0.3, 'rgba(255, 77, 148, 0.14)'); 
             rightScreenGlow.addColorStop(0.8, 'rgba(7, 11, 30, 0.03)');
             rightScreenGlow.addColorStop(1, 'rgba(1, 2, 6, 0)');
             ctx.fillStyle = rightScreenGlow;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.restore();
 
-            // Render multi-directional convergent energy wave pulling into Cebu from 360-degrees
             if (cebuPos) {
                 ctx.save();
                 let cebuConvergeGlow = ctx.createRadialGradient(cebuPos.x, cebuPos.y, 2 + Math.sin(time * 0.06) * 2, cebuPos.x, cebuPos.y, 140 + Math.sin(time * 0.03) * 40);
-                cebuConvergeGlow.addColorStop(0, 'rgba(255, 77, 148, 0.55)'); // Luminous pink epicentre
+                cebuConvergeGlow.addColorStop(0, 'rgba(255, 77, 148, 0.55)'); 
                 cebuConvergeGlow.addColorStop(0.25, 'rgba(255, 174, 201, 0.22)');
-                cebuConvergeGlow.addColorStop(0.65, 'rgba(229, 193, 167, 0.06)'); // Distant golden intake ring
+                cebuConvergeGlow.addColorStop(0.65, 'rgba(229, 193, 167, 0.06)'); 
                 cebuConvergeGlow.addColorStop(1, 'rgba(1, 2, 6, 0)');
                 ctx.beginPath();
                 ctx.arc(cebuPos.x, cebuPos.y, 180 + Math.sin(time * 0.03) * 40, 0, Math.PI * 2);
                 ctx.fillStyle = cebuConvergeGlow;
                 ctx.fill();
 
-                // Draw subtle incoming light vectors (intake lines) from all directions towards Cebu
                 ctx.strokeStyle = 'rgba(255, 174, 201, 0.08)';
                 ctx.lineWidth = 0.5;
                 const linesCount = 12;
@@ -1260,7 +1130,6 @@
                 ctx.restore();
             }
 
-            // Draw global Ray networks connecting to Cebu & Japan
             ctx.save();
             ctx.strokeStyle = 'rgba(255, 174, 201, 0.06)';
             ctx.lineWidth = 1;
@@ -1277,7 +1146,6 @@
             }
             ctx.restore();
 
-            // Draw active space rays (interactive)
             for (let i = activePinkRays.length - 1; i >= 0; i--) {
                 const ray = activePinkRays[i];
                 ray.update();
@@ -1287,7 +1155,6 @@
                 }
             }
 
-            // Draw active custom dots
             activeCustomDots.forEach(dot => {
                 const node = getAbsoluteCoords(dot.regionKey, dx, dy, dWidth, dHeight, driftX, driftY, scale);
                 if (node) {
@@ -1308,7 +1175,6 @@
                 }
             });
 
-            // Draw dynamic golden connecting bridge between Japan & Cebu
             if (cebuPos && japanPos) {
                 ctx.save();
                 ctx.beginPath();
@@ -1321,14 +1187,12 @@
                 ctx.stroke();
                 ctx.restore();
 
-                // Draw the central Sakura Constellation right at the heart of the moving Earth sphere
                 const centerConstellationX = (cebuPos.x + japanPos.x) / 2;
                 const centerConstellationY = (cebuPos.y + japanPos.y) / 2 - 15;
                 const pulseAlpha = 0.65 + Math.sin(time * 0.04) * 0.15;
                 drawSakuraPetals(centerConstellationX, centerConstellationY, 55, pulseAlpha);
             }
 
-            // Update ambient flowing particles
             for (let i = particles.length - 1; i >= 0; i--) {
                 const p = particles[i];
                 p.update();
@@ -1338,7 +1202,6 @@
             requestAnimationFrame(animate);
         }
 
-        // INTERACTIVE MAP (BOTTOM) CANVAS SUBSYSTEM
         let intCanvas, intCtx;
         let interactionSparks = [];
 
@@ -1351,7 +1214,6 @@
 
             window.addEventListener('resize', resizeInteractionCanvas);
 
-            // Trigger rays on user canvas clicks
             intCanvas.addEventListener('click', (e) => {
                 const rect = intCanvas.getBoundingClientRect();
                 const mx = e.clientX - rect.left;
@@ -1367,7 +1229,6 @@
         }
 
         function triggerInteractionSparks(x, y) {
-            // Drop space laser ray down onto clicked point
             for (let i = 0; i < 20; i++) {
                 interactionSparks.push({
                     x: x,
@@ -1384,31 +1245,26 @@
         function animateInteraction() {
             intCtx.clearRect(0, 0, intCanvas.width, intCanvas.height);
 
-            // Draw a subtle, premium holographic Earth wireframe mesh under the action portal
             const cx = intCanvas.width / 2;
             const cy = intCanvas.height / 2;
             const r = Math.min(intCanvas.width, intCanvas.height) * 0.42;
 
             intCtx.save();
-            // Subtle atmosphere ring
             intCtx.beginPath();
             intCtx.arc(cx, cy, r, 0, Math.PI * 2);
             intCtx.strokeStyle = 'rgba(255, 174, 201, 0.08)';
             intCtx.lineWidth = 1;
             intCtx.stroke();
 
-            // Latitude / Longitude holograms
             intCtx.strokeStyle = 'rgba(255, 174, 201, 0.03)';
             for (let i = -3; i <= 3; i++) {
                 let offset = i * (r / 4);
-                // Latitudes
                 intCtx.beginPath();
                 intCtx.arc(cx, cy + offset, Math.sqrt(r*r - offset*offset), 0, Math.PI * 2);
                 intCtx.stroke();
             }
             intCtx.restore();
 
-            // Draw active sparks
             for (let i = interactionSparks.length - 1; i >= 0; i--) {
                 const s = interactionSparks[i];
                 s.x += s.vx;
@@ -1428,7 +1284,6 @@
             requestAnimationFrame(animateInteraction);
         }
 
-        // Initialize components upon loading
         window.onload = function() {
             initCanvas();
             initInteractionCanvas();
